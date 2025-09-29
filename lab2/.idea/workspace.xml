@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="Создан класс IdentityFunction и покрыт тестами">
-      <change beforePath="$PROJECT_DIR$/src/test/java/functions/IdentityFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/functions/IdentityFunctionTest.java" afterDir="false" />
+    <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="Создан интерфейс MathFunction">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,20 +109,11 @@
       <option name="project" value="LOCAL" />
       <updated>1759164523042</updated>
     </task>
-    <task id="LOCAL-00002" summary="Создан класс IdentityFunction и покрыт тестами">
-      <option name="closed" value="true" />
-      <created>1759166280045</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1759166280045</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создан интерфейс MathFunction" />
-    <MESSAGE value="Создан класс IdentityFunction и покрыт тестами" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создан класс IdentityFunction и покрыт тестами" />
+    <option name="LAST_COMMIT_MESSAGE" value="Создан интерфейс MathFunction" />
   </component>
 </project>
