@@ -1,6 +1,6 @@
 package functions;
 
-public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
+public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Insertable {
     private Node head;
     protected int count;
 
@@ -20,6 +20,45 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction {
             newNode.next = head;
             head.prev = newNode;
         }
+        count++;
+    }
+
+    @Override
+    public void insert(double x, double y) {
+        if (head == null) {
+            addNode(x, y);
+            return;
+        }
+
+        Node current = head;
+        do {
+            if (Math.abs(current.x - x) < 1e-12) {
+                current.y = y;
+                return;
+            }
+
+            if (x < current.x) {
+                insertBefore(current, x, y);
+                return;
+            }
+
+            current = current.next;
+        } while (current != head);
+
+        addNode(x, y);
+    }
+
+    private void insertBefore(Node node, double x, double y) {
+        Node newNode = new Node(x, y);
+        newNode.prev = node.prev;
+        newNode.next = node;
+        node.prev.next = newNode;
+        node.prev = newNode;
+
+        if (node == head) {
+            head = newNode;
+        }
+
         count++;
     }
 
