@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="Создан класс IdentityFunction и покрыт тестами">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/functions/SqrFunctionTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +64,7 @@
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.4448276",
     "settings.editor.selected.configurable": "configurable.group.editor"
   }
 }]]></component>
