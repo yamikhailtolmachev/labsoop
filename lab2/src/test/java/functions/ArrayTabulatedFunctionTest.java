@@ -481,4 +481,151 @@ class ArrayTabulatedFunctionTest {
             assertTrue(function.getX(i) > function.getX(i - 1));
         }
     }
+
+    @Test
+    void testRemoveFirstElement() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.remove(0);
+
+        assertEquals(3, function.getCount());
+        assertEquals(2.0, function.getX(0));
+        assertEquals(20.0, function.getY(0));
+        assertEquals(3.0, function.getX(1));
+        assertEquals(4.0, function.getX(2));
+    }
+
+    @Test
+    void testRemoveLastElement() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.remove(3);
+
+        assertEquals(3, function.getCount());
+        assertEquals(1.0, function.getX(0));
+        assertEquals(2.0, function.getX(1));
+        assertEquals(3.0, function.getX(2));
+        assertEquals(30.0, function.getY(2));
+    }
+
+    @Test
+    void testRemoveMiddleElement() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.remove(1);
+
+        assertEquals(3, function.getCount());
+        assertEquals(1.0, function.getX(0));
+        assertEquals(10.0, function.getY(0));
+        assertEquals(3.0, function.getX(1));
+        assertEquals(30.0, function.getY(1));
+        assertEquals(4.0, function.getX(2));
+        assertEquals(40.0, function.getY(2));
+    }
+
+    @Test
+    void testRemoveMultipleElements() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0, 5.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0, 50.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.remove(1); // удаляем элемент 2.0
+        function.remove(2); // удаляем элемент 4.0 (после первого удаления индексы сместились)
+
+        assertEquals(3, function.getCount());
+        assertEquals(1.0, function.getX(0));
+        assertEquals(3.0, function.getX(1));
+        assertEquals(5.0, function.getX(2));
+        assertEquals(10.0, function.getY(0));
+        assertEquals(30.0, function.getY(1));
+        assertEquals(50.0, function.getY(2));
+    }
+
+    @Test
+    void testRemoveUpdatesBounds() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.remove(0); // удаляем первый элемент
+
+        assertEquals(2.0, function.leftBound());
+        assertEquals(4.0, function.rightBound());
+
+        function.remove(2); // удаляем последний элемент (индексы: 0-2.0, 1-3.0, 2-4.0)
+
+        assertEquals(2.0, function.leftBound());
+        assertEquals(3.0, function.rightBound());
+    }
+
+    @Test
+    void testRemoveAndInterpolation() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.remove(1); // удаляем точку (2.0, 20.0)
+
+        // Проверяем, что интерполяция работает корректно после удаления
+        assertEquals(20.0, function.apply(1.5), 1e-6); // между 1.0 и 3.0
+        assertEquals(25.0, function.apply(2.0), 1e-6);
+    }
+
+    @Test
+    void testRemoveInvalidIndex() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {10.0, 20.0, 30.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(3));
+    }
+
+    @Test
+    void testRemoveFromMinimumSize() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {10.0, 20.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        assertThrows(IllegalStateException.class, () -> function.remove(0));
+        assertThrows(IllegalStateException.class, () -> function.remove(1));
+
+        // Проверяем, что массивы не изменились
+        assertEquals(2, function.getCount());
+        assertEquals(1.0, function.getX(0));
+        assertEquals(2.0, function.getX(1));
+    }
+
+    @Test
+    void testRemoveMaintainsOrder() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0, 5.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0, 50.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.remove(2); // удаляем 3.0
+
+        // Проверяем, что порядок сохранился
+        for (int i = 1; i < function.getCount(); i++) {
+            assertTrue(function.getX(i) > function.getX(i - 1));
+        }
+    }
+
+    @Test
+    void testRemoveAndIndexOfX() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.remove(1); // удаляем 2.0
+
+        assertEquals(-1, function.indexOfX(2.0));
+        assertEquals(1, function.indexOfX(3.0)); // был индекс 2, стал 1
+        assertEquals(2, function.indexOfX(4.0)); // был индекс 3, стал 2
+    }
 }
