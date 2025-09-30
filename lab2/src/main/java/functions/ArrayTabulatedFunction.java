@@ -2,10 +2,10 @@ package functions;
 
 import java.util.Arrays;
 
-public class ArrayTabulatedFunction extends AbstractTabulatedFunction {
-    private final double[] xValues;
-    private final double[] yValues;
-    private final int count;
+public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Insertable {
+    private double[] xValues;
+    private double[] yValues;
+    private int count;
 
     public ArrayTabulatedFunction(double[] xValues, double[] yValues) {
         if (xValues.length != yValues.length) {
@@ -52,6 +52,36 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction {
                 yValues[i] = source.apply(xValues[i]);
             }
         }
+    }
+
+    @Override
+    public void insert(double x, double y) {
+        int existingIndex = indexOfX(x);
+        if (existingIndex != -1) {
+            yValues[existingIndex] = y;
+            return;
+        }
+
+        double[] newXValues = new double[count + 1];
+        double[] newYValues = new double[count + 1];
+
+        int insertIndex = 0;
+        while (insertIndex < count && xValues[insertIndex] < x) {
+            insertIndex++;
+        }
+
+        System.arraycopy(xValues, 0, newXValues, 0, insertIndex);
+        System.arraycopy(yValues, 0, newYValues, 0, insertIndex);
+
+        newXValues[insertIndex] = x;
+        newYValues[insertIndex] = y;
+
+        System.arraycopy(xValues, insertIndex, newXValues, insertIndex + 1, count - insertIndex);
+        System.arraycopy(yValues, insertIndex, newYValues, insertIndex + 1, count - insertIndex);
+
+        xValues = newXValues;
+        yValues = newYValues;
+        count++;
     }
 
     @Override

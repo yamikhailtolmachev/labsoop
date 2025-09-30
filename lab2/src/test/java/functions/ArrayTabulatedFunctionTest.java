@@ -263,4 +263,222 @@ class ArrayTabulatedFunctionTest {
         assertThrows(IndexOutOfBoundsException.class, () -> function.setY(-1, 5.0));
         assertThrows(IndexOutOfBoundsException.class, () -> function.setY(2, 5.0));
     }
+
+    @Test
+    void testInsertAtBeginning() {
+        double[] xValues = {2.0, 3.0, 4.0};
+        double[] yValues = {4.0, 9.0, 16.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(1.0, 1.0);
+
+        assertEquals(4, function.getCount());
+        assertEquals(1.0, function.getX(0), 1e-10);
+        assertEquals(1.0, function.getY(0), 1e-10);
+        assertEquals(2.0, function.getX(1), 1e-10);
+        assertEquals(4.0, function.getY(1), 1e-10);
+    }
+
+    @Test
+    void testInsertAtEnd() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(4.0, 16.0);
+
+        assertEquals(4, function.getCount());
+        assertEquals(3.0, function.getX(2), 1e-10);
+        assertEquals(9.0, function.getY(2), 1e-10);
+        assertEquals(4.0, function.getX(3), 1e-10);
+        assertEquals(16.0, function.getY(3), 1e-10);
+    }
+
+    @Test
+    void testInsertInMiddle() {
+        double[] xValues = {1.0, 3.0, 4.0};
+        double[] yValues = {1.0, 9.0, 16.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(2.0, 4.0);
+
+        assertEquals(4, function.getCount());
+        assertEquals(1.0, function.getX(0), 1e-10);
+        assertEquals(2.0, function.getX(1), 1e-10);
+        assertEquals(3.0, function.getX(2), 1e-10);
+        assertEquals(4.0, function.getX(3), 1e-10);
+        assertEquals(4.0, function.getY(1), 1e-10);
+    }
+
+    @Test
+    void testInsertUpdatesExistingPoint() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(2.0, 8.0);
+
+        assertEquals(3, function.getCount());
+        assertEquals(2.0, function.getX(1), 1e-10);
+        assertEquals(8.0, function.getY(1), 1e-10);
+    }
+
+    @Test
+    void testInsertMaintainsOrder() {
+        double[] xValues = {1.0, 5.0};
+        double[] yValues = {1.0, 25.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(3.0, 9.0);
+        function.insert(4.0, 16.0);
+        function.insert(2.0, 4.0);
+
+        assertEquals(5, function.getCount());
+
+        for (int i = 1; i < function.getCount(); i++) {
+            assertTrue(function.getX(i) > function.getX(i - 1),
+                    "xValues should be strictly increasing at index " + i);
+        }
+
+        double[] expectedX = {1.0, 2.0, 3.0, 4.0, 5.0};
+        double[] expectedY = {1.0, 4.0, 9.0, 16.0, 25.0};
+
+        for (int i = 0; i < expectedX.length; i++) {
+            assertEquals(expectedX[i], function.getX(i), 1e-10);
+            assertEquals(expectedY[i], function.getY(i), 1e-10);
+        }
+    }
+
+    @Test
+    void testInsertAndApply() {
+        double[] xValues = {0.0, 2.0, 4.0};
+        double[] yValues = {0.0, 4.0, 16.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(1.0, 1.0);
+
+        assertEquals(1.0, function.apply(1.0), 1e-10);
+        assertEquals(2.25, function.apply(1.5), 1e-10);
+    }
+
+    @Test
+    void testInsertMultiplePoints() {
+        double[] xValues = {0.0, 5.0};
+        double[] yValues = {0.0, 25.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(1.0, 1.0);
+        function.insert(2.0, 4.0);
+        function.insert(3.0, 9.0);
+        function.insert(4.0, 16.0);
+
+        assertEquals(6, function.getCount());
+
+        for (int i = 0; i < 6; i++) {
+            assertEquals(i, function.getX(i), 1e-10);
+            assertEquals(i * i, function.getY(i), 1e-10);
+        }
+    }
+
+    @Test
+    void testInsertBoundaryCases() {
+        double[] xValues = {2.0, 3.0};
+        double[] yValues = {4.0, 9.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(1.0, 1.0);
+        assertEquals(1.0, function.getX(0), 1e-10);
+
+        function.insert(4.0, 16.0);
+        assertEquals(4.0, function.getX(3), 1e-10);
+    }
+
+    @Test
+    void testInterpolateMethod() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {2.0, 4.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        double result = function.interpolate(1.5, 0);
+        assertEquals(3.0, result, 1e-10);
+    }
+
+    @Test
+    void testExtrapolateLeftMethod() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {2.0, 4.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        double result = function.extrapolateLeft(0.0);
+        assertEquals(0.0, result, 1e-10);
+    }
+
+    @Test
+    void testExtrapolateRightMethod() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {2.0, 4.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        double result = function.extrapolateRight(4.0);
+        assertEquals(8.0, result, 1e-10);
+    }
+
+    @Test
+    void testFloorIndexOfXEdgeCases() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        assertEquals(0, function.floorIndexOfX(1.0));
+        assertEquals(1, function.floorIndexOfX(2.0));
+        assertEquals(2, function.floorIndexOfX(3.0));
+
+        assertEquals(0, function.floorIndexOfX(1.5));
+        assertEquals(1, function.floorIndexOfX(2.5));
+
+        assertEquals(0, function.floorIndexOfX(0.5));
+        assertEquals(3, function.floorIndexOfX(3.5));
+    }
+
+    @Test
+    void testSinglePointFunction() {
+        double[] xValues = {5.0};
+        double[] yValues = {10.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        assertEquals(1, function.getCount());
+        assertEquals(5.0, function.leftBound());
+        assertEquals(5.0, function.rightBound());
+        assertEquals(10.0, function.apply(0.0));
+        assertEquals(10.0, function.apply(10.0));
+    }
+
+    @Test
+    void testInsertIntoSmallArray() {
+        double[] xValues = {1.0};
+        double[] yValues = {1.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        function.insert(2.0, 4.0);
+        assertEquals(2, function.getCount());
+        assertEquals(1.0, function.getX(0));
+        assertEquals(2.0, function.getX(1));
+    }
+
+    @Test
+    void testMultipleInsertionsPerformance() {
+        double[] xValues = {0.0, 100.0};
+        double[] yValues = {0.0, 10000.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        for (int i = 1; i < 10; i++) {
+            function.insert(i * 10.0, i * i * 100.0);
+        }
+
+        assertEquals(11, function.getCount());
+
+        for (int i = 1; i < function.getCount(); i++) {
+            assertTrue(function.getX(i) > function.getX(i - 1));
+        }
+    }
 }
