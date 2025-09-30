@@ -454,11 +454,9 @@ class LinkedListTabulatedFunctionTest {
         assertEquals(2.0, function.getX(1));
         assertEquals(3.0, function.getX(2));
 
-        // Проверяем циклическую структуру через границы
         assertEquals(1.0, function.leftBound());
         assertEquals(3.0, function.rightBound());
 
-        // Проверяем, что все элементы доступны по порядку
         assertEquals(10.0, function.getY(0));
         assertEquals(20.0, function.getY(1));
         assertEquals(30.0, function.getY(2));
@@ -493,16 +491,192 @@ class LinkedListTabulatedFunctionTest {
         function.insert(2.0, 20.0);
         function.insert(3.0, 30.0);
 
-        // Проверяем согласованность данных через публичные методы
         for (int i = 0; i < function.getCount(); i++) {
             double x = function.getX(i);
             double y = function.getY(i);
 
-            // Проверяем, что indexOfX возвращает правильный индекс
             assertEquals(i, function.indexOfX(x));
 
-            // Проверяем, что apply возвращает правильное значение
             assertEquals(y, function.apply(x));
         }
+    }
+
+    @Test
+    public void testRemoveFromBeginning() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(0);
+
+        assertEquals(3, function.getCount());
+        assertEquals(2.0, function.getX(0), 1e-10);
+        assertEquals(4.0, function.getY(0), 1e-10);
+        assertEquals(3.0, function.getX(1), 1e-10);
+        assertEquals(4.0, function.getX(2), 1e-10);
+        assertEquals(2.0, function.leftBound(), 1e-10);
+    }
+
+    @Test
+    public void testRemoveFromEnd() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(3);
+
+        assertEquals(3, function.getCount());
+        assertEquals(1.0, function.getX(0), 1e-10);
+        assertEquals(2.0, function.getX(1), 1e-10);
+        assertEquals(3.0, function.getX(2), 1e-10);
+        assertEquals(9.0, function.getY(2), 1e-10);
+        assertEquals(3.0, function.rightBound(), 1e-10);
+    }
+
+    @Test
+    public void testRemoveFromMiddle() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(1);
+
+        assertEquals(3, function.getCount());
+        assertEquals(1.0, function.getX(0), 1e-10);
+        assertEquals(3.0, function.getX(1), 1e-10);
+        assertEquals(4.0, function.getX(2), 1e-10);
+        assertEquals(9.0, function.getY(1), 1e-10);
+    }
+
+    @Test
+    public void testRemoveMaintainsCircularStructure() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(1);
+
+        assertEquals(3, function.getCount());
+
+        assertEquals(function.getX(0), function.getX(function.getCount() - 1), 1e-10);
+
+        for (int i = 1; i < function.getCount(); i++) {
+            assertTrue(function.getX(i) > function.getX(i - 1),
+                    "xValues should remain strictly increasing after removal");
+        }
+    }
+
+    @Test
+    public void testRemoveAndApply() {
+        double[] xValues = {0.0, 1.0, 2.0, 3.0};
+        double[] yValues = {0.0, 1.0, 4.0, 9.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(1);
+
+        assertEquals(0.0, function.apply(0.0), 1e-10);
+        assertEquals(2.0, function.apply(1.0), 1e-10);
+        assertEquals(4.0, function.apply(2.0), 1e-10);
+    }
+
+    @Test
+    public void testRemoveThrowsForInvalidIndex() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(3));
+    }
+
+    @Test
+    public void testRemoveThrowsWhenOnlyTwoPointsLeft() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(0);
+        assertEquals(2, function.getCount());
+
+        assertThrows(IllegalStateException.class, () -> function.remove(0));
+    }
+
+    @Test
+    public void testMultipleRemovals() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0, 5.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0, 25.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(1);
+        function.remove(2);
+
+        assertEquals(3, function.getCount());
+        assertEquals(1.0, function.getX(0), 1e-10);
+        assertEquals(3.0, function.getX(1), 1e-10);
+        assertEquals(5.0, function.getX(2), 1e-10);
+    }
+
+    @Test
+    public void testRemoveHeadAndUpdateReferences() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        double originalSecondX = function.getX(1);
+        double originalLastX = function.getX(2);
+
+        function.remove(0);
+
+        assertEquals(2, function.getCount());
+        assertEquals(originalSecondX, function.getX(0), 1e-10);
+        assertEquals(originalLastX, function.getX(1), 1e-10);
+        assertEquals(originalSecondX, function.leftBound(), 1e-10);
+    }
+
+    @Test
+    public void testRemoveLastNode() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(2);
+
+        assertEquals(2, function.getCount());
+        assertEquals(1.0, function.getX(0), 1e-10);
+        assertEquals(2.0, function.getX(1), 1e-10);
+        assertEquals(2.0, function.rightBound(), 1e-10);
+    }
+
+    @Test
+    public void testRemoveSingleMiddleNode() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(1);
+
+        assertEquals(2, function.getCount());
+        assertEquals(1.0, function.getX(0), 1e-10);
+        assertEquals(3.0, function.getX(1), 1e-10);
+
+        assertEquals(3.0, function.getX(1), 1e-10);
+        assertEquals(9.0, function.getY(1), 1e-10);
+    }
+
+    @Test
+    public void testRemoveAllButTwoNodes() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0, 5.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0, 25.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(2);
+        function.remove(2);
+        function.remove(2);
+
+        assertEquals(2, function.getCount());
+        assertEquals(1.0, function.getX(0), 1e-10);
+        assertEquals(2.0, function.getX(1), 1e-10);
+
+        assertThrows(IllegalStateException.class, () -> function.remove(0));
     }
 }

@@ -1,6 +1,6 @@
 package functions;
 
-public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Insertable {
+public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Insertable, Removable {
     private Node head;
     protected int count;
 
@@ -60,6 +60,31 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
         }
 
         count++;
+    }
+
+    @Override
+    public void remove(int index) {
+        if (index < 0 || index >= count) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
+        }
+
+        if (count <= 2) {
+            throw new IllegalStateException("Cannot remove point - must have at least 2 points in tabulated function");
+        }
+
+        Node nodeToRemove = getNode(index);
+
+        nodeToRemove.prev.next = nodeToRemove.next;
+        nodeToRemove.next.prev = nodeToRemove.prev;
+
+        if (nodeToRemove == head) {
+            head = nodeToRemove.next;
+        }
+
+        nodeToRemove.next = null;
+        nodeToRemove.prev = null;
+
+        count--;
     }
 
     public LinkedListTabulatedFunction(double[] xValues, double[] yValues) {
