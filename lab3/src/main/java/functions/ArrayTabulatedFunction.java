@@ -1,6 +1,9 @@
 package functions;
 
 import java.util.Arrays;
+import exceptions.ArrayIsNotSortedException;
+import exceptions.DifferentLengthOfArraysException;
+import exceptions.InterpolationException;
 
 public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Removable {
     private double[] xValues;
@@ -8,19 +11,14 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     private int count;
 
     public ArrayTabulatedFunction(double[] xValues, double[] yValues) {
-        if (xValues.length != yValues.length) {
-            throw new IllegalArgumentException("Arrays must have the same length");
-        }
 
         if (xValues.length < 2) {
             throw new IllegalArgumentException("At least 2 points are required");
         }
 
-        for (int i = 1; i < xValues.length; i++) {
-            if (xValues[i] <= xValues[i - 1]) {
-                throw new IllegalArgumentException("xValues must be strictly increasing");
-            }
-        }
+        checkLengthIsTheSame(xValues, yValues);
+
+        checkSorted(xValues);
 
         this.count = xValues.length;
         this.xValues = Arrays.copyOf(xValues, count);
@@ -201,6 +199,12 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
 
         double leftX = xValues[floorIndex];
         double rightX = xValues[floorIndex + 1];
+
+        if (x < leftX || x > rightX) {
+            throw new InterpolationException("x = " + x + " is outside interpolation interval [" +
+                    leftX + ", " + rightX + "]");
+        }
+
         double leftY = yValues[floorIndex];
         double rightY = yValues[floorIndex + 1];
 

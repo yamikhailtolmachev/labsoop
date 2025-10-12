@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import exceptions.ArrayIsNotSortedException;
+import exceptions.DifferentLengthOfArraysException;
+import exceptions.InterpolationException;
+
 class LinkedListTabulatedFunctionTest {
 
     private LinkedListTabulatedFunction functionFromArrays;
@@ -25,6 +29,128 @@ class LinkedListTabulatedFunctionTest {
     void tearDown() {
         functionFromArrays = null;
         functionFromMathFunction = null;
+    }
+
+    @Test
+    void testConstructorThrowsDifferentLengthOfArraysException() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0};
+
+        assertThrows(DifferentLengthOfArraysException.class, () -> {
+            new LinkedListTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorThrowsArrayIsNotSortedException() {
+        double[] xValues = {3.0, 1.0, 2.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            new LinkedListTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorThrowsArrayIsNotSortedExceptionForEqualValues() {
+        double[] xValues = {1.0, 2.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0, 7.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            new LinkedListTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorWithValidArraysAfterModifications() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+
+        assertDoesNotThrow(() -> {
+            new LinkedListTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testInterpolateThrowsInterpolationExceptionWhenXOutsideBounds() {
+        TestableLinkedListTabulatedFunction function = new TestableLinkedListTabulatedFunction(
+                new double[]{1.0, 2.0, 3.0},
+                new double[]{4.0, 5.0, 6.0}
+        );
+
+        assertThrows(InterpolationException.class, () -> {
+            function.testInterpolate(0.5, 0);
+        });
+
+        assertThrows(InterpolationException.class, () -> {
+            function.testInterpolate(2.5, 0);
+        });
+    }
+
+    @Test
+    void testInterpolateDoesNotThrowWhenXInsideBounds() {
+        TestableLinkedListTabulatedFunction function = new TestableLinkedListTabulatedFunction(
+                new double[]{1.0, 2.0, 3.0},
+                new double[]{4.0, 5.0, 6.0}
+        );
+
+        assertDoesNotThrow(() -> {
+            function.testInterpolate(1.5, 0);
+        });
+
+        assertDoesNotThrow(() -> {
+            function.testInterpolate(2.5, 1);
+        });
+    }
+
+    @Test
+    void testInterpolateAtBounds() {
+        TestableLinkedListTabulatedFunction function = new TestableLinkedListTabulatedFunction(
+                new double[]{1.0, 2.0, 3.0},
+                new double[]{4.0, 5.0, 6.0}
+        );
+
+        assertDoesNotThrow(() -> {
+            function.testInterpolate(1.0, 0);
+        });
+
+        assertDoesNotThrow(() -> {
+            function.testInterpolate(2.0, 0);
+        });
+    }
+
+    private static class TestableLinkedListTabulatedFunction extends LinkedListTabulatedFunction {
+        public TestableLinkedListTabulatedFunction(double[] xValues, double[] yValues) {
+            super(xValues, yValues);
+        }
+
+        public double testInterpolate(double x, int floorIndex) {
+            return super.interpolate(x, floorIndex);
+        }
+    }
+
+    @Test
+    void testValidationOrder() {
+        try {
+            double[] xValues = {1.0};
+            double[] yValues = {2.0};
+            new LinkedListTabulatedFunction(xValues, yValues);
+            fail("Should throw IllegalArgumentException for length < 2");
+        } catch (IllegalArgumentException e) {}
+
+        try {
+            double[] xValues = {1.0, 2.0, 3.0};
+            double[] yValues = {4.0, 5.0};
+            new LinkedListTabulatedFunction(xValues, yValues);
+            fail("Should throw DifferentLengthOfArraysException");
+        } catch (DifferentLengthOfArraysException e) {}
+
+        try {
+            double[] xValues = {3.0, 1.0, 2.0};
+            double[] yValues = {4.0, 5.0, 6.0};
+            new LinkedListTabulatedFunction(xValues, yValues);
+            fail("Should throw ArrayIsNotSortedException");
+        } catch (ArrayIsNotSortedException e) {}
     }
 
     @Test
@@ -241,8 +367,8 @@ class LinkedListTabulatedFunctionTest {
         double[] xValues = {1.0, 2.0};
         double[] yValues = {3.0};
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            new ArrayTabulatedFunction(xValues, yValues);
+        assertThrows(DifferentLengthOfArraysException.class, () -> {
+            new LinkedListTabulatedFunction(xValues, yValues);
         });
     }
 
@@ -251,9 +377,27 @@ class LinkedListTabulatedFunctionTest {
         double[] xValues = {1.0, 1.0, 2.0};
         double[] yValues = {3.0, 4.0, 5.0};
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            new ArrayTabulatedFunction(xValues, yValues);
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            new LinkedListTabulatedFunction(xValues, yValues);
         });
+    }
+
+    @Test
+    void testFunctionWorksCorrectlyAfterAllModifications() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0};
+
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        assertEquals(4, function.getCount());
+        assertEquals(1.0, function.leftBound());
+        assertEquals(4.0, function.rightBound());
+
+        assertEquals(2.5, function.apply(1.5));
+        assertEquals(6.5, function.apply(2.5));
+
+        assertEquals(-2.0, function.apply(0.0));
+        assertEquals(23.0, function.apply(5.0));
     }
 
     @Test

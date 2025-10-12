@@ -3,7 +3,171 @@ package functions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import exceptions.ArrayIsNotSortedException;
+import exceptions.DifferentLengthOfArraysException;
+import exceptions.InterpolationException;
+
 class ArrayTabulatedFunctionTest {
+
+    @Test
+    void testConstructorThrowsDifferentLengthOfArraysException() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0};
+
+        assertThrows(DifferentLengthOfArraysException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorThrowsArrayIsNotSortedException() {
+        double[] xValues = {3.0, 1.0, 2.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorThrowsArrayIsNotSortedExceptionForEqualValues() {
+        double[] xValues = {1.0, 2.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0, 7.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorWithValidArraysAfterModifications() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+
+        assertDoesNotThrow(() -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testApplyThrowsInterpolationExceptionForXOutsideIntervalLeft() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+        assertDoesNotThrow(() -> function.apply(1.5));
+    }
+
+    @Test
+    void testApplyThrowsInterpolationExceptionForXOutsideIntervalRight() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+        assertDoesNotThrow(() -> function.apply(2.5));
+    }
+
+    @Test
+    void testInterpolateThrowsInterpolationExceptionWhenXOutsideBounds() {
+        TestableArrayTabulatedFunction function = new TestableArrayTabulatedFunction(
+                new double[]{1.0, 2.0, 3.0},
+                new double[]{4.0, 5.0, 6.0}
+        );
+        assertThrows(InterpolationException.class, () -> {
+            function.testInterpolate(0.5, 0);
+        });
+
+        assertThrows(InterpolationException.class, () -> {
+            function.testInterpolate(2.5, 0);
+        });
+    }
+
+    @Test
+    void testInterpolateDoesNotThrowWhenXInsideBounds() {
+        TestableArrayTabulatedFunction function = new TestableArrayTabulatedFunction(
+                new double[]{1.0, 2.0, 3.0},
+                new double[]{4.0, 5.0, 6.0}
+        );
+
+        assertDoesNotThrow(() -> {
+            function.testInterpolate(1.5, 0);
+        });
+
+        assertDoesNotThrow(() -> {
+            function.testInterpolate(2.5, 1);
+        });
+    }
+
+    @Test
+    void testInterpolateAtBounds() {
+        TestableArrayTabulatedFunction function = new TestableArrayTabulatedFunction(
+                new double[]{1.0, 2.0, 3.0},
+                new double[]{4.0, 5.0, 6.0}
+        );
+        assertDoesNotThrow(() -> {
+            function.testInterpolate(1.0, 0);
+        });
+
+        assertDoesNotThrow(() -> {
+            function.testInterpolate(2.0, 0);
+        });
+    }
+
+    private static class TestableArrayTabulatedFunction extends ArrayTabulatedFunction {
+        public TestableArrayTabulatedFunction(double[] xValues, double[] yValues) {
+            super(xValues, yValues);
+        }
+
+        public double testInterpolate(double x, int floorIndex) {
+            return super.interpolate(x, floorIndex);
+        }
+    }
+
+    @Test
+    void testValidationOrder() {
+
+        try {
+            double[] xValues = {1.0};
+            double[] yValues = {2.0};
+            new ArrayTabulatedFunction(xValues, yValues);
+            fail("Should throw IllegalArgumentException for length < 2");
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            double[] xValues = {1.0, 2.0, 3.0};
+            double[] yValues = {4.0, 5.0};
+            new ArrayTabulatedFunction(xValues, yValues);
+            fail("Should throw DifferentLengthOfArraysException");
+        } catch (DifferentLengthOfArraysException e) {
+        }
+
+        try {
+            double[] xValues = {3.0, 1.0, 2.0};
+            double[] yValues = {4.0, 5.0, 6.0};
+            new ArrayTabulatedFunction(xValues, yValues);
+            fail("Should throw ArrayIsNotSortedException");
+        } catch (ArrayIsNotSortedException e) {
+        }
+    }
+
+    @Test
+    void testConstructorThrowsForDifferentLengthArraysUpdated() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {3.0};
+
+        assertThrows(DifferentLengthOfArraysException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorThrowsForNonStrictlyIncreasingXUpdated() {
+        double[] xValues = {1.0, 1.0, 2.0};
+        double[] yValues = {3.0, 4.0, 5.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
 
     @Test
     void testConstructorWithArrays() {
@@ -212,7 +376,7 @@ class ArrayTabulatedFunctionTest {
         double[] xValues = {1.0, 2.0};
         double[] yValues = {3.0};
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(DifferentLengthOfArraysException.class, () -> {
             new ArrayTabulatedFunction(xValues, yValues);
         });
     }
@@ -222,7 +386,7 @@ class ArrayTabulatedFunctionTest {
         double[] xValues = {1.0, 1.0, 2.0};
         double[] yValues = {3.0, 4.0, 5.0};
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(ArrayIsNotSortedException.class, () -> {
             new ArrayTabulatedFunction(xValues, yValues);
         });
     }
@@ -232,7 +396,7 @@ class ArrayTabulatedFunctionTest {
         double[] xValues = {1.0, 2.0};
         double[] yValues = {3.0};
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(DifferentLengthOfArraysException.class, () -> {
             new ArrayTabulatedFunction(xValues, yValues);
         });
     }
@@ -242,7 +406,7 @@ class ArrayTabulatedFunctionTest {
         double[] xValues = {1.0, 1.0, 2.0};
         double[] yValues = {3.0, 4.0, 5.0};
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(ArrayIsNotSortedException.class, () -> {
             new ArrayTabulatedFunction(xValues, yValues);
         });
     }

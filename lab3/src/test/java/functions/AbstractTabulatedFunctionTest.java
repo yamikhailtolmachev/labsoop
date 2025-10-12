@@ -3,7 +3,126 @@ package functions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import exceptions.ArrayIsNotSortedException;
+import exceptions.DifferentLengthOfArraysException;
+
 class AbstractTabulatedFunctionTest {
+
+    @Test
+    void testCheckLengthIsTheSameWithValidArrays() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+
+        assertDoesNotThrow(() -> {
+            AbstractTabulatedFunction.checkLengthIsTheSame(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testCheckLengthIsTheSameWithDifferentLengths() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0};
+
+        assertThrows(DifferentLengthOfArraysException.class, () -> {
+            AbstractTabulatedFunction.checkLengthIsTheSame(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testCheckLengthIsTheSameWithEmptyAndNonEmpty() {
+        double[] xValues = {};
+        double[] yValues = {4.0};
+
+        assertThrows(DifferentLengthOfArraysException.class, () -> {
+            AbstractTabulatedFunction.checkLengthIsTheSame(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testCheckSortedWithValidSortedArray() {
+        double[] sortedValues = {1.0, 2.0, 3.0, 4.0, 5.0};
+
+        assertDoesNotThrow(() -> {
+            AbstractTabulatedFunction.checkSorted(sortedValues);
+        });
+    }
+
+    @Test
+    void testCheckSortedWithSingleElement() {
+        double[] singleElement = {1.0};
+
+        assertDoesNotThrow(() -> {
+            AbstractTabulatedFunction.checkSorted(singleElement);
+        });
+    }
+
+    @Test
+    void testCheckSortedWithEmptyArray() {
+        double[] emptyArray = {};
+
+        assertDoesNotThrow(() -> {
+            AbstractTabulatedFunction.checkSorted(emptyArray);
+        });
+    }
+
+    @Test
+    void testCheckSortedWithUnsortedArray() {
+        double[] unsortedValues = {1.0, 3.0, 2.0, 4.0, 5.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            AbstractTabulatedFunction.checkSorted(unsortedValues);
+        });
+    }
+
+    @Test
+    void testCheckSortedWithEqualValues() {
+        double[] equalValues = {1.0, 2.0, 2.0, 3.0, 4.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            AbstractTabulatedFunction.checkSorted(equalValues);
+        });
+    }
+
+    @Test
+    void testCheckSortedWithDescendingArray() {
+        double[] descendingValues = {5.0, 4.0, 3.0, 2.0, 1.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            AbstractTabulatedFunction.checkSorted(descendingValues);
+        });
+    }
+
+    @Test
+    void testCheckSortedWithTwoEqualElements() {
+        double[] twoEqual = {1.0, 1.0};
+
+        assertThrows(ArrayIsNotSortedException.class, () -> {
+            AbstractTabulatedFunction.checkSorted(twoEqual);
+        });
+    }
+
+    @Test
+    void testCheckSortedMessageContent() {
+        double[] unsortedValues = {1.0, 3.0, 2.0};
+
+        Exception exception = assertThrows(ArrayIsNotSortedException.class, () -> {
+            AbstractTabulatedFunction.checkSorted(unsortedValues);
+        });
+
+        assertNotNull(exception.getMessage());
+    }
+
+    @Test
+    void testCheckLengthMessageContent() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0};
+
+        Exception exception = assertThrows(DifferentLengthOfArraysException.class, () -> {
+            AbstractTabulatedFunction.checkLengthIsTheSame(xValues, yValues);
+        });
+
+        assertNotNull(exception.getMessage());
+    }
 
     @Test
     void testInterpolateWithGivenValues() {

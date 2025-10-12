@@ -1,5 +1,8 @@
 package functions;
 
+import exceptions.ArrayIsNotSortedException;
+import exceptions.DifferentLengthOfArraysException;
+import exceptions.InterpolationException;
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Insertable, Removable {
     private Node head;
     protected int count;
@@ -104,11 +107,8 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
             throw new IllegalArgumentException("Minimum number of points: 2");
         }
 
-        for (int i = 1; i < xValues.length; i++) {
-            if (xValues[i] <= xValues[i - 1]) {
-                throw new IllegalArgumentException("xValues must be strictly increasing");
-            }
-        }
+        checkLengthIsTheSame(xValues, yValues);
+        checkSorted(xValues);
 
         this.count = 0;
 
@@ -285,6 +285,10 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
         Node leftNode = getNode(floorIndex);
         Node rightNode = getNode(floorIndex + 1);
+
+        if (x < leftNode.x || x > rightNode.x) {
+            throw new InterpolationException("x = " + x + " is outside interpolation interval [" + leftNode.x + ", " + rightNode.x + "]");
+        }
 
         return interpolate(x, leftNode.x, rightNode.x, leftNode.y, rightNode.y);
     }
