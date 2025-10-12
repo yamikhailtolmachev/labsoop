@@ -7,6 +7,9 @@ import exceptions.ArrayIsNotSortedException;
 import exceptions.DifferentLengthOfArraysException;
 import exceptions.InterpolationException;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 class ArrayTabulatedFunctionTest {
 
     @Test
@@ -672,5 +675,114 @@ class ArrayTabulatedFunctionTest {
         assertEquals(-1, function.indexOfX(2.0));
         assertEquals(1, function.indexOfX(3.0));
         assertEquals(2, function.indexOfX(4.0));
+    }
+
+    @Test
+    void testIteratorWithWhileLoop() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+        int count = 0;
+        while (iterator.hasNext()) {
+            Point point = iterator.next();
+            assertEquals(xValues[count], point.x, 1e-9);
+            assertEquals(yValues[count], point.y, 1e-9);
+            count++;
+        }
+        assertEquals(3, count);
+    }
+
+    @Test
+    void testIteratorWithForEachLoop() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        int count = 0;
+        for (Point point : function) {
+            assertEquals(xValues[count], point.x, 1e-9);
+            assertEquals(yValues[count], point.y, 1e-9);
+            count++;
+        }
+        assertEquals(3, count);
+    }
+
+    @Test
+    void testIteratorNoSuchElementException() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {3.0, 4.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+        iterator.next();
+        iterator.next();
+
+        assertThrows(NoSuchElementException.class, iterator::next);
+    }
+
+    @Test
+    void testIteratorHasNextBehavior() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+
+        assertTrue(iterator.hasNext());
+        iterator.next();
+        assertTrue(iterator.hasNext());
+        iterator.next();
+        assertTrue(iterator.hasNext());
+        iterator.next();
+        assertFalse(iterator.hasNext());
+    }
+
+    @Test
+    void testIteratorOrder() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        double[] expectedX = {1.0, 2.0, 3.0, 4.0};
+        double[] expectedY = {1.0, 4.0, 9.0, 16.0};
+
+        int index = 0;
+        for (Point point : function) {
+            assertEquals(expectedX[index], point.x, 1e-9);
+            assertEquals(expectedY[index], point.y, 1e-9);
+            index++;
+        }
+    }
+
+    @Test
+    void testIteratorWithSingleElementFunction() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {3.0, 4.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+        assertTrue(iterator.hasNext());
+        Point point1 = iterator.next();
+        assertEquals(1.0, point1.x, 1e-9);
+        assertEquals(3.0, point1.y, 1e-9);
+
+        assertTrue(iterator.hasNext());
+        Point point2 = iterator.next();
+        assertEquals(2.0, point2.x, 1e-9);
+        assertEquals(4.0, point2.y, 1e-9);
+
+        assertFalse(iterator.hasNext());
+    }
+
+    @Test
+    void testIteratorWithEmptyFunction() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {3.0, 4.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+        assertTrue(iterator.hasNext());
     }
 }
