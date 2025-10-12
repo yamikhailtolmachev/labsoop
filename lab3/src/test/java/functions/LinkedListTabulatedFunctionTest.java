@@ -10,6 +10,9 @@ import exceptions.ArrayIsNotSortedException;
 import exceptions.DifferentLengthOfArraysException;
 import exceptions.InterpolationException;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 class LinkedListTabulatedFunctionTest {
 
     private LinkedListTabulatedFunction functionFromArrays;
@@ -686,5 +689,169 @@ class LinkedListTabulatedFunctionTest {
         assertEquals(2.0, function.getX(1));
 
         assertThrows(IllegalStateException.class, () -> function.remove(0));
+    }
+
+    @Test
+    void testIteratorWithWhileLoop() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+
+        int pointCount = 0;
+        while (iterator.hasNext()) {
+            Point point = iterator.next();
+
+            assertEquals(xValues[pointCount], point.x, 1e-10, "X value mismatch at point " + pointCount);
+            assertEquals(yValues[pointCount], point.y, 1e-10, "Y value mismatch at point " + pointCount);
+
+            pointCount++;
+        }
+
+        assertEquals(4, pointCount, "Should iterate through 4 points");
+
+        assertThrows(NoSuchElementException.class, iterator::next, "Should throw NoSuchElementException after iterating through all elements");
+    }
+
+    @Test
+    void testIteratorWithForEachLoop() {
+        double[] xValues = {0.5, 1.0, 1.5, 2.0};
+        double[] yValues = {0.25, 1.0, 2.25, 4.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        int pointCount = 0;
+        for (Point point : function) {
+            assertEquals(xValues[pointCount], point.x, 1e-10, "X value mismatch at point " + pointCount);
+            assertEquals(yValues[pointCount], point.y, 1e-10, "Y value mismatch at point " + pointCount);
+
+            pointCount++;
+        }
+
+        assertEquals(4, pointCount, "Should iterate through 4 points");
+    }
+
+    @Test
+    void testIteratorThrowsExceptionWhenNoMoreElements() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {1.0, 2.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+
+        iterator.next();
+        iterator.next();
+
+        assertThrows(NoSuchElementException.class, iterator::next, "Should throw NoSuchElementException when no more elements");
+    }
+
+    @Test
+    void testIteratorOnFunctionWithTwoPoints() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {1.0, 2.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        int count = 0;
+        for (Point point : function) {
+            assertEquals(xValues[count], point.x, 1e-10);
+            assertEquals(yValues[count], point.y, 1e-10);
+            count++;
+        }
+
+        assertEquals(2, count, "Should iterate through 2 points");
+    }
+
+    @Test
+    void testMultipleIteratorsAreIndependent() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 2.0, 3.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator1 = function.iterator();
+        Iterator<Point> iterator2 = function.iterator();
+
+        Point point1 = iterator1.next();
+
+        Point point2 = iterator2.next();
+
+        assertEquals(point1.x, point2.x, 1e-10, "Iterators should be independent - X values should match");
+        assertEquals(point1.y, point2.y, 1e-10, "Iterators should be independent - Y values should match");
+
+        point1 = iterator1.next();
+
+        assertEquals(1.0, point2.x, 1e-10, "Second iterator should still be at first element");
+    }
+
+    @Test
+    void testIteratorAfterInsertOperation() {
+        double[] xValues = {1.0, 3.0};
+        double[] yValues = {1.0, 9.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.insert(2.0, 4.0);
+
+        double[] expectedX = {1.0, 2.0, 3.0};
+        double[] expectedY = {1.0, 4.0, 9.0};
+
+        int index = 0;
+        for (Point point : function) {
+            assertEquals(expectedX[index], point.x, 1e-10, "X value mismatch after insert at index " + index);
+            assertEquals(expectedY[index], point.y, 1e-10, "Y value mismatch after insert at index " + index);
+            index++;
+        }
+
+        assertEquals(3, index, "Should iterate through 3 points after insert");
+    }
+
+    @Test
+    void testIteratorAfterRemoveOperation() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        function.remove(1);
+
+        double[] expectedX = {1.0, 3.0, 4.0};
+        double[] expectedY = {1.0, 9.0, 16.0};
+
+        int index = 0;
+        for (Point point : function) {
+            assertEquals(expectedX[index], point.x, 1e-10, "X value mismatch after remove at index " + index);
+            assertEquals(expectedY[index], point.y, 1e-10, "Y value mismatch after remove at index " + index);
+            index++;
+        }
+
+        assertEquals(3, index, "Should iterate through 3 points after remove");
+    }
+
+    @Test
+    void testIteratorHasNextOnEmptyFunction() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {1.0, 2.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+
+        assertTrue(iterator.hasNext(), "Should have next element initially");
+        iterator.next();
+        assertTrue(iterator.hasNext(), "Should have next element after first next()");
+        iterator.next();
+        assertFalse(iterator.hasNext(), "Should not have next element after all elements consumed");
+    }
+
+    @Test
+    void testIteratorOrderPreservation() {
+        double[] xValues = {0.1, 0.5, 1.5, 2.8};
+        double[] yValues = {0.01, 0.25, 2.25, 7.84};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        Iterator<Point> iterator = function.iterator();
+
+        for (int i = 0; i < xValues.length; i++) {
+            assertTrue(iterator.hasNext(), "Should have next element at index " + i);
+            Point point = iterator.next();
+            assertEquals(xValues[i], point.x, 1e-10, "X order should be preserved at index " + i);
+            assertEquals(yValues[i], point.y, 1e-10, "Y order should be preserved at index " + i);
+        }
     }
 }

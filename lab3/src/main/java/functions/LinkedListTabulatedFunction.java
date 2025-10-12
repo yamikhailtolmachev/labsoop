@@ -298,6 +298,30 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     @Override
     public Iterator<Point> iterator() {
-        throw new UnsupportedOperationException("Iterator not implemented yet");
+        return new Iterator<Point>() {
+            private Node currentNode = head;
+            private boolean started = false;
+
+            @Override
+            public boolean hasNext() {
+                if (head == null || (started && currentNode == head)) {
+                    return false;
+                }
+                return true;
+            }
+
+            @Override
+            public Point next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException("No more elements in the tabulated function");
+                }
+
+                Point point = new Point(currentNode.x, currentNode.y);
+                currentNode = currentNode.next;
+                started = true;
+
+                return point;
+            }
+        };
     }
 }

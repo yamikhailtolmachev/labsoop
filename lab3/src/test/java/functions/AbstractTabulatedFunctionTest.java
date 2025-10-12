@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import exceptions.ArrayIsNotSortedException;
 import exceptions.DifferentLengthOfArraysException;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 class AbstractTabulatedFunctionTest {
 
     @Test
@@ -218,6 +221,25 @@ class AbstractTabulatedFunctionTest {
         assertEquals(10.0, result3, 1e-6);
     }
 
+    @Test
+    void testMockIterator() {
+        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
+
+        int count = 0;
+        for (Point point : mock) {
+            if (count == 0) {
+                assertEquals(1.0, point.x, 1e-6);
+                assertEquals(2.0, point.y, 1e-6);
+            } else if (count == 1) {
+                assertEquals(3.0, point.x, 1e-6);
+                assertEquals(6.0, point.y, 1e-6);
+            }
+            count++;
+        }
+
+        assertEquals(2, count);
+    }
+
     private static class MockTabulatedFunction extends AbstractTabulatedFunction {
         private final double x0;
         private final double x1;
@@ -233,6 +255,30 @@ class AbstractTabulatedFunctionTest {
 
         public double testInterpolate(double x, double leftX, double rightX, double leftY, double rightY) {
             return interpolate(x, leftX, rightX, leftY, rightY);
+        }
+
+        @Override
+        public Iterator<Point> iterator() {
+            return new Iterator<Point>() {
+                private int currentIndex = 0;
+                private final Point[] points = {
+                        new Point(x0, y0),
+                        new Point(x1, y1)
+                };
+
+                @Override
+                public boolean hasNext() {
+                    return currentIndex < points.length;
+                }
+
+                @Override
+                public Point next() {
+                    if (!hasNext()) {
+                        throw new NoSuchElementException("No more elements");
+                    }
+                    return points[currentIndex++];
+                }
+            };
         }
 
         @Override
