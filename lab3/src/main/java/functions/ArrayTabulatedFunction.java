@@ -11,19 +11,20 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
         if (xValues.length != yValues.length) {
             throw new IllegalArgumentException("Arrays must have the same length");
         }
+
         if (xValues.length < 2) {
             throw new IllegalArgumentException("At least 2 points are required");
+        }
+
+        for (int i = 1; i < xValues.length; i++) {
+            if (xValues[i] <= xValues[i - 1]) {
+                throw new IllegalArgumentException("xValues must be strictly increasing");
+            }
         }
 
         this.count = xValues.length;
         this.xValues = Arrays.copyOf(xValues, count);
         this.yValues = Arrays.copyOf(yValues, count);
-
-        for (int i = 1; i < count; i++) {
-            if (this.xValues[i] <= this.xValues[i - 1]) {
-                throw new IllegalArgumentException("xValues must be strictly increasing");
-            }
-        }
     }
 
     public ArrayTabulatedFunction(MathFunction source, double xFrom, double xTo, int count) {
@@ -86,7 +87,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     @Override
     public void remove(int index) {
         if (index < 0 || index >= count) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
+            throw new IllegalArgumentException("Index: " + index + ", Size: " + count);
         }
         if (count <= 2) {
             throw new IllegalStateException("Cannot remove element - minimum 2 points required");
@@ -114,7 +115,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     @Override
     public double getX(int index) {
         if (index < 0 || index >= count) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
+            throw new IllegalArgumentException("Index out of bounds: " + index);
         }
         return xValues[index];
     }
@@ -122,7 +123,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     @Override
     public double getY(int index) {
         if (index < 0 || index >= count) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
+            throw new IllegalArgumentException("Index out of bounds: " + index);
         }
         return yValues[index];
     }
@@ -130,7 +131,7 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     @Override
     public void setY(int index, double value) {
         if (index < 0 || index >= count) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
+            throw new IllegalArgumentException("Index out of bounds: " + index);
         }
         yValues[index] = value;
     }
@@ -168,10 +169,10 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     @Override
     protected int floorIndexOfX(double x) {
         if (x < xValues[0]) {
-            return 0;
+            throw new IllegalArgumentException("x is less than left bound: " + x);
         }
         if (x > xValues[count - 1]) {
-            return count;
+            return count - 1;
         }
 
         for (int i = 1; i < count; i++) {
@@ -184,26 +185,16 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
 
     @Override
     protected double extrapolateLeft(double x) {
-        if (count == 1) {
-            return yValues[0];
-        }
         return interpolate(x, xValues[0], xValues[1], yValues[0], yValues[1]);
     }
 
     @Override
     protected double extrapolateRight(double x) {
-        if (count == 1) {
-            return yValues[0];
-        }
         return interpolate(x, xValues[count - 2], xValues[count - 1], yValues[count - 2], yValues[count - 1]);
     }
 
     @Override
     protected double interpolate(double x, int floorIndex) {
-        if (count == 1) {
-            return yValues[0];
-        }
-
         if (floorIndex == count - 1) {
             floorIndex--;
         }

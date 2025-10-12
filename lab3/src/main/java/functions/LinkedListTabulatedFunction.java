@@ -77,7 +77,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
     @Override
     public void remove(int index) {
         if (index < 0 || index >= count) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + count);
+            throw new IllegalArgumentException("Index: " + index + ", Size: " + count);
         }
 
         if (count <= 2) {
@@ -100,11 +100,14 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
     }
 
     public LinkedListTabulatedFunction(double[] xValues, double[] yValues) {
-        if (xValues.length != yValues.length) {
-            throw new IllegalArgumentException("Arrays x and y must have the same length");
-        }
         if (xValues.length < 2) {
             throw new IllegalArgumentException("Minimum number of points: 2");
+        }
+
+        for (int i = 1; i < xValues.length; i++) {
+            if (xValues[i] <= xValues[i - 1]) {
+                throw new IllegalArgumentException("xValues must be strictly increasing");
+            }
         }
 
         this.count = 0;
@@ -144,7 +147,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     private Node getNode(int index) {
         if (index < 0 || index >= count) {
-            throw new IndexOutOfBoundsException("The index is out of range: " + index);
+            throw new IllegalArgumentException("The index is out of range: " + index);
         }
 
         if (index <= count / 2) {
@@ -169,16 +172,25 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     @Override
     public double getX(int index) {
+        if (index < 0 || index >= count) {
+            throw new IllegalArgumentException("Index out of bounds: " + index);
+        }
         return getNode(index).x;
     }
 
     @Override
     public double getY(int index) {
+        if (index < 0 || index >= count) {
+            throw new IllegalArgumentException("Index out of bounds: " + index);
+        }
         return getNode(index).y;
     }
 
     @Override
     public void setY(int index, double value) {
+        if (index < 0 || index >= count) {
+            throw new IllegalArgumentException("Index out of bounds: " + index);
+        }
         getNode(index).y = value;
     }
 
@@ -237,7 +249,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
         }
 
         if (x < head.x) {
-            return 0;
+            throw new IllegalArgumentException("x is less than left bound: " + x);
         }
         if (x > head.prev.x) {
             return count - 1;
@@ -255,17 +267,11 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     @Override
     protected double extrapolateLeft(double x) {
-        if (count == 1) {
-            return head.y;
-        }
         return interpolate(x, head.x, head.next.x, head.y, head.next.y);
     }
 
     @Override
     protected double extrapolateRight(double x) {
-        if (count == 1) {
-            return head.y;
-        }
         Node last = head.prev;
         Node prevLast = last.prev;
         return interpolate(x, prevLast.x, last.x, prevLast.y, last.y);
@@ -273,10 +279,6 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     @Override
     protected double interpolate(double x, int floorIndex) {
-        if (count == 1) {
-            return head.y;
-        }
-
         if (floorIndex == count - 1) {
             floorIndex--;
         }

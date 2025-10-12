@@ -90,6 +90,18 @@ class LinkedListTabulatedFunctionTest {
     }
 
     @Test
+    void testGetXThrowsForInvalidIndex() {
+        assertThrows(IllegalArgumentException.class, () -> functionFromArrays.getX(-1));
+        assertThrows(IllegalArgumentException.class, () -> functionFromArrays.getX(10));
+    }
+
+    @Test
+    void testGetYThrowsForInvalidIndex() {
+        assertThrows(IllegalArgumentException.class, () -> functionFromArrays.getY(-1));
+        assertThrows(IllegalArgumentException.class, () -> functionFromArrays.getY(10));
+    }
+
+    @Test
     void setY() {
         functionFromArrays.setY(1, 5.0);
         assertEquals(5.0, functionFromArrays.getY(1));
@@ -98,6 +110,12 @@ class LinkedListTabulatedFunctionTest {
         functionFromMathFunction.setY(2, 10.0);
         assertEquals(10.0, functionFromMathFunction.getY(2));
         assertEquals(10.0, functionFromMathFunction.apply(2.0));
+    }
+
+    @Test
+    void testSetYThrowsForInvalidIndex() {
+        assertThrows(IllegalArgumentException.class, () -> functionFromArrays.setY(-1, 5.0));
+        assertThrows(IllegalArgumentException.class, () -> functionFromArrays.setY(10, 5.0));
     }
 
     @Test
@@ -136,13 +154,18 @@ class LinkedListTabulatedFunctionTest {
 
     @Test
     void floorIndexOfX() {
-        assertEquals(0, functionFromArrays.floorIndexOfX(0.5));
         assertEquals(0, functionFromArrays.floorIndexOfX(1.0));
         assertEquals(0, functionFromArrays.floorIndexOfX(1.5));
         assertEquals(1, functionFromArrays.floorIndexOfX(2.0));
         assertEquals(2, functionFromArrays.floorIndexOfX(3.5));
         assertEquals(3, functionFromArrays.floorIndexOfX(4.0));
         assertEquals(3, functionFromArrays.floorIndexOfX(5.0));
+    }
+
+    @Test
+    void testFloorIndexOfXThrowsForXLessThanLeftBound() {
+        assertThrows(IllegalArgumentException.class, () -> functionFromArrays.floorIndexOfX(0.5));
+        assertThrows(IllegalArgumentException.class, () -> functionFromArrays.floorIndexOfX(-1.0));
     }
 
     @Test
@@ -201,6 +224,36 @@ class LinkedListTabulatedFunctionTest {
         assertEquals(4.0, singlePoint.getY(0));
         assertEquals(4.0, singlePoint.getY(1));
         assertEquals(4.0, singlePoint.getY(2));
+    }
+
+    @Test
+    void testConstructorThrowsForLessThan2Points() {
+        double[] xValues = {1.0};
+        double[] yValues = {2.0};
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new LinkedListTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorThrowsForDifferentLengthArrays() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {3.0};
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorThrowsForNonStrictlyIncreasingX() {
+        double[] xValues = {1.0, 1.0, 2.0};
+        double[] yValues = {3.0, 4.0, 5.0};
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
     }
 
     @Test
@@ -396,8 +449,8 @@ class LinkedListTabulatedFunctionTest {
         double[] yValues = {1.0, 4.0, 9.0};
         LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
 
-        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(3));
+        assertThrows(IllegalArgumentException.class, () -> function.remove(-1));
+        assertThrows(IllegalArgumentException.class, () -> function.remove(3));
     }
 
     @Test

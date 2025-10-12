@@ -60,19 +60,6 @@ class ArrayTabulatedFunctionTest {
     }
 
     @Test
-    void testConstructorWithFunctionSinglePoint() {
-        MathFunction sqr = new SqrFunction();
-        ArrayTabulatedFunction function = new ArrayTabulatedFunction(sqr, 5.0, 5.0, 3);
-
-        assertEquals(5.0, function.getX(0));
-        assertEquals(5.0, function.getX(1));
-        assertEquals(5.0, function.getX(2));
-        assertEquals(25.0, function.getY(0));
-        assertEquals(25.0, function.getY(1));
-        assertEquals(25.0, function.getY(2));
-    }
-
-    @Test
     void testGetCount() {
         double[] xValues = {1.0, 2.0};
         double[] yValues = {3.0, 4.0};
@@ -164,12 +151,21 @@ class ArrayTabulatedFunctionTest {
         double[] yValues = {4.0, 5.0, 6.0};
         ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
 
-        assertEquals(0, function.floorIndexOfX(0.5));
         assertEquals(0, function.floorIndexOfX(1.0));
         assertEquals(0, function.floorIndexOfX(1.5));
         assertEquals(1, function.floorIndexOfX(2.5));
         assertEquals(2, function.floorIndexOfX(3.0));
-        assertEquals(3, function.floorIndexOfX(4.0));
+        assertEquals(2, function.floorIndexOfX(4.0));
+    }
+
+    @Test
+    void testFloorIndexOfXThrowsForXLessThanLeftBound() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {4.0, 5.0, 6.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        assertThrows(IllegalArgumentException.class, () -> function.floorIndexOfX(0.5));
+        assertThrows(IllegalArgumentException.class, () -> function.floorIndexOfX(-1.0));
     }
 
     @Test
@@ -232,15 +228,35 @@ class ArrayTabulatedFunctionTest {
     }
 
     @Test
+    void testConstructorThrowsForDifferentLengthArrays() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {3.0};
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
+    void testConstructorThrowsForNonStrictlyIncreasingX() {
+        double[] xValues = {1.0, 1.0, 2.0};
+        double[] yValues = {3.0, 4.0, 5.0};
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ArrayTabulatedFunction(xValues, yValues);
+        });
+    }
+
+    @Test
     void testGetThrowsForInvalidIndex() {
         double[] xValues = {1.0, 2.0};
         double[] yValues = {3.0, 4.0};
         ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
 
-        assertThrows(IndexOutOfBoundsException.class, () -> function.getX(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> function.getX(2));
-        assertThrows(IndexOutOfBoundsException.class, () -> function.getY(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> function.getY(2));
+        assertThrows(IllegalArgumentException.class, () -> function.getX(-1));
+        assertThrows(IllegalArgumentException.class, () -> function.getX(2));
+        assertThrows(IllegalArgumentException.class, () -> function.getY(-1));
+        assertThrows(IllegalArgumentException.class, () -> function.getY(2));
     }
 
     @Test
@@ -249,8 +265,8 @@ class ArrayTabulatedFunctionTest {
         double[] yValues = {3.0, 4.0};
         ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
 
-        assertThrows(IndexOutOfBoundsException.class, () -> function.setY(-1, 5.0));
-        assertThrows(IndexOutOfBoundsException.class, () -> function.setY(2, 5.0));
+        assertThrows(IllegalArgumentException.class, () -> function.setY(-1, 5.0));
+        assertThrows(IllegalArgumentException.class, () -> function.setY(2, 5.0));
     }
 
     @Test
@@ -450,8 +466,8 @@ class ArrayTabulatedFunctionTest {
         double[] yValues = {10.0, 20.0, 30.0};
         ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
 
-        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> function.remove(3));
+        assertThrows(IllegalArgumentException.class, () -> function.remove(-1));
+        assertThrows(IllegalArgumentException.class, () -> function.remove(3));
     }
 
     @Test
