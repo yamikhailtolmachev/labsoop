@@ -1,8 +1,11 @@
 package functions;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import exceptions.ArrayIsNotSortedException;
 import exceptions.DifferentLengthOfArraysException;
 import exceptions.InterpolationException;
+
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Insertable, Removable {
     private Node head;
     protected int count;
@@ -291,5 +294,10 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
         }
 
         return interpolate(x, leftNode.x, rightNode.x, leftNode.y, rightNode.y);
+    }
+
+    @Override
+    public Iterator<Point> iterator() {
+        throw new UnsupportedOperationException("Iterator not implemented yet");
     }
 }

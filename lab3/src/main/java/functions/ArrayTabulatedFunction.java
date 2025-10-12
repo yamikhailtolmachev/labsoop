@@ -1,6 +1,8 @@
 package functions;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import exceptions.ArrayIsNotSortedException;
 import exceptions.DifferentLengthOfArraysException;
 import exceptions.InterpolationException;
@@ -11,13 +13,10 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
     private int count;
 
     public ArrayTabulatedFunction(double[] xValues, double[] yValues) {
-
+        checkLengthIsTheSame(xValues, yValues);
         if (xValues.length < 2) {
             throw new IllegalArgumentException("At least 2 points are required");
         }
-
-        checkLengthIsTheSame(xValues, yValues);
-
         checkSorted(xValues);
 
         this.count = xValues.length;
@@ -209,5 +208,10 @@ public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements
         double rightY = yValues[floorIndex + 1];
 
         return interpolate(x, leftX, rightX, leftY, rightY);
+    }
+
+    @Override
+    public Iterator<Point> iterator() {
+        throw new UnsupportedOperationException("Iterator not implemented yet");
     }
 }
