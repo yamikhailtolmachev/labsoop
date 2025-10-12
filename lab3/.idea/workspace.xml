@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="926d4bf1-07d8-4edd-a4fe-f86b033c01fe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/AbstractTabulatedFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/ArrayTabulatedFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/BSplineFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/CompositeFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/ConstantFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/IdentityFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/Insertable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/LinkedListTabulatedFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/MathFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/Removable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/SimpleIterationFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/SqrFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/TabulatedFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/UnitFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/functions/ZeroFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/AbstractTabulatedFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/AdditionalCompositeFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/AndThenMethodTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/ArrayTabulatedFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/BSplineFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/CompositeFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/ConstantFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/IdentityFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/LinkedListTabulatedFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/SimpleIterationFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/SqrFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/UnitFunctionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/functions/ZeroFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/main/java/functions/AbstractTabulatedFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/main/java/functions/AbstractTabulatedFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/main/java/functions/BSplineFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/main/java/functions/BSplineFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/main/java/functions/SimpleIterationFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/main/java/functions/SimpleIterationFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/AbstractTabulatedFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/AbstractTabulatedFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/AdditionalCompositeFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/AdditionalCompositeFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/ArrayTabulatedFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/ArrayTabulatedFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/BSplineFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/BSplineFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/CompositeFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/CompositeFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/LinkedListTabulatedFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/LinkedListTabulatedFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/SimpleIterationFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/SimpleIterationFunctionTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;yamikhailtolmachev&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/yamikhailtolmachev/labsoop.git&quot;,
+    &quot;accountId&quot;: &quot;f6faf95c-d469-46d5-a1f3-cb1a7b463a74&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="33x96JgiEEnfT0vU4ClueLCPCz9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.AbstractTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AdditionalCompositeFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AndThenMethodTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ArrayTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BSplineFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompositeFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConstantFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IdentityFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LinkedListTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SimpleIterationFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SimpleIterationFunctionTest.testWithQuadraticFunction.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SqrFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UnitFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ZeroFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tolma/IdeaProjects/labsoop/lab3&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5229885&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="SimpleIterationFunctionTest.testWithQuadraticFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="functions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="functions" />
+      <option name="MAIN_CLASS_NAME" value="functions.SimpleIterationFunctionTest" />
+      <option name="METHOD_NAME" value="testWithQuadraticFunction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SimpleIterationFunctionTest.testWithQuadraticFunction" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="926d4bf1-07d8-4edd-a4fe-f86b033c01fe" name="Changes" comment="" />
+      <created>1760247680025</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760247680025</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -332,8 +332,8 @@ class ArrayTabulatedFunctionTest {
         double[] expectedY = {1.0, 4.0, 9.0, 16.0, 25.0};
 
         for (int i = 0; i < expectedX.length; i++) {
-            assertEquals(expectedX[i], function.getX(i), 1e-10);
-            assertEquals(expectedY[i], function.getY(i), 1e-10);
+            assertEquals(expectedX[i], function.getX(i));
+            assertEquals(expectedY[i], function.getY(i));
         }
     }
 

@@ -1,0 +1,133 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a70c8ba2-9532-4414-8925-d071b74d3f69\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_2025_20_37_[Changes]/shelved.patch\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_2025_20_37__Changes_.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/functions/LinkedListTabulatedFunction.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"JUnit5 Test Class\" />\r\n        <option value=\"Interface\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;yamikhailtolmachev&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/yamikhailtolmachev/labsoop.git&quot;,\r\n    &quot;accountId&quot;: &quot;f6faf95c-d469-46d5-a1f3-cb1a7b463a74&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"33NhIiw0OXQRaPhTF1w8rQsDzsR\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;JUnit.IdentityFunctionTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.4448276&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"functions\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"IdentityFunctionTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"lab2\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"functions.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"functions\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"functions.IdentityFunctionTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.IdentityFunctionTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a70c8ba2-9532-4414-8925-d071b74d3f69\" name=\"Changes\" comment=\"\" />\r\n      <created>1757186961146</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1757186961146</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Создан интерфейс MathFunction\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759164523042</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759164523042</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Создан класс BSplineFunctionTest и покрыт тестами\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759243548792</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759243548792</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Создан класс CompositeFunction и покрыт тестами\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759245939795</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759245939795</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Создан интерфейс MathFunction\" />\r\n    <MESSAGE value=\"Создан класс BSplineFunctionTest и покрыт тестами\" />\r\n    <MESSAGE value=\"Создан класс CompositeFunction и покрыт тестами\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Создан класс CompositeFunction и покрыт тестами\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision dc84131ce0260396cf785fd3742673cf68189fe5)
++++ b/.idea/workspace.xml	(date 1760185861539)
+@@ -4,11 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_2025_20_37_[Changes]/shelved.patch" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_2025_20_37__Changes_.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/LinkedListTabulatedFunction.java" afterDir="false" />
++    <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="У класса LinkedListTabulatedFunction реализован интерфейс Removable, новый метод покрыт тестами">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/functions/LinkedListTabulatedFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/functions/LinkedListTabulatedFunction.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/functions/Node.java" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -18,8 +17,8 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="Class" />
+         <option value="JUnit5 Test Class" />
++        <option value="Class" />
+         <option value="Interface" />
+       </list>
+     </option>
+@@ -62,7 +61,7 @@
+     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+@@ -73,6 +72,9 @@
+   <component name="RecentsManager">
+     <key name="CreateTestDialog.Recents.Supers">
+       <recent name="" />
++    </key>
++    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
++      <recent name="functions" />
+     </key>
+     <key name="CreateTestDialog.RecentsKey">
+       <recent name="functions" />
+@@ -132,13 +134,75 @@
+       <option name="project" value="LOCAL" />
+       <updated>1759245939795</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Merge remote changes from main branch">
++      <option name="closed" value="true" />
++      <created>1759250552236</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1759250552236</updated>
++    </task>
++    <task id="LOCAL-00005" summary="Создан класс LinkedListTabulatedFunction и покрыт тестами">
++      <option name="closed" value="true" />
++      <created>1759253345212</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1759253345212</updated>
++    </task>
++    <task id="LOCAL-00006" summary="Создан класс LinkedListTabulatedFunction и покрыт тестами">
++      <option name="closed" value="true" />
++      <created>1759253358615</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1759253358615</updated>
++    </task>
++    <task id="LOCAL-00007" summary="Написаны дополнительные тесты для сложных функций">
++      <option name="closed" value="true" />
++      <created>1759256191276</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1759256191276</updated>
++    </task>
++    <task id="LOCAL-00008" summary="У класса ArrayTabulatedFunction реализован интерфейс Insertable и новый метод покрыт тестами">
++      <option name="closed" value="true" />
++      <created>1759259534764</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1759259534764</updated>
++    </task>
++    <task id="LOCAL-00009" summary="Создан интерфейс Removable">
++      <option name="closed" value="true" />
++      <created>1759259833240</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1759259833240</updated>
++    </task>
++    <task id="LOCAL-00010" summary="У класса LinkedListTabulatedFunction реализован интерфейс Removable, новый метод покрыт тестами">
++      <option name="closed" value="true" />
++      <created>1759260977250</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1759260977250</updated>
++    </task>
++    <option name="localTasksCounter" value="11" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Создан интерфейс MathFunction" />
+     <MESSAGE value="Создан класс BSplineFunctionTest и покрыт тестами" />
+     <MESSAGE value="Создан класс CompositeFunction и покрыт тестами" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Создан класс CompositeFunction и покрыт тестами" />
++    <MESSAGE value="Merge remote changes from main branch" />
++    <MESSAGE value="Создан класс LinkedListTabulatedFunction и покрыт тестами" />
++    <MESSAGE value="Написаны дополнительные тесты для сложных функций" />
++    <MESSAGE value="У класса ArrayTabulatedFunction реализован интерфейс Insertable и новый метод покрыт тестами" />
++    <MESSAGE value="Создан интерфейс Removable" />
++    <MESSAGE value="У класса LinkedListTabulatedFunction реализован интерфейс Removable, новый метод покрыт тестами" />
++    <option name="LAST_COMMIT_MESSAGE" value="У класса LinkedListTabulatedFunction реализован интерфейс Removable, новый метод покрыт тестами" />
+   </component>
+ </project>
+\ No newline at end of file

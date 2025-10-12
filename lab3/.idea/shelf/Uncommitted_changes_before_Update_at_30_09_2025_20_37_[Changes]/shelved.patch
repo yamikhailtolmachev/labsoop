@@ -1,0 +1,265 @@
+Index: src/test/java/functions/AbstractTabulatedFunctionTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/functions/AbstractTabulatedFunctionTest.java b/src/test/java/functions/AbstractTabulatedFunctionTest.java
+new file mode 100644
+--- /dev/null	(date 1759250158548)
++++ b/src/test/java/functions/AbstractTabulatedFunctionTest.java	(date 1759250158548)
+@@ -0,0 +1,190 @@
++package functions;
++
++import org.junit.jupiter.api.Test;
++import static org.junit.jupiter.api.Assertions.*;
++
++class AbstractTabulatedFunctionTest {
++
++    @Test
++    void testInterpolateWithGivenValues() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
++
++        double result = mock.testInterpolate(2.0, 1.0, 3.0, 2.0, 6.0);
++
++        assertEquals(4.0, result, 1e-6);
++    }
++
++    @Test
++    void testInterpolateAtLeftBound() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
++
++        double result = mock.testInterpolate(1.0, 1.0, 3.0, 2.0, 6.0);
++
++        assertEquals(2.0, result, 1e-6);
++    }
++
++    @Test
++    void testInterpolateAtRightBound() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
++
++        double result = mock.testInterpolate(3.0, 1.0, 3.0, 2.0, 6.0);
++
++        assertEquals(6.0, result, 1e-6);
++    }
++
++    @Test
++    void testInterpolateWithNegativeValues() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(-2.0, 2.0, -4.0, 4.0);
++
++        double result = mock.testInterpolate(0.0, -2.0, 2.0, -4.0, 4.0);
++
++        assertEquals(0.0, result, 1e-6);
++    }
++
++    @Test
++    void testApplyWithExactXValue() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
++
++        double result = mock.apply(1.0);
++
++        assertEquals(2.0, result, 1e-6);
++    }
++
++    @Test
++    void testApplyWithAnotherExactXValue() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
++
++        double result = mock.apply(3.0);
++
++        assertEquals(6.0, result, 1e-6);
++    }
++
++    @Test
++    void testApplyWithInterpolation() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
++
++        double result = mock.apply(2.0);
++
++        assertEquals(4.0, result, 1e-6);
++    }
++
++    @Test
++    void testApplyWithExtrapolationLeft() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
++
++        double result = mock.apply(0.0);
++
++        assertEquals(1.0, result, 1e-6);
++    }
++
++    @Test
++    void testApplyWithExtrapolationRight() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(1.0, 3.0, 2.0, 6.0);
++
++        double result = mock.apply(4.0);
++
++        assertEquals(8.0, result, 1e-6);
++    }
++
++    @Test
++    void testApplyWithSinglePointTable() {
++        MockTabulatedFunction mock = new MockTabulatedFunction(5.0, 5.0, 10.0, 10.0);
++
++        double result1 = mock.apply(5.0);
++        double result2 = mock.apply(0.0);
++        double result3 = mock.apply(10.0);
++
++        assertEquals(10.0, result1, 1e-6);
++        assertEquals(10.0, result2, 1e-6);
++        assertEquals(10.0, result3, 1e-6);
++    }
++
++    private static class MockTabulatedFunction extends AbstractTabulatedFunction {
++        private final double x0;
++        private final double x1;
++        private final double y0;
++        private final double y1;
++
++        public MockTabulatedFunction(double x0, double x1, double y0, double y1) {
++            this.x0 = x0;
++            this.x1 = x1;
++            this.y0 = y0;
++            this.y1 = y1;
++        }
++
++        public double testInterpolate(double x, double leftX, double rightX, double leftY, double rightY) {
++            return interpolate(x, leftX, rightX, leftY, rightY);
++        }
++
++        @Override
++        protected int floorIndexOfX(double x) {
++            if (x < x0) return 0;
++            if (x > x1) return getCount();
++            if (x == x0) return 0;
++            return 1;
++        }
++
++        @Override
++        protected double extrapolateLeft(double x) {
++            return interpolate(x, x0, x1, y0, y1);
++        }
++
++        @Override
++        protected double extrapolateRight(double x) {
++            return interpolate(x, x0, x1, y0, y1);
++        }
++
++        @Override
++        protected double interpolate(double x, int floorIndex) {
++            return interpolate(x, x0, x1, y0, y1);
++        }
++
++        @Override
++        public int getCount() {
++            return 2;
++        }
++
++        @Override
++        public double getX(int index) {
++            if (index == 0) return x0;
++            if (index == 1) return x1;
++            throw new IllegalArgumentException("Index out of bounds");
++        }
++
++        @Override
++        public double getY(int index) {
++            if (index == 0) return y0;
++            if (index == 1) return y1;
++            throw new IllegalArgumentException("Index out of bounds");
++        }
++
++        @Override
++        public void setY(int index, double value) {
++            throw new UnsupportedOperationException("Mock object is immutable");
++        }
++
++        @Override
++        public int indexOfX(double x) {
++            if (x == x0) return 0;
++            if (x == x1) return 1;
++            return -1;
++        }
++
++        @Override
++        public int indexOfY(double y) {
++            if (y == y0) return 0;
++            if (y == y1) return 1;
++            return -1;
++        }
++
++        @Override
++        public double leftBound() {
++            return x0;
++        }
++
++        @Override
++        public double rightBound() {
++            return x1;
++        }
++    }
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a70c8ba2-9532-4414-8925-d071b74d3f69\" name=\"Changes\" comment=\"Создан класс CompositeFunction и покрыт тестами\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"JUnit5 Test Class\" />\r\n        <option value=\"Interface\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;yamikhailtolmachev&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/yamikhailtolmachev/labsoop.git&quot;,\r\n    &quot;accountId&quot;: &quot;f6faf95c-d469-46d5-a1f3-cb1a7b463a74&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"33NhIiw0OXQRaPhTF1w8rQsDzsR\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;JUnit.IdentityFunctionTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.4448276&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"functions\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"IdentityFunctionTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"lab2\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"functions.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"functions\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"functions.IdentityFunctionTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.IdentityFunctionTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a70c8ba2-9532-4414-8925-d071b74d3f69\" name=\"Changes\" comment=\"\" />\r\n      <created>1757186961146</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1757186961146</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Создан интерфейс MathFunction\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759164523042</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759164523042</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Создан класс BSplineFunctionTest и покрыт тестами\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759243548792</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759243548792</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Создан класс CompositeFunction и покрыт тестами\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759245939795</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759245939795</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Создан интерфейс MathFunction\" />\r\n    <MESSAGE value=\"Создан класс BSplineFunctionTest и покрыт тестами\" />\r\n    <MESSAGE value=\"Создан класс CompositeFunction и покрыт тестами\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Создан класс CompositeFunction и покрыт тестами\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 54f0916ab6b3a3a87820c518ef5509ddd9bf7274)
++++ b/.idea/workspace.xml	(date 1759250075634)
+@@ -4,7 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="Создан класс CompositeFunction и покрыт тестами">
++    <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="Создан интерфейс TabulatedFunction">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -15,9 +15,9 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="Class" />
+         <option value="JUnit5 Test Class" />
+         <option value="Interface" />
++        <option value="Class" />
+       </list>
+     </option>
+   </component>
+@@ -129,13 +129,30 @@
+       <option name="project" value="LOCAL" />
+       <updated>1759245939795</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Создан интерфейс TabulatedFunction">
++      <option name="closed" value="true" />
++      <created>1759248837987</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1759248837987</updated>
++    </task>
++    <task id="LOCAL-00005" summary="Создан интерфейс TabulatedFunction">
++      <option name="closed" value="true" />
++      <created>1759248845730</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1759248845730</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Создан интерфейс MathFunction" />
+     <MESSAGE value="Создан класс BSplineFunctionTest и покрыт тестами" />
+     <MESSAGE value="Создан класс CompositeFunction и покрыт тестами" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Создан класс CompositeFunction и покрыт тестами" />
++    <MESSAGE value="Создан интерфейс TabulatedFunction" />
++    <option name="LAST_COMMIT_MESSAGE" value="Создан интерфейс TabulatedFunction" />
+   </component>
+ </project>
+\ No newline at end of file
