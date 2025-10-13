@@ -352,4 +352,205 @@ class AbstractTabulatedFunctionTest {
             return x1;
         }
     }
+
+    @Test
+    void testToStringWithArrayTabulatedFunction() {
+        double[] xValues = {0.0, 0.5, 1.0};
+        double[] yValues = {0.0, 0.25, 1.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        String expected = "ArrayTabulatedFunction size = 3\n" +
+                "[0.0; 0.0]\n" +
+                "[0.5; 0.25]\n" +
+                "[1.0; 1.0]\n";
+
+        assertEquals(expected, function.toString());
+    }
+
+    @Test
+    void testToStringWithLinkedListTabulatedFunction() {
+        double[] xValues = {0.0, 0.5, 1.0};
+        double[] yValues = {0.0, 0.25, 1.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        String expected = "LinkedListTabulatedFunction size = 3\n" +
+                "[0.0; 0.0]\n" +
+                "[0.5; 0.25]\n" +
+                "[1.0; 1.0]\n";
+
+        assertEquals(expected, function.toString());
+    }
+
+    @Test
+    void testToStringWithMinimumPoints() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {10.0, 20.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        String expected = "ArrayTabulatedFunction size = 2\n" +
+                "[1.0; 10.0]\n" +
+                "[2.0; 20.0]\n";
+
+        assertEquals(expected, function.toString());
+    }
+
+    @Test
+    void testToStringWithTwoPoints() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {10.0, 20.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        String expected = "LinkedListTabulatedFunction size = 2\n" +
+                "[1.0; 10.0]\n" +
+                "[2.0; 20.0]\n";
+
+        assertEquals(expected, function.toString());
+    }
+
+    @Test
+    void testToStringWithNegativeValues() {
+        double[] xValues = {-2.0, -1.0, 0.0, 1.0, 2.0};
+        double[] yValues = {4.0, 1.0, 0.0, 1.0, 4.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        String expected = "ArrayTabulatedFunction size = 5\n" +
+                "[-2.0; 4.0]\n" +
+                "[-1.0; 1.0]\n" +
+                "[0.0; 0.0]\n" +
+                "[1.0; 1.0]\n" +
+                "[2.0; 4.0]\n";
+
+        assertEquals(expected, function.toString());
+    }
+
+    @Test
+    void testToStringWithFractionalValues() {
+        double[] xValues = {0.1, 0.2, 0.3};
+        double[] yValues = {0.01, 0.04, 0.09};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        String expected = "LinkedListTabulatedFunction size = 3\n" +
+                "[0.1; 0.01]\n" +
+                "[0.2; 0.04]\n" +
+                "[0.3; 0.09]\n";
+
+        assertEquals(expected, function.toString());
+    }
+
+    @Test
+    void testToStringWithLargeValues() {
+        double[] xValues = {1000.0, 2000.0, 3000.0};
+        double[] yValues = {1000000.0, 4000000.0, 9000000.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        String expected = "ArrayTabulatedFunction size = 3\n" +
+                "[1000.0; 1000000.0]\n" +
+                "[2000.0; 4000000.0]\n" +
+                "[3000.0; 9000000.0]\n";
+
+        assertEquals(expected, function.toString());
+    }
+
+    @Test
+    void testToStringWithScientificNotationValues() {
+        double[] xValues = {1e-5, 2e-5, 3e-5};
+        double[] yValues = {1e-10, 4e-10, 9e-10};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        String result = function.toString();
+        assertTrue(result.startsWith("LinkedListTabulatedFunction size = 3\n"));
+        assertTrue(result.contains("1.0E-5") || result.contains("0.00001"));
+        assertTrue(result.contains("2.0E-5") || result.contains("0.00002"));
+        assertTrue(result.contains("3.0E-5") || result.contains("0.00003"));
+    }
+
+    @Test
+    void testToStringFormatConsistency() {
+        double[] xValues = {1.5, 2.5, 3.5};
+        double[] yValues = {2.25, 6.25, 12.25};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        String result = function.toString();
+
+        assertTrue(result.startsWith("ArrayTabulatedFunction size = 3\n"));
+        assertTrue(result.contains("[1.5; 2.25]\n"));
+        assertTrue(result.contains("[2.5; 6.25]\n"));
+        assertTrue(result.contains("[3.5; 12.25]\n"));
+        assertEquals(4, result.split("\n").length);
+    }
+
+    @Test
+    void testToStringWithUniqueValues() {
+        double[] xValues = {0.0, 1.0, 2.0};
+        double[] yValues = {0.0, 0.0, 0.0};
+        LinkedListTabulatedFunction function = new LinkedListTabulatedFunction(xValues, yValues);
+
+        String expected = "LinkedListTabulatedFunction size = 3\n" +
+                "[0.0; 0.0]\n" +
+                "[1.0; 0.0]\n" +
+                "[2.0; 0.0]\n";
+
+        assertEquals(expected, function.toString());
+    }
+
+    @Test
+    void testToStringEndsWithNewline() {
+        double[] xValues = {1.0, 2.0};
+        double[] yValues = {1.0, 2.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        String result = function.toString();
+        assertTrue(result.endsWith("\n"));
+    }
+
+    @Test
+    void testToStringWithMixedTypesComparison() {
+        double[] xValues = {1.0, 2.0, 3.0};
+        double[] yValues = {1.0, 4.0, 9.0};
+
+        ArrayTabulatedFunction arrayFunction = new ArrayTabulatedFunction(xValues, yValues);
+        LinkedListTabulatedFunction linkedListFunction = new LinkedListTabulatedFunction(xValues, yValues);
+
+        String arrayString = arrayFunction.toString();
+        String linkedListString = linkedListFunction.toString();
+
+        assertTrue(arrayString.startsWith("ArrayTabulatedFunction"));
+        assertTrue(linkedListString.startsWith("LinkedListTabulatedFunction"));
+
+        String arrayData = arrayString.substring(arrayString.indexOf("\n"));
+        String linkedListData = linkedListString.substring(linkedListString.indexOf("\n"));
+        assertEquals(arrayData, linkedListData);
+    }
+
+    @Test
+    void testToStringWithManyPoints() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0, 5.0};
+        double[] yValues = {1.0, 4.0, 9.0, 16.0, 25.0};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        String result = function.toString();
+
+        assertTrue(result.startsWith("ArrayTabulatedFunction size = 5\n"));
+        assertTrue(result.contains("[1.0; 1.0]\n"));
+        assertTrue(result.contains("[2.0; 4.0]\n"));
+        assertTrue(result.contains("[3.0; 9.0]\n"));
+        assertTrue(result.contains("[4.0; 16.0]\n"));
+        assertTrue(result.contains("[5.0; 25.0]\n"));
+        assertEquals(6, result.split("\n").length);
+    }
+
+    @Test
+    void testToStringWithDecimalPrecision() {
+        double[] xValues = {0.123456789, 1.23456789};
+        double[] yValues = {2.3456789, 3.456789};
+        ArrayTabulatedFunction function = new ArrayTabulatedFunction(xValues, yValues);
+
+        String result = function.toString();
+
+        assertTrue(result.startsWith("ArrayTabulatedFunction size = 2\n"));
+        assertTrue(result.contains("0.123456789"));
+        assertTrue(result.contains("1.23456789"));
+        assertTrue(result.contains("2.3456789"));
+        assertTrue(result.contains("3.456789"));
+    }
 }
