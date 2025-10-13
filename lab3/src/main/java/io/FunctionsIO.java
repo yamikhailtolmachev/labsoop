@@ -5,6 +5,10 @@ import functions.Point;
 import java.io.*;
 import java.util.Locale;
 
+import functions.factory.TabulatedFunctionFactory;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 public final class FunctionsIO {
 
     private FunctionsIO() {
@@ -35,5 +39,41 @@ public final class FunctionsIO {
         }
 
         dataOutputStream.flush();
+    }
+
+    public static TabulatedFunction readTabulatedFunction(BufferedReader reader, TabulatedFunctionFactory factory) throws IOException {
+        try {
+            String countLine = reader.readLine();
+            if (countLine == null) {
+                throw new IOException("File is empty");
+            }
+
+            int count = Integer.parseInt(countLine);
+
+            double[] xValues = new double[count];
+            double[] yValues = new double[count];
+
+            NumberFormat format = NumberFormat.getInstance(Locale.forLanguageTag("ru"));
+
+            for (int i = 0; i < count; i++) {
+                String line = reader.readLine();
+                if (line == null) {
+                    throw new IOException("Unexpected end of file. Expected " + count + " points, but got only " + i);
+                }
+
+                String[] parts = line.split(" ");
+                if (parts.length != 2) {
+                    throw new IOException("Invalid format in line: " + line + ". Expected two numbers separated by space");
+                }
+
+                xValues[i] = format.parse(parts[0]).doubleValue();
+                yValues[i] = format.parse(parts[1]).doubleValue();
+            }
+
+            return factory.create(xValues, yValues);
+
+        } catch (ParseException e) {
+            throw new IOException("Error parsing number", e);
+        }
     }
 }
