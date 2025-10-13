@@ -18,7 +18,6 @@ public final class FunctionsIO {
         printWriter.println(function.getCount());
 
         for (Point point : function) {
-            // Явно указываем локаль с точкой как разделителем
             printWriter.printf(Locale.US, "%f %f\n", point.x, point.y);
         }
 
