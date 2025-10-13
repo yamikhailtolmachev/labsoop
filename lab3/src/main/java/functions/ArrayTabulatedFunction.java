@@ -7,7 +7,11 @@ import exceptions.ArrayIsNotSortedException;
 import exceptions.DifferentLengthOfArraysException;
 import exceptions.InterpolationException;
 
-public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Removable {
+import java.io.Serializable;
+
+public class ArrayTabulatedFunction extends AbstractTabulatedFunction implements Removable, Serializable {
+    private static final long serialVersionUID = 1L;
+
     private double[] xValues;
     private double[] yValues;
     private int count;
