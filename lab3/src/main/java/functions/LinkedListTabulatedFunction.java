@@ -2,15 +2,20 @@ package functions;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.io.Serializable;
 import exceptions.ArrayIsNotSortedException;
 import exceptions.DifferentLengthOfArraysException;
 import exceptions.InterpolationException;
 
-public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Insertable, Removable {
+public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Insertable, Removable, Serializable {
+    private static final long serialVersionUID = 852741963258L;
+
     private Node head;
     protected int count;
 
-    public static class Node {
+    public static class Node implements Serializable {
+        private static final long serialVersionUID = 741852963147L;
+
         public Node prev;
         public Node next;
         public double x;
