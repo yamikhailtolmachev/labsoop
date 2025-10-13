@@ -15,6 +15,12 @@ public final class FunctionsIO {
         throw new UnsupportedOperationException("Cannot instantiate FunctionsIO class");
     }
 
+    public static TabulatedFunction deserialize(BufferedInputStream stream)
+            throws IOException, ClassNotFoundException {
+        ObjectInputStream objectInputStream = new ObjectInputStream(stream);
+        return (TabulatedFunction) objectInputStream.readObject();
+    }
+
     public static void writeTabulatedFunction(BufferedWriter writer, TabulatedFunction function) throws IOException {
         PrintWriter printWriter = new PrintWriter(writer);
 
