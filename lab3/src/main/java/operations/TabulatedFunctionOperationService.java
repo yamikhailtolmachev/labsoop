@@ -4,8 +4,6 @@ import functions.TabulatedFunction;
 import functions.Point;
 import functions.factory.TabulatedFunctionFactory;
 import functions.factory.ArrayTabulatedFunctionFactory;
-import java.util.Iterator;
-
 import exceptions.InconsistentFunctionsException;
 
 public class TabulatedFunctionOperationService {
@@ -37,8 +35,9 @@ public class TabulatedFunctionOperationService {
         int count = tabulatedFunction.getCount();
         Point[] points = new Point[count];
 
-        for (int i = 0; i < count; i++) {
-            points[i] = new Point(tabulatedFunction.getX(i), tabulatedFunction.getY(i));
+        int i = 0;
+        for (Point point : tabulatedFunction) {
+            points[i++] = point;
         }
         return points;
     }
@@ -48,12 +47,10 @@ public class TabulatedFunctionOperationService {
     }
 
     private TabulatedFunction doOperation(TabulatedFunction a, TabulatedFunction b, BiOperation operation) {
-        // Проверка количества точек
         if (a.getCount() != b.getCount()) {
             throw new InconsistentFunctionsException("Functions have different number of points");
         }
 
-        // Получаем точки обеих функций
         Point[] pointsA = asPoints(a);
         Point[] pointsB = asPoints(b);
 
@@ -61,18 +58,20 @@ public class TabulatedFunctionOperationService {
         double[] xValues = new double[count];
         double[] yValues = new double[count];
 
-        // Выполняем операцию над соответствующими точками
         for (int i = 0; i < count; i++) {
-            // Проверяем совпадение x-координат
-            if (Math.abs(pointsA[i].x - pointsB[i].x) > 1e-10) {
-                throw new InconsistentFunctionsException("X values don't match at index " + i);
+            double delta = Math.abs(pointsA[i].x - pointsB[i].x);
+            double max = Math.max(Math.abs(pointsA[i].x), Math.abs(pointsB[i].x));
+
+            if (delta > 1e-10 && delta > 1e-10 * max) {
+                throw new InconsistentFunctionsException(
+                        String.format("X values don't match at index %d: %.10f vs %.10f",
+                                i, pointsA[i].x, pointsB[i].x));
             }
 
             xValues[i] = pointsA[i].x;
             yValues[i] = operation.apply(pointsA[i].y, pointsB[i].y);
         }
 
-        // Создаем новую функцию с помощью фабрики
         return factory.create(xValues, yValues);
     }
 
@@ -80,17 +79,14 @@ public class TabulatedFunctionOperationService {
         return doOperation(a, b, (u, v) -> u + v);
     }
 
-    // Метод вычитания двух функций
     public TabulatedFunction subtract(TabulatedFunction a, TabulatedFunction b) {
         return doOperation(a, b, (u, v) -> u - v);
     }
 
-    // Метод умножения двух функций
     public TabulatedFunction multiply(TabulatedFunction a, TabulatedFunction b) {
         return doOperation(a, b, (u, v) -> u * v);
     }
 
-    // Метод деления двух функций
     public TabulatedFunction divide(TabulatedFunction a, TabulatedFunction b) {
         return doOperation(a, b, (u, v) -> {
             if (Math.abs(v) < 1e-10) {
