@@ -27,7 +27,7 @@ public final class FunctionsIO {
         printWriter.println(function.getCount());
 
         for (Point point : function) {
-            printWriter.printf(Locale.US, "%f %f\n", point.x, point.y);
+            printWriter.printf("%f %f\n", point.x, point.y);
         }
 
         writer.flush();

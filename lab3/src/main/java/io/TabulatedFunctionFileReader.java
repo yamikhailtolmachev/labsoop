@@ -23,7 +23,7 @@ public class TabulatedFunctionFileReader {
 
             System.out.println("ArrayTabulatedFunction:");
             System.out.println(arrayFunction.toString());
-            System.out.println("\nLinkedListTabulatedFunction:");
+            System.out.println("LinkedListTabulatedFunction:");
             System.out.println(linkedListFunction.toString());
 
         } catch (IOException e) {

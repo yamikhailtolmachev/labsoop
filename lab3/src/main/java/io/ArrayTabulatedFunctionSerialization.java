@@ -25,8 +25,6 @@ public class ArrayTabulatedFunctionSerialization {
             FunctionsIO.serialize(bufferedOutputStream, firstDerivative);
             FunctionsIO.serialize(bufferedOutputStream, secondDerivative);
 
-            System.out.println("Функции успешно сериализованы в output/serialized array functions.bin");
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -39,11 +37,11 @@ public class ArrayTabulatedFunctionSerialization {
             TabulatedFunction deserializedFirstDerivative = FunctionsIO.deserialize(bufferedInputStream);
             TabulatedFunction deserializedSecondDerivative = FunctionsIO.deserialize(bufferedInputStream);
 
-            System.out.println("\nИсходная функция:");
+            System.out.println("Исходная функция:");
             System.out.println(deserializedFunction.toString());
-            System.out.println("\nПервая производная:");
+            System.out.println("Первая производная:");
             System.out.println(deserializedFirstDerivative.toString());
-            System.out.println("\nВторая производная:");
+            System.out.println("Вторая производная:");
             System.out.println(deserializedSecondDerivative.toString());
 
         } catch (IOException | ClassNotFoundException e) {

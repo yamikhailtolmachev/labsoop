@@ -14,8 +14,6 @@ public class LinkedListTabulatedFunctionSerialization {
     }
 
     private static void serializeFunctions() {
-        System.out.println("Serializing LinkedListTabulatedFunction and its derivatives");
-
         try (
                 FileOutputStream fileStream = new FileOutputStream("output/serialized linked list functions.bin");
                 BufferedOutputStream bufferedStream = new BufferedOutputStream(fileStream)
@@ -34,23 +32,12 @@ public class LinkedListTabulatedFunctionSerialization {
             FunctionsIO.serialize(bufferedStream, firstDerivative);
             FunctionsIO.serialize(bufferedStream, secondDerivative);
 
-            System.out.println("Successfully serialized 3 functions:");
-            System.out.println("1. Original function");
-            System.out.println("2. First derivative");
-            System.out.println("3. Second derivative");
-            System.out.println("File: output/serialized linked list functions.bin");
-
         } catch (IOException e) {
-            System.err.println("Error during serialization:");
             e.printStackTrace();
         }
     }
 
     private static void deserializeAndPrintFunctions() {
-        System.out.println("\nDeserializing and printing functions");
-
-        new File("output").mkdirs();
-
         try (
                 FileInputStream fileStream = new FileInputStream("output/serialized linked list functions.bin");
                 BufferedInputStream bufferedStream = new BufferedInputStream(fileStream)
@@ -59,19 +46,16 @@ public class LinkedListTabulatedFunctionSerialization {
             TabulatedFunction deserializedFirstDerivative = FunctionsIO.deserialize(bufferedStream);
             TabulatedFunction deserializedSecondDerivative = FunctionsIO.deserialize(bufferedStream);
 
-            System.out.println("\n1. Original function (deserialized):");
+            System.out.println("Исходная функция:");
             System.out.println(deserializedOriginal.toString());
 
-            System.out.println("\n2. First derivative (deserialized):");
+            System.out.println("Первая производная:");
             System.out.println(deserializedFirstDerivative.toString());
 
-            System.out.println("\n3. Second derivative (deserialized):");
+            System.out.println("Вторая производная:");
             System.out.println(deserializedSecondDerivative.toString());
 
-            System.out.println("\nAll functions successfully deserialized and printed!");
-
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println("Error during deserialization:");
             e.printStackTrace();
         }
     }

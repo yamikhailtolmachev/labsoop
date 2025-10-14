@@ -23,8 +23,6 @@ public class TabulatedFunctionFileWriter {
             FunctionsIO.writeTabulatedFunction(bufferedArrayWriter, arrayFunction);
             FunctionsIO.writeTabulatedFunction(bufferedLinkedListWriter, linkedListFunction);
 
-            System.out.println("Файлы успешно созданы в папке output/");
-
         } catch (IOException e) {
             e.printStackTrace();
         }
