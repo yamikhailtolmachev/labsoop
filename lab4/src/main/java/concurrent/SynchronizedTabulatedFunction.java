@@ -2,6 +2,7 @@ package concurrent;
 
 import functions.TabulatedFunction;
 import functions.Point;
+import operations.TabulatedFunctionOperationService;
 import java.util.Iterator;
 
 public class SynchronizedTabulatedFunction implements TabulatedFunction {
@@ -79,14 +80,11 @@ public class SynchronizedTabulatedFunction implements TabulatedFunction {
     @Override
     public Iterator<Point> iterator() {
         synchronized (lock) {
-            Point[] points = new Point[function.getCount()];
-            for (int i = 0; i < function.getCount(); i++) {
-                points[i] = new Point(function.getX(i), function.getY(i));
-            }
+            Point[] pointsCopy = TabulatedFunctionOperationService.asPoints(function);
 
             return new Iterator<Point>() {
                 private int currentIndex = 0;
-                private final Point[] copy = points;
+                private final Point[] copy = pointsCopy;
 
                 @Override
                 public boolean hasNext() {
