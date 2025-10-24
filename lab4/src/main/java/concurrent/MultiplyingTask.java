@@ -11,18 +11,12 @@ public class MultiplyingTask implements Runnable {
 
     @Override
     public void run() {
-        try {
-            for (int i = 0; i < function.getCount(); i++) {
-                synchronized (function) {
-                    double currentY = function.getY(i);
-                    function.setY(i, currentY * 2);
-                }
+        for (int i = 0; i < function.getCount(); i++) {
+            synchronized (function) {
+                double currentY = function.getY(i);
+                function.setY(i, currentY * 2);
             }
-
-            System.out.println("Поток " + Thread.currentThread().getName() + " завершил выполнение задачи");
-
-        } catch (Exception e) {
-            System.err.println("Ошибка в потоке " + Thread.currentThread().getName() + ": " + e.getMessage());
         }
+        System.out.println("Thread " + Thread.currentThread().getName() + " completed the task");
     }
 }
