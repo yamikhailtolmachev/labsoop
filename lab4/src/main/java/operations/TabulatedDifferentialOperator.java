@@ -4,6 +4,7 @@ import functions.Point;
 import functions.TabulatedFunction;
 import functions.factory.TabulatedFunctionFactory;
 import functions.factory.ArrayTabulatedFunctionFactory;
+import concurrent.SynchronizedTabulatedFunction;
 
 public class TabulatedDifferentialOperator implements DifferentialOperator<TabulatedFunction> {
     private TabulatedFunctionFactory factory;
@@ -45,5 +46,18 @@ public class TabulatedDifferentialOperator implements DifferentialOperator<Tabul
         yValues[pointCount - 1] = yValues[pointCount - 2];
 
         return factory.create(xValues, yValues);
+    }
+
+    public TabulatedFunction deriveSynchronously(TabulatedFunction function) {
+        SynchronizedTabulatedFunction syncFunction = (function instanceof SynchronizedTabulatedFunction)
+                ? (SynchronizedTabulatedFunction) function
+                : new SynchronizedTabulatedFunction(function);
+
+        return syncFunction.doSynchronously(new SynchronizedTabulatedFunction.Operation<TabulatedFunction>() {
+            @Override
+            public TabulatedFunction apply(SynchronizedTabulatedFunction func) {
+                return derive(func);
+            }
+        });
     }
 }
