@@ -189,4 +189,171 @@ public class SynchronizedTabulatedFunctionTest {
         assertEquals(3.0, pointFromIterator1.x);
         assertEquals(30.0, pointFromIterator1.y);
     }
+
+    @Test
+    public void testDoSynchronouslyWithReturnValue() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2, 3}, new double[]{4, 5, 6});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        Double result = syncFunction.doSynchronously(new SynchronizedTabulatedFunction.Operation<Double>() {
+            @Override
+            public Double apply(SynchronizedTabulatedFunction function) {
+                return function.getY(0) + function.getY(1) + function.getY(2);
+            }
+        });
+
+        assertEquals(15.0, result, 1e-9);
+    }
+
+    @Test
+    public void testDoSynchronouslyWithVoid() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2, 3}, new double[]{1, 2, 3});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        Void result = syncFunction.doSynchronously(new SynchronizedTabulatedFunction.Operation<Void>() {
+            @Override
+            public Void apply(SynchronizedTabulatedFunction function) {
+                function.setY(0, 10.0);
+                function.setY(1, 20.0);
+                function.setY(2, 30.0);
+                return null;
+            }
+        });
+
+        assertNull(result);
+        assertEquals(10.0, syncFunction.getY(0), 1e-9);
+        assertEquals(20.0, syncFunction.getY(1), 1e-9);
+        assertEquals(30.0, syncFunction.getY(2), 1e-9);
+    }
+
+    @Test
+    public void testDoSynchronouslyWithLambda() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2, 3}, new double[]{2, 4, 6});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        Double average = syncFunction.doSynchronously(func -> {
+            double sum = 0;
+            for (int i = 0; i < func.getCount(); i++) {
+                sum += func.getY(i);
+            }
+            return sum / func.getCount();
+        });
+
+        assertEquals(4.0, average, 1e-9);
+    }
+
+    @Test
+    public void testDoSynchronouslyWithStringReturn() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2, 3}, new double[]{10, 20, 30});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        String description = syncFunction.doSynchronously(func -> {
+            return String.format("Function[%d points: %.1f-%.1f]",
+                    func.getCount(), func.leftBound(), func.rightBound());
+        });
+
+        assertEquals("Function[3 points: 1.0-3.0]", description);
+    }
+
+    @Test
+    public void testDoSynchronouslyComplexOperation() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{0, 1, 2}, new double[]{0, 1, 2});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        Boolean allPositive = syncFunction.doSynchronously(func -> {
+            boolean positive = true;
+            for (int i = 0; i < func.getCount(); i++) {
+                if (func.getY(i) < 0) {
+                    positive = false;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < func.getCount(); i++) {
+                func.setY(i, func.getY(i) * 2);
+            }
+
+            return positive;
+        });
+
+        assertTrue(allPositive);
+        assertEquals(2.0, syncFunction.getY(1), 1e-9); // Проверяем что изменения сохранились
+    }
+
+    @Test
+    public void testDoSynchronouslyWithIntegerReturn() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2, 3, 4}, new double[]{5, 6, 7, 8});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        Integer pointCount = syncFunction.doSynchronously(func -> {
+            return func.getCount();
+        });
+
+        assertEquals(4, pointCount);
+    }
+
+    @Test
+    public void testDoSynchronouslyMultipleOperationsAtomicity() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2}, new double[]{10, 20});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        String result = syncFunction.doSynchronously(func -> {
+            double oldY0 = func.getY(0);
+            func.setY(0, oldY0 * 3);
+            double newY0 = func.getY(0);
+            func.setY(1, func.getY(1) + 5);
+
+            return String.format("Updated: %.1f -> %.1f", oldY0, newY0);
+        });
+
+        assertEquals("Updated: 10.0 -> 30.0", result);
+        assertEquals(30.0, syncFunction.getY(0), 1e-9);
+        assertEquals(25.0, syncFunction.getY(1), 1e-9);
+    }
+
+    @Test
+    public void testDoSynchronouslyWithVoidLambda() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2}, new double[]{1, 2});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        Void result = syncFunction.doSynchronously(func -> {
+            for (int i = 0; i < func.getCount(); i++) {
+                func.setY(i, func.getY(i) * 10);
+            }
+            return null;
+        });
+
+        assertNull(result);
+        assertEquals(10.0, syncFunction.getY(0), 1e-9);
+        assertEquals(20.0, syncFunction.getY(1), 1e-9);
+    }
+
+    @Test
+    public void testDoSynchronouslyWithPointReturn() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2, 3}, new double[]{4, 5, 6});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        Point middlePoint = syncFunction.doSynchronously(func -> {
+            int middleIndex = func.getCount() / 2;
+            return new Point(func.getX(middleIndex), func.getY(middleIndex));
+        });
+
+        assertEquals(2.0, middlePoint.x, 1e-9);
+        assertEquals(5.0, middlePoint.y, 1e-9);
+    }
+
+    @Test
+    public void testDoSynchronouslyExceptionHandling() {
+        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2}, new double[]{1, 2});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            syncFunction.doSynchronously(func -> {
+                if (func.getCount() > 0) {
+                    throw new IllegalArgumentException("Test exception");
+                }
+                return null;
+            });
+        });
+    }
 }
