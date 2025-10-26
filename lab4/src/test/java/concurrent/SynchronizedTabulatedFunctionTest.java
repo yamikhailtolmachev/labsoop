@@ -266,7 +266,7 @@ public class SynchronizedTabulatedFunctionTest {
         });
 
         assertTrue(allPositive);
-        assertEquals(2.0, syncFunction.getY(1), 1e-9); // Проверяем что изменения сохранились
+        assertEquals(2.0, syncFunction.getY(1), 1e-9);
     }
 
     @Test
