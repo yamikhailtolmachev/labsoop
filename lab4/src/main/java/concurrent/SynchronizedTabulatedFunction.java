@@ -4,6 +4,7 @@ import functions.TabulatedFunction;
 import functions.Point;
 import operations.TabulatedFunctionOperationService;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class SynchronizedTabulatedFunction implements TabulatedFunction {
     private final TabulatedFunction function;
@@ -16,65 +17,47 @@ public class SynchronizedTabulatedFunction implements TabulatedFunction {
 
     @Override
     public int getCount() {
-        synchronized (lock) {
-            return function.getCount();
-        }
+        synchronized (lock) { return function.getCount(); }
     }
 
     @Override
     public double getX(int index) {
-        synchronized (lock) {
-            return function.getX(index);
-        }
+        synchronized (lock) { return function.getX(index); }
     }
 
     @Override
     public double getY(int index) {
-        synchronized (lock) {
-            return function.getY(index);
-        }
+        synchronized (lock) { return function.getY(index); }
     }
 
     @Override
     public void setY(int index, double value) {
-        synchronized (lock) {
-            function.setY(index, value);
-        }
+        synchronized (lock) { function.setY(index, value); }
     }
 
     @Override
     public int indexOfX(double x) {
-        synchronized (lock) {
-            return function.indexOfX(x);
-        }
+        synchronized (lock) { return function.indexOfX(x); }
     }
 
     @Override
     public int indexOfY(double y) {
-        synchronized (lock) {
-            return function.indexOfY(y);
-        }
+        synchronized (lock) { return function.indexOfY(y); }
     }
 
     @Override
     public double leftBound() {
-        synchronized (lock) {
-            return function.leftBound();
-        }
+        synchronized (lock) { return function.leftBound(); }
     }
 
     @Override
     public double rightBound() {
-        synchronized (lock) {
-            return function.rightBound();
-        }
+        synchronized (lock) { return function.rightBound(); }
     }
 
     @Override
     public double apply(double x) {
-        synchronized (lock) {
-            return function.apply(x);
-        }
+        synchronized (lock) { return function.apply(x); }
     }
 
     @Override
@@ -93,6 +76,9 @@ public class SynchronizedTabulatedFunction implements TabulatedFunction {
 
                 @Override
                 public Point next() {
+                    if (!hasNext()) {
+                        throw new NoSuchElementException("No more elements in iterator");
+                    }
                     return copy[currentIndex++];
                 }
             };

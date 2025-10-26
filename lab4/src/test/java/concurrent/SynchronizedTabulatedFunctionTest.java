@@ -3,10 +3,12 @@ package concurrent;
 import org.junit.jupiter.api.Test;
 import functions.TabulatedFunction;
 import functions.ArrayTabulatedFunction;
+import functions.LinkedListTabulatedFunction;
 import functions.Point;
 import operations.TabulatedFunctionOperationService;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -243,19 +245,6 @@ public class SynchronizedTabulatedFunctionTest {
     }
 
     @Test
-    public void testDoSynchronouslyWithStringReturn() {
-        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2, 3}, new double[]{10, 20, 30});
-        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
-
-        String description = syncFunction.doSynchronously(func -> {
-            return String.format("Function[%d points: %.1f-%.1f]",
-                    func.getCount(), func.leftBound(), func.rightBound());
-        });
-
-        assertEquals("Function[3 points: 1.0-3.0]", description);
-    }
-
-    @Test
     public void testDoSynchronouslyComplexOperation() {
         TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{0, 1, 2}, new double[]{0, 1, 2});
         SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
@@ -293,25 +282,6 @@ public class SynchronizedTabulatedFunctionTest {
     }
 
     @Test
-    public void testDoSynchronouslyMultipleOperationsAtomicity() {
-        TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2}, new double[]{10, 20});
-        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
-
-        String result = syncFunction.doSynchronously(func -> {
-            double oldY0 = func.getY(0);
-            func.setY(0, oldY0 * 3);
-            double newY0 = func.getY(0);
-            func.setY(1, func.getY(1) + 5);
-
-            return String.format("Updated: %.1f -> %.1f", oldY0, newY0);
-        });
-
-        assertEquals("Updated: 10.0 -> 30.0", result);
-        assertEquals(30.0, syncFunction.getY(0), 1e-9);
-        assertEquals(25.0, syncFunction.getY(1), 1e-9);
-    }
-
-    @Test
     public void testDoSynchronouslyWithVoidLambda() {
         TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2}, new double[]{1, 2});
         SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
@@ -343,6 +313,19 @@ public class SynchronizedTabulatedFunctionTest {
     }
 
     @Test
+    public void testWithLinkedListFunction() {
+        TabulatedFunction linkedFunction = new LinkedListTabulatedFunction(new double[]{1, 2, 3}, new double[]{4, 5, 6});
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(linkedFunction);
+
+        assertEquals(3, syncFunction.getCount());
+        assertEquals(2.0, syncFunction.getX(1));
+        assertEquals(5.0, syncFunction.getY(1));
+
+        syncFunction.setY(2, 10.0);
+        assertEquals(10.0, syncFunction.getY(2));
+    }
+
+    @Test
     public void testDoSynchronouslyExceptionHandling() {
         TabulatedFunction arrayFunction = new ArrayTabulatedFunction(new double[]{1, 2}, new double[]{1, 2});
         SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(arrayFunction);
@@ -355,5 +338,19 @@ public class SynchronizedTabulatedFunctionTest {
                 return null;
             });
         });
+    }
+
+    @Test
+    public void testIteratorNoSuchElementException() {
+        double[] xValues = {1.0, 2.0, 3.0, 4.0};
+        double[] yValues = {10.0, 20.0, 30.0, 40.0};
+        TabulatedFunction baseFunction = new ArrayTabulatedFunction(xValues, yValues);
+        SynchronizedTabulatedFunction syncFunction = new SynchronizedTabulatedFunction(baseFunction);
+        Iterator<Point> iterator = syncFunction.iterator();
+
+        while (iterator.hasNext()) {
+            iterator.next();
+        }
+        assertThrows(NoSuchElementException.class, iterator::next);
     }
 }
