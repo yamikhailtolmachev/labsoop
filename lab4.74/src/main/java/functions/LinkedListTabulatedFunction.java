@@ -6,8 +6,11 @@ import java.io.Serializable;
 import exceptions.ArrayIsNotSortedException;
 import exceptions.DifferentLengthOfArraysException;
 import exceptions.InterpolationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LinkedListTabulatedFunction extends AbstractTabulatedFunction implements Insertable, Removable, Serializable {
+    private static final Logger logger = LoggerFactory.getLogger(LinkedListTabulatedFunction.class);
     private static final long serialVersionUID = 852741963258L;
 
     private Node head;
@@ -48,6 +51,8 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     @Override
     public void insert(double x, double y) {
+        logger.info("Вставка точки (" + x + ", " + y + ") в связный список");
+
         if (head == null) {
             addNode(x, y);
             return;
@@ -88,12 +93,16 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
     @Override
     public void remove(int index) {
         if (index < 0 || index >= count) {
+            logger.error("Индекс удаления вне границ: " + index + " (размер: " + count + ")");
             throw new IllegalArgumentException("Index: " + index + ", Size: " + count);
         }
 
         if (count <= 2) {
+            logger.error("Невозможно удалить точку из связного списка - требуется минимум 2 точки");
             throw new IllegalStateException("Cannot remove point - must have at least 2 points in tabulated function");
         }
+
+        logger.info("Удаление точки на индексе " + index + " из связного списка");
 
         Node nodeToRemove = getNode(index);
 
@@ -112,6 +121,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     public LinkedListTabulatedFunction(double[] xValues, double[] yValues) {
         if (xValues.length < 2) {
+            logger.error("Недостаточно точек для связного списка: " + xValues.length);
             throw new IllegalArgumentException("Minimum number of points: 2");
         }
 
@@ -123,14 +133,18 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
         for (int i = 0; i < xValues.length; i++) {
             addNode(xValues[i], yValues[i]);
         }
+        logger.info("Создан LinkedListTabulatedFunction с " + count + " точками");
     }
 
     public LinkedListTabulatedFunction(MathFunction source, double xFrom, double xTo, int count) {
         if (count < 2) {
+            logger.error("Недостаточно точек для связного списка: " + count);
             throw new IllegalArgumentException("Minimum number of points: 2");
         }
 
         this.count = 0;
+
+        logger.info("Создание LinkedListTabulatedFunction от " + xFrom + " до " + xTo + " с " + count + " точками");
 
         if (xFrom > xTo) {
             double temp = xFrom;
@@ -155,6 +169,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
 
     private Node getNode(int index) {
         if (index < 0 || index >= count) {
+            logger.error("Индекс узла вне диапазона: " + index);
             throw new IllegalArgumentException("The index is out of range: " + index);
         }
 
@@ -181,6 +196,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
     @Override
     public double getX(int index) {
         if (index < 0 || index >= count) {
+            logger.error("Индекс x вне границ: " + index);
             throw new IllegalArgumentException("Index out of bounds: " + index);
         }
         return getNode(index).x;
@@ -189,6 +205,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
     @Override
     public double getY(int index) {
         if (index < 0 || index >= count) {
+            logger.error("Индекс y вне границ: " + index);
             throw new IllegalArgumentException("Index out of bounds: " + index);
         }
         return getNode(index).y;
@@ -197,6 +214,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
     @Override
     public void setY(int index, double value) {
         if (index < 0 || index >= count) {
+            logger.error("Индекс установки y вне границ: " + index);
             throw new IllegalArgumentException("Index out of bounds: " + index);
         }
         getNode(index).y = value;
@@ -257,6 +275,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
         }
 
         if (x < head.x) {
+            logger.error("x меньше левой границы: " + x);
             throw new IllegalArgumentException("x is less than left bound: " + x);
         }
         if (x > head.prev.x) {
@@ -295,6 +314,7 @@ public class LinkedListTabulatedFunction extends AbstractTabulatedFunction imple
         Node rightNode = getNode(floorIndex + 1);
 
         if (x < leftNode.x || x > rightNode.x) {
+            logger.error("x вне интервала интерполяции: x = " + x + ", интервал = [" + leftNode.x + ", " + rightNode.x + "]");
             throw new InterpolationException("x = " + x + " is outside interpolation interval [" + leftNode.x + ", " + rightNode.x + "]");
         }
 
