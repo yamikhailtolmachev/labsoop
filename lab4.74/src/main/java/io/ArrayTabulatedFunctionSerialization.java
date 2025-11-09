@@ -4,10 +4,15 @@ import functions.TabulatedFunction;
 import functions.ArrayTabulatedFunction;
 import operations.TabulatedDifferentialOperator;
 import java.io.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ArrayTabulatedFunctionSerialization {
+    private static final Logger logger = LoggerFactory.getLogger(ArrayTabulatedFunctionSerialization.class);
 
     public static void main(String[] args) {
+        logger.info("Начало сериализации ArrayTabulatedFunction");
+
         try (
                 FileOutputStream fileOutputStream = new FileOutputStream("output/serialized array functions.bin");
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream)
@@ -25,9 +30,14 @@ public class ArrayTabulatedFunctionSerialization {
             FunctionsIO.serialize(bufferedOutputStream, firstDerivative);
             FunctionsIO.serialize(bufferedOutputStream, secondDerivative);
 
+            logger.info("Сериализация завершена: функция и две производные");
+
         } catch (IOException e) {
+            logger.error("Ошибка сериализации", e);
             e.printStackTrace();
         }
+
+        logger.info("Начало десериализации ArrayTabulatedFunction");
 
         try (
                 FileInputStream fileInputStream = new FileInputStream("output/serialized array functions.bin");
@@ -37,6 +47,8 @@ public class ArrayTabulatedFunctionSerialization {
             TabulatedFunction deserializedFirstDerivative = FunctionsIO.deserialize(bufferedInputStream);
             TabulatedFunction deserializedSecondDerivative = FunctionsIO.deserialize(bufferedInputStream);
 
+            logger.info("Десериализация завершена");
+
             System.out.println("Исходная функция:");
             System.out.println(deserializedFunction.toString());
             System.out.println("Первая производная:");
@@ -45,7 +57,10 @@ public class ArrayTabulatedFunctionSerialization {
             System.out.println(deserializedSecondDerivative.toString());
 
         } catch (IOException | ClassNotFoundException e) {
+            logger.error("Ошибка десериализации", e);
             e.printStackTrace();
         }
+
+        logger.info("Завершение ArrayTabulatedFunctionSerialization");
     }
 }
