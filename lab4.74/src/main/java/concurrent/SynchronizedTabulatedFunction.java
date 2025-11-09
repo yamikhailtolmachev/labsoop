@@ -5,8 +5,11 @@ import functions.Point;
 import operations.TabulatedFunctionOperationService;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SynchronizedTabulatedFunction implements TabulatedFunction {
+    private static final Logger logger = LoggerFactory.getLogger(SynchronizedTabulatedFunction.class);
     private final TabulatedFunction function;
     private final Object lock;
 
@@ -90,6 +93,7 @@ public class SynchronizedTabulatedFunction implements TabulatedFunction {
     }
 
     public <T> T doSynchronously(Operation<? extends T> operation) {
+        logger.info("Выполнение синхронизированной операции");
         synchronized (lock) {
             return operation.apply(this);
         }
