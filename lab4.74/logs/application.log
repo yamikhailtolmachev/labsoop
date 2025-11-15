@@ -1,0 +1,1715 @@
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 1.0
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг при установке: 0.0
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг при установке: -Infinity
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 0.2
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 0.3
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 0.4
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E10
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 1.0E10
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 1.0E15
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.123456789
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.123456789
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 0.987654321
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 0.05
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 1.0
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.5
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.5
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 2.0
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 2.0
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг при установке: Infinity
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.5
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.5
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг при установке: -1.0
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг: -Infinity
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг: 0.0
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг при установке: -0.1
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг при установке: -1.0
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг: Infinity
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E-10
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 1.0E-10
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Шаг изменен на 1.0E-15
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг: -0.1
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг: -1.0
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг: -1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг при установке: NaN
+2025-11-09 11:55:25 [main] ERROR o.SteppingDifferentialOperator - Недопустимый шаг: NaN
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Деление табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Сложение двух табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Вычитание табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Умножение табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Деление табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] ERROR o.TabulatedFunctionOperationService - Фабрика не может быть null
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Умножение табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Деление табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Сложение двух табличных функций
+2025-11-09 11:55:25 [main] ERROR o.TabulatedFunctionOperationService - Несовпадение количества точек: a = 3, b = 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Умножение табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Деление табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Деление табличных функций
+2025-11-09 11:55:25 [main] ERROR o.TabulatedFunctionOperationService - Обнаружено деление на ноль
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Сложение двух табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Сложение двух табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Вычитание табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Сложение двух табличных функций
+2025-11-09 11:55:25 [main] ERROR o.TabulatedFunctionOperationService - Несовпадение значений x на индексе 1: 2.0 vs 2.5
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Деление табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Умножение табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 100
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 100 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Сложение двух табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Умножение табличных функций
+2025-11-09 11:55:25 [main] INFO  o.TabulatedFunctionOperationService - Операция завершена успешно для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] ERROR o.TabulatedFunctionOperationService - Фабрика не может быть null
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 5 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало синхронного вычисления производной
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 4 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 4 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 5 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало синхронного вычисления производной
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало синхронного вычисления производной
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 5 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало синхронного вычисления производной
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 4 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 4 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало синхронного вычисления производной
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 4 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 4 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 4 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 4 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало синхронного вычисления производной
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало синхронного вычисления производной
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало синхронного вычисления производной
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 3 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 3 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 5 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 5 точками
+2025-11-09 11:55:25 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 5 точек
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Индекс y вне границ: -1
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Индекс y вне границ: 10
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 3 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Недостаточно точек для связного списка: 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - x меньше левой границы: 0.5
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - x меньше левой границы: -1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Индекс установки y вне границ: -1
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Индекс установки y вне границ: 10
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (2.0, 10.0) в связный список
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (2.0, 20.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 5.0 до 1.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - x вне интервала интерполяции: x = 0.5, интервал = [1.0, 2.0]
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - x вне интервала интерполяции: x = 2.5, интервал = [1.0, 2.0]
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (4.0, 40.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (-1.0, -10.0) в связный список
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (1.0, 10.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 0 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (1.0, 10.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (2.0, 20.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 2 из связного списка
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 2 из связного списка
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 2 из связного списка
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Невозможно удалить точку из связного списка - требуется минимум 2 точки
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Недостаточно точек для связного списка: 1
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Недостаточно точек для связного списка: 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Недостаточно точек для связного списка: 1
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 3, yValues = 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 2: 2.0 <= 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 1 из связного списка
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 2 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 2 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 1 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Индекс x вне границ: -1
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Индекс x вне границ: 10
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (1.5, 2.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (2.0, 4.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = -1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = -1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Индекс удаления вне границ: -1 (размер: 3)
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Индекс удаления вне границ: 3 (размер: 3)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 3, yValues = 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 1 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 2, yValues = 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 0 из связного списка
+2025-11-09 11:55:25 [main] ERROR f.LinkedListTabulatedFunction - Невозможно удалить точку из связного списка - требуется минимум 2 точки
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (2.0, 25.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 6.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 6.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Вставка точки (1.0, 10.0) в связный список
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 1 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 0.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 2.0 до 2.0 с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 1 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создание LinkedListTabulatedFunction от 0.0 до 3.0 с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Удаление точки на индексе 0 из связного списка
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  c.SynchronizedTabulatedFunction - Выполнение синхронизированной операции
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  f.f.LinkedListTabulatedFunctionFactory - Создание LinkedListTabulatedFunction через фабрику с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 10.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = -2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = -1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 16.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 1.0E-4
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.1
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 1.0E-5
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Создан LeftSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Создан RightSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.LeftSteppingDifferentialOperator - Вычисление левой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.RightSteppingDifferentialOperator - Вычисление правой производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.01
+2025-11-09 11:55:25 [main] INFO  o.SteppingDifferentialOperator - Создан SteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Создан MiddleSteppingDifferentialOperator с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  o.MiddleSteppingDifferentialOperator - Вычисление центральной производной с шагом 0.001
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 2 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 3, yValues = 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 2: 2.0 <= 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 2: 2.0 <= 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 5 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 4.0 <= 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 10.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 10.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 2 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 2 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 2 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 5 точек
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.0
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 0, yValues = 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  f.LinkedListTabulatedFunction - Создан LinkedListTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 3 точек
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 3, yValues = 2
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 2: 2.0 <= 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - x меньше левой границы: 0.5
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - x меньше левой границы: -1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Индекс установки y вне границ: -1
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Индекс установки y вне границ: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 1
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Недостаточно точек: 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (3.0, 9.0)
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (4.0, 16.0)
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (2.0, 4.0)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (1.0, 1.0)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Точное совпадение найдено на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - x вне интервала интерполяции: x = 0.5, интервал = [1.0, 2.0]
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - x вне интервала интерполяции: x = 2.5, интервал = [1.0, 2.0]
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (4.0, 16.0)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (2.0, 4.0)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 1
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Недостаточно точек: 1
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 3, yValues = 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 2: 2.0 <= 2.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 4.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция справа для x = 5.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 1.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Интерполяция для x = 2.5
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction от 0.0 до 0.0 с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 3, yValues = 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 0
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction от 2.0 до 2.0 с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction от 0.0 до 2.0 с 3 точками
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 2, yValues = 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 2, yValues = 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 3.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (0.5, 0.25)
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (3.0, 9.0)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Индекс удаления вне границ: -1 (размер: 3)
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Индекс удаления вне границ: 3 (размер: 3)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Индекс x вне границ: -1
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Индекс x вне границ: 2
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Индекс y вне границ: -1
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Индекс y вне границ: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Вычисление функции в точке x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Экстраполяция слева для x = 0.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (1.0, 1.0)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Массив не отсортирован на индексе 1: 1.0 <= 1.0
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] ERROR functions.AbstractTabulatedFunction - Разная длина массивов: xValues = 2, yValues = 1
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction от 2.0 до 0.0 с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 4
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 4 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 1
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 3
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 3 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Вставка точки (2.0, 8.0)
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Удаление точки на индексе 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 2
+2025-11-09 11:55:25 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 11:55:25 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 2 точками
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Невозможно удалить точку - требуется минимум 2 точки
+2025-11-09 11:55:25 [main] ERROR functions.ArrayTabulatedFunction - Невозможно удалить точку - требуется минимум 2 точки
+2025-11-09 11:55:35 [main] INFO  i.LinkedListTabulatedFunctionSerialization - Запуск LinkedListTabulatedFunctionSerialization
+2025-11-09 11:55:35 [main] INFO  i.LinkedListTabulatedFunctionSerialization - Сериализация LinkedListTabulatedFunction
+2025-11-09 11:55:35 [main] ERROR i.LinkedListTabulatedFunctionSerialization - Ошибка сериализации LinkedListTabulatedFunction
+java.io.FileNotFoundException: output\serialized linked list functions.bin (Системе не удается найти указанный путь)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:255)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:210)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:120)
+	at io.LinkedListTabulatedFunctionSerialization.serializeFunctions(LinkedListTabulatedFunctionSerialization.java:24)
+	at io.LinkedListTabulatedFunctionSerialization.main(LinkedListTabulatedFunctionSerialization.java:15)
+2025-11-09 11:55:35 [main] INFO  i.LinkedListTabulatedFunctionSerialization - Десериализация LinkedListTabulatedFunction
+2025-11-09 11:55:35 [main] ERROR i.LinkedListTabulatedFunctionSerialization - Ошибка десериализации LinkedListTabulatedFunction
+java.io.FileNotFoundException: output\serialized linked list functions.bin (Системе не удается найти указанный путь)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:185)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:139)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109)
+	at io.LinkedListTabulatedFunctionSerialization.deserializeAndPrintFunctions(LinkedListTabulatedFunctionSerialization.java:52)
+	at io.LinkedListTabulatedFunctionSerialization.main(LinkedListTabulatedFunctionSerialization.java:16)
+2025-11-09 11:55:35 [main] INFO  i.LinkedListTabulatedFunctionSerialization - Завершение LinkedListTabulatedFunctionSerialization
+2025-11-09 11:55:56 [main] INFO  i.LinkedListTabulatedFunctionSerialization - Запуск LinkedListTabulatedFunctionSerialization
+2025-11-09 11:55:56 [main] INFO  i.LinkedListTabulatedFunctionSerialization - Сериализация LinkedListTabulatedFunction
+2025-11-09 11:55:56 [main] ERROR i.LinkedListTabulatedFunctionSerialization - Ошибка сериализации LinkedListTabulatedFunction
+java.io.FileNotFoundException: output\serialized linked list functions.bin (Системе не удается найти указанный путь)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:255)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:210)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:120)
+	at io.LinkedListTabulatedFunctionSerialization.serializeFunctions(LinkedListTabulatedFunctionSerialization.java:24)
+	at io.LinkedListTabulatedFunctionSerialization.main(LinkedListTabulatedFunctionSerialization.java:15)
+2025-11-09 11:55:56 [main] INFO  i.LinkedListTabulatedFunctionSerialization - Десериализация LinkedListTabulatedFunction
+2025-11-09 11:55:56 [main] ERROR i.LinkedListTabulatedFunctionSerialization - Ошибка десериализации LinkedListTabulatedFunction
+java.io.FileNotFoundException: output\serialized linked list functions.bin (Системе не удается найти указанный путь)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:185)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:139)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109)
+	at io.LinkedListTabulatedFunctionSerialization.deserializeAndPrintFunctions(LinkedListTabulatedFunctionSerialization.java:52)
+	at io.LinkedListTabulatedFunctionSerialization.main(LinkedListTabulatedFunctionSerialization.java:16)
+2025-11-09 11:55:56 [main] INFO  i.LinkedListTabulatedFunctionSerialization - Завершение LinkedListTabulatedFunctionSerialization
+2025-11-09 11:56:20 [main] INFO  i.ArrayTabulatedFunctionSerialization - Начало сериализации ArrayTabulatedFunction
+2025-11-09 11:56:20 [main] ERROR i.ArrayTabulatedFunctionSerialization - Ошибка сериализации
+java.io.FileNotFoundException: output\serialized array functions.bin (Системе не удается найти указанный путь)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:255)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:210)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:120)
+	at io.ArrayTabulatedFunctionSerialization.main(ArrayTabulatedFunctionSerialization.java:17)
+2025-11-09 11:56:20 [main] INFO  i.ArrayTabulatedFunctionSerialization - Начало десериализации ArrayTabulatedFunction
+2025-11-09 11:56:20 [main] ERROR i.ArrayTabulatedFunctionSerialization - Ошибка десериализации
+java.io.FileNotFoundException: output\serialized array functions.bin (Системе не удается найти указанный путь)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:185)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:139)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109)
+	at io.ArrayTabulatedFunctionSerialization.main(ArrayTabulatedFunctionSerialization.java:43)
+2025-11-09 11:56:20 [main] INFO  i.ArrayTabulatedFunctionSerialization - Завершение ArrayTabulatedFunctionSerialization
+2025-11-09 12:00:29 [main] INFO  i.ArrayTabulatedFunctionSerialization - Начало сериализации ArrayTabulatedFunction
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 12:00:29 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 12:00:29 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 5 точками
+2025-11-09 12:00:29 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 5 точек
+2025-11-09 12:00:29 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 5 точками
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 12:00:29 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 12:00:29 [main] INFO  o.TabulatedDifferentialOperator - Начало вычисления производной для функции с 5 точками
+2025-11-09 12:00:29 [main] INFO  o.TabulatedDifferentialOperator - Вычисление производной завершено для 5 точек
+2025-11-09 12:00:29 [main] INFO  f.f.ArrayTabulatedFunctionFactory - Создание ArrayTabulatedFunction через фабрику с 5 точками
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Проверка длины массивов пройдена: 5
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Проверка сортировки массива пройдена
+2025-11-09 12:00:29 [main] INFO  functions.ArrayTabulatedFunction - Создан ArrayTabulatedFunction с 5 точками
+2025-11-09 12:00:29 [main] INFO  io.FunctionsIO - Сериализация табличной функции с 5 точками
+2025-11-09 12:00:29 [main] INFO  io.FunctionsIO - Сериализация табличной функции с 5 точками
+2025-11-09 12:00:29 [main] INFO  io.FunctionsIO - Сериализация табличной функции с 5 точками
+2025-11-09 12:00:29 [main] INFO  i.ArrayTabulatedFunctionSerialization - Сериализация завершена: функция и две производные
+2025-11-09 12:00:29 [main] INFO  i.ArrayTabulatedFunctionSerialization - Начало десериализации ArrayTabulatedFunction
+2025-11-09 12:00:29 [main] INFO  io.FunctionsIO - Десериализация табличной функции
+2025-11-09 12:00:29 [main] INFO  io.FunctionsIO - Десериализация табличной функции
+2025-11-09 12:00:29 [main] INFO  io.FunctionsIO - Десериализация табличной функции
+2025-11-09 12:00:29 [main] INFO  i.ArrayTabulatedFunctionSerialization - Десериализация завершена
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 5 точек
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 5 точек
+2025-11-09 12:00:29 [main] INFO  functions.AbstractTabulatedFunction - Преобразование функции в строку: 5 точек
+2025-11-09 12:00:29 [main] INFO  i.ArrayTabulatedFunctionSerialization - Завершение ArrayTabulatedFunctionSerialization

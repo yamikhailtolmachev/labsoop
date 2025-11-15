@@ -1,0 +1,134 @@
+2025-11-08 22:02:03.405 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.423 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.423 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.424 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 1
+2025-11-08 22:02:03.424 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 3
+2025-11-08 22:02:03.425 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.428 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.430 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.431 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.432 [main] ERROR functions.ArrayTabulatedFunction - Нет следующего элемента в итераторе
+2025-11-08 22:02:03.434 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.435 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.437 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.437 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.438 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.439 [main] ERROR functions.ArrayTabulatedFunction - x=0.5 меньше левой границы: 1.0
+2025-11-08 22:02:03.440 [main] ERROR functions.ArrayTabulatedFunction - x=-1.0 меньше левой границы: 1.0
+2025-11-08 22:02:03.442 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.443 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.444 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.446 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.447 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.447 [main] ERROR functions.ArrayTabulatedFunction - Индекс вне границ: -1, размер: 2
+2025-11-08 22:02:03.448 [main] ERROR functions.ArrayTabulatedFunction - Индекс вне границ: 2, размер: 2
+2025-11-08 22:02:03.449 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.450 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 1
+2025-11-08 22:02:03.450 [main] ERROR functions.ArrayTabulatedFunction - Попытка создания функции с менее чем 2 точками: 1
+2025-11-08 22:02:03.451 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.452 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.452 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 3
+2025-11-08 22:02:03.452 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 4
+2025-11-08 22:02:03.452 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 5
+2025-11-08 22:02:03.453 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.453 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 4
+2025-11-08 22:02:03.454 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.454 [main] ERROR functions.ArrayTabulatedFunction - x=0.5 вне интервала интерполяции [1.0, 2.0]
+2025-11-08 22:02:03.456 [main] ERROR functions.ArrayTabulatedFunction - x=2.5 вне интервала интерполяции [1.0, 2.0]
+2025-11-08 22:02:03.457 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.457 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 0
+2025-11-08 22:02:03.457 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 3
+2025-11-08 22:02:03.458 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.460 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.460 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 4
+2025-11-08 22:02:03.461 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.462 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.463 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.463 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 4
+2025-11-08 22:02:03.463 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.463 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 1
+2025-11-08 22:02:03.463 [main] ERROR functions.ArrayTabulatedFunction - Попытка создания функции с менее чем 2 точками: 1
+2025-11-08 22:02:03.465 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.465 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.466 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.468 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.469 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.470 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.470 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 3
+2025-11-08 22:02:03.470 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 3
+2025-11-08 22:02:03.471 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.476 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.478 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.479 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.480 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из функции, интервал: [0.0, 0.0], точек: 5
+2025-11-08 22:02:03.480 [main] INFO  functions.ArrayTabulatedFunction - ArrayTabulatedFunction создана успешно
+2025-11-08 22:02:03.481 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.485 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.486 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.487 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.487 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 0
+2025-11-08 22:02:03.487 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 3
+2025-11-08 22:02:03.487 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 2
+2025-11-08 22:02:03.487 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 2
+2025-11-08 22:02:03.488 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.492 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из функции, интервал: [2.0, 2.0], точек: 3
+2025-11-08 22:02:03.492 [main] INFO  functions.ArrayTabulatedFunction - ArrayTabulatedFunction создана успешно
+2025-11-08 22:02:03.493 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из функции, интервал: [0.0, 2.0], точек: 3
+2025-11-08 22:02:03.493 [main] INFO  functions.ArrayTabulatedFunction - ArrayTabulatedFunction создана успешно
+2025-11-08 22:02:03.495 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.496 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.496 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.497 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.498 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.499 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.500 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.501 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 5
+2025-11-08 22:02:03.501 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 1
+2025-11-08 22:02:03.501 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 4
+2025-11-08 22:02:03.501 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 2
+2025-11-08 22:02:03.501 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 3
+2025-11-08 22:02:03.503 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.503 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 2
+2025-11-08 22:02:03.503 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 3
+2025-11-08 22:02:03.503 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 1
+2025-11-08 22:02:03.503 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 2
+2025-11-08 22:02:03.504 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.506 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.506 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 1
+2025-11-08 22:02:03.506 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 3
+2025-11-08 22:02:03.506 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.507 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 3
+2025-11-08 22:02:03.507 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 4
+2025-11-08 22:02:03.512 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.512 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: -1
+2025-11-08 22:02:03.512 [main] ERROR functions.ArrayTabulatedFunction - Некорректный индекс: -1, размер: 3
+2025-11-08 22:02:03.513 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 3
+2025-11-08 22:02:03.514 [main] ERROR functions.ArrayTabulatedFunction - Некорректный индекс: 3, размер: 3
+2025-11-08 22:02:03.514 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.515 [main] ERROR functions.ArrayTabulatedFunction - Индекс вне границ: -1, размер: 2
+2025-11-08 22:02:03.515 [main] ERROR functions.ArrayTabulatedFunction - Индекс вне границ: 2, размер: 2
+2025-11-08 22:02:03.515 [main] ERROR functions.ArrayTabulatedFunction - Индекс вне границ: -1, размер: 2
+2025-11-08 22:02:03.515 [main] ERROR functions.ArrayTabulatedFunction - Индекс вне границ: 2, размер: 2
+2025-11-08 22:02:03.516 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.517 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.517 [main] INFO  functions.ArrayTabulatedFunction - Точка вставлена, новый размер: 4
+2025-11-08 22:02:03.521 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.522 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.523 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.525 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из функции, интервал: [2.0, 0.0], точек: 3
+2025-11-08 22:02:03.525 [main] INFO  functions.ArrayTabulatedFunction - ArrayTabulatedFunction создана успешно
+2025-11-08 22:02:03.528 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.529 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.530 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.530 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 4
+2025-11-08 22:02:03.530 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 1
+2025-11-08 22:02:03.531 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 3
+2025-11-08 22:02:03.535 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 3
+2025-11-08 22:02:03.537 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 5
+2025-11-08 22:02:03.537 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 2
+2025-11-08 22:02:03.538 [main] INFO  functions.ArrayTabulatedFunction - Точка удалена, новый размер: 4
+2025-11-08 22:02:03.539 [main] INFO  functions.ArrayTabulatedFunction - Создание ArrayTabulatedFunction из массивов, размер: 2
+2025-11-08 22:02:03.540 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 0
+2025-11-08 22:02:03.540 [main] ERROR functions.ArrayTabulatedFunction - Попытка удаления при минимальном количестве точек: 2
+2025-11-08 22:02:03.540 [main] WARN  functions.ArrayTabulatedFunction - Удаление точки с индексом: 1
+2025-11-08 22:02:03.540 [main] ERROR functions.ArrayTabulatedFunction - Попытка удаления при минимальном количестве точек: 2
