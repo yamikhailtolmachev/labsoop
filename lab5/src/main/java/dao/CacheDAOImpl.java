@@ -107,16 +107,6 @@ public class CacheDAOImpl implements CacheDAO {
     }
 
     private CacheDTO mapResultSetToCache(ResultSet rs) throws SQLException {
-        CacheDTO cache = new CacheDTO();
-        cache.setCacheKey(rs.getString("cache_key"));
-        cache.setUserId((UUID) rs.getObject("user_id"));
-        cache.setFunctionExpression(rs.getString("function_expression"));
-        cache.setLeftBound(rs.getDouble("left_bound"));
-        cache.setRightBound(rs.getDouble("right_bound"));
-        cache.setPointsCount(rs.getInt("points_count"));
-        cache.setResultFunctionId((UUID) rs.getObject("result_function_id"));
-        cache.setComputedAt(rs.getTimestamp("computed_at"));
-        cache.setAccessCount(rs.getInt("access_count"));
-        return cache;
+        return mapper.CacheMapper.toDTO(rs);
     }
 }

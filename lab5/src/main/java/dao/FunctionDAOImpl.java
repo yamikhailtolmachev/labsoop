@@ -135,17 +135,6 @@ public class FunctionDAOImpl implements FunctionDAO {
     }
 
     private FunctionDTO mapResultSetToFunction(ResultSet rs) throws SQLException {
-        FunctionDTO function = new FunctionDTO();
-        function.setId((UUID) rs.getObject("id"));
-        function.setUserId((UUID) rs.getObject("user_id"));
-        function.setName(rs.getString("name"));
-        function.setType(rs.getString("type"));
-        function.setExpression(rs.getString("expression"));
-        function.setLeftBound(rs.getDouble("left_bound"));
-        function.setRightBound(rs.getDouble("right_bound"));
-        function.setPointsCount(rs.getInt("points_count"));
-        function.setPointsData(rs.getString("points_data"));
-        function.setCreatedAt(rs.getTimestamp("created_at"));
-        return function;
+        return mapper.FunctionMapper.toDTO(rs);
     }
 }

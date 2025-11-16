@@ -107,12 +107,6 @@ public class UserDAOImpl implements UserDAO {
     }
 
     private UserDTO mapResultSetToUser(ResultSet rs) throws SQLException {
-        UserDTO user = new UserDTO();
-        user.setId((UUID) rs.getObject("id"));
-        user.setUsername(rs.getString("username"));
-        user.setEmail(rs.getString("email"));
-        user.setPasswordHash(rs.getString("password_hash"));
-        user.setCreatedAt(rs.getTimestamp("created_at"));
-        return user;
+        return mapper.UserMapper.toDTO(rs);
     }
 }

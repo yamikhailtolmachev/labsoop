@@ -113,15 +113,6 @@ public class OperationDAOImpl implements OperationDAO {
     }
 
     private OperationDTO mapResultSetToOperation(ResultSet rs) throws SQLException {
-        OperationDTO operation = new OperationDTO();
-        operation.setId((UUID) rs.getObject("id"));
-        operation.setUserId((UUID) rs.getObject("user_id"));
-        operation.setFunction1Id((UUID) rs.getObject("function1_id"));
-        operation.setFunction2Id((UUID) rs.getObject("function2_id"));
-        operation.setResultFunctionId((UUID) rs.getObject("result_function_id"));
-        operation.setOperationType(rs.getString("operation_type"));
-        operation.setParameters(rs.getString("parameters"));
-        operation.setComputedAt(rs.getTimestamp("computed_at"));
-        return operation;
+        return mapper.OperationMapper.toDTO(rs);
     }
 }
