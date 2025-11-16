@@ -9,6 +9,7 @@ CREATE TABLE Functions (
     points_count INTEGER,
     points_data JSONB NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
     FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
 
@@ -22,11 +23,16 @@ CREATE INDEX idx_functions_type ON Functions(type);
 CREATE INDEX idx_functions_created_at ON Functions(created_at);
 CREATE INDEX idx_functions_expression ON Functions(expression);
 CREATE INDEX idx_functions_points_data ON Functions USING GIN (points_data);
+CREATE INDEX idx_functions_updated_at ON Functions(updated_at);
 
-COMMENT ON TABLE Functions IS 'Таблица для хранения математических функций';
 COMMENT ON COLUMN Functions.id IS 'Уникальный идентификатор функции';
-COMMENT ON COLUMN Functions.user_id IS 'Владелец функции (ссылка на Users)';
-COMMENT ON COLUMN Functions.name IS 'Название функции';
+COMMENT ON COLUMN Functions.user_id IS 'Идентификатор пользователя';
+COMMENT ON COLUMN Functions.name IS 'Пользовательское имя функции';
 COMMENT ON COLUMN Functions.type IS 'Тип функции: BASIC, COMPOSITE, OPERATION_RESULT';
 COMMENT ON COLUMN Functions.expression IS 'Математическое выражение функции';
-COMMENT ON COLUMN Functions.points_data IS 'Данные точек в JSON формате (НЕ поточечно)';
+COMMENT ON COLUMN Functions.left_bound IS 'Левая граница интервала определения функции';
+COMMENT ON COLUMN Functions.right_bound IS 'Правая граница интервала определения функции';
+COMMENT ON COLUMN Functions.points_count IS 'Количество точек, используемых для представления функции';
+COMMENT ON COLUMN Functions.points_data IS 'Данные точек функции, хранящиеся в формате JSONB (массив объектов с x и y)';
+COMMENT ON COLUMN Functions.created_at IS 'Дата и время создания записи';
+COMMENT ON COLUMN Functions.updated_at IS 'Дата и время последнего обновления записи';

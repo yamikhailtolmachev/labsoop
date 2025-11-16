@@ -4,6 +4,7 @@ CREATE TABLE Users (
     email VARCHAR(100) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
     CONSTRAINT valid_username CHECK (
         username IS NOT NULL AND
@@ -24,9 +25,12 @@ CREATE TABLE Users (
 CREATE INDEX idx_users_username ON Users(username);
 CREATE INDEX idx_users_email ON Users(email);
 CREATE INDEX idx_users_created_at ON Users(created_at);
+CREATE INDEX idx_users_updated_at ON Users(updated_at);
 
-COMMENT ON TABLE Users IS 'Таблица для хранения данных пользователей';
+COMMENT ON TABLE Users IS 'Хранит данные пользователей';
 COMMENT ON COLUMN Users.id IS 'Уникальный идентификатор пользователя';
-COMMENT ON COLUMN Users.username IS 'Логин пользователя (уникальный)';
-COMMENT ON COLUMN Users.email IS 'Электронная почта (уникальная)';
+COMMENT ON COLUMN Users.username IS 'Уникальное имя пользователя';
+COMMENT ON COLUMN Users.email IS 'Уникальный адрес электронной почты пользователя';
 COMMENT ON COLUMN Users.password_hash IS 'Хэш пароля пользователя';
+COMMENT ON COLUMN Users.created_at IS 'Дата и время создания записи';
+COMMENT ON COLUMN Users.updated_at IS 'Дата и время последнего обновления записи';
