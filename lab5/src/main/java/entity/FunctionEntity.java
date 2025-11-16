@@ -2,17 +2,15 @@ package entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.UUID;
-import com.fasterxml.jackson.databind.JsonNode;
 
 @Entity
 @Table(name = "functions")
 public class FunctionEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -37,7 +35,7 @@ public class FunctionEntity {
     private Integer pointsCount;
 
     @Column(name = "points_data", columnDefinition = "jsonb", nullable = false)
-    private JsonNode pointsData;
+    private String pointsData;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -47,7 +45,7 @@ public class FunctionEntity {
 
     protected FunctionEntity() {}
 
-    public FunctionEntity(UserEntity user, String name, String type, String expression, Double leftBound, Double rightBound, Integer pointsCount, JsonNode pointsData) {
+    public FunctionEntity(UserEntity user, String name, String type, String expression, Double leftBound, Double rightBound, Integer pointsCount, String pointsData) {
         this.user = user;
         this.name = name;
         this.type = type;
@@ -58,11 +56,11 @@ public class FunctionEntity {
         this.pointsData = pointsData;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -122,11 +120,11 @@ public class FunctionEntity {
         this.pointsCount = pointsCount;
     }
 
-    public JsonNode getPointsData() {
+    public String getPointsData() {
         return pointsData;
     }
 
-    public void setPointsData(JsonNode pointsData) {
+    public void setPointsData(String pointsData) {
         this.pointsData = pointsData;
     }
 
