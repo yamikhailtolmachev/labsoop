@@ -11,4 +11,8 @@ public interface CacheDAO {
     List<CacheDTO> findAllCache();
     void updateCacheAccess(String cacheKey);
     void deleteCache(String cacheKey);
+
+    List<CacheDTO> findCacheByMultipleCriteria(UUID userId, String expressionPattern, Integer minPoints, Integer maxPoints, String sortBy, String sortOrder);
+    List<CacheDTO> findMostAccessedCache(int limit);
+    List<CacheDTO> findRecentCache(UUID userId, int days);
 }

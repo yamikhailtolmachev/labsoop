@@ -11,4 +11,9 @@ public interface OperationDAO {
     List<OperationDTO> findOperationsByType(String operationType);
     List<OperationDTO> findAllOperations();
     void deleteOperation(UUID id);
+
+    List<OperationDTO> findOperationsByMultipleCriteria(UUID userId, String operationType, UUID functionId, String sortBy, String sortOrder);
+    List<OperationDTO> findOperationChainDepthFirst(UUID functionId);
+    List<OperationDTO> findRecentOperations(UUID userId, int days);
+    List<OperationDTO> findOperationsByFunctionHierarchy(UUID rootFunctionId);
 }

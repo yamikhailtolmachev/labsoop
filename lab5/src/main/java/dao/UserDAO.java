@@ -11,4 +11,7 @@ public interface UserDAO {
     List<UserDTO> findAllUsers();
     void updateUser(UserDTO user);
     void deleteUser(UUID id);
+
+    List<UserDTO> findUsersByMultipleCriteria(String usernamePattern, String emailPattern, String sortBy, String sortOrder);
+    List<UserDTO> findRecentUsers(int days);
 }

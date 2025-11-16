@@ -106,6 +106,126 @@ public class CacheDAOImpl implements CacheDAO {
         }
     }
 
+    public List<CacheDTO> findCacheByMultipleCriteria(UUID userId, String expressionPattern,
+                                                      Integer minPoints, Integer maxPoints,
+                                                      String sortBy, String sortOrder) {
+        logger.info("Starting multiple criteria search for cache - user: {}, expression: {}",
+                userId, expressionPattern);
+
+        List<CacheDTO> cacheEntries = new ArrayList<>();
+        StringBuilder sql = new StringBuilder("SELECT * FROM computation_cache WHERE 1=1");
+        List<Object> params = new ArrayList<>();
+
+        if (userId != null) {
+            sql.append(" AND user_id = ?");
+            params.add(userId);
+        }
+
+        if (expressionPattern != null && !expressionPattern.trim().isEmpty()) {
+            sql.append(" AND function_expression ILIKE ?");
+            params.add("%" + expressionPattern + "%");
+        }
+
+        if (minPoints != null) {
+            sql.append(" AND points_count >= ?");
+            params.add(minPoints);
+        }
+
+        if (maxPoints != null) {
+            sql.append(" AND points_count <= ?");
+            params.add(maxPoints);
+        }
+
+        if (sortBy != null && !sortBy.trim().isEmpty()) {
+            String validSortBy = getValidSortField(sortBy, "computed_at");
+            String validOrder = "DESC".equalsIgnoreCase(sortOrder) ? "DESC" : "ASC";
+            sql.append(" ORDER BY ").append(validSortBy).append(" ").append(validOrder);
+        } else {
+            sql.append(" ORDER BY computed_at DESC");
+        }
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+
+            for (int i = 0; i < params.size(); i++) {
+                stmt.setObject(i + 1, params.get(i));
+            }
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                cacheEntries.add(mapResultSetToCache(rs));
+            }
+
+            logger.debug("Found {} cache entries with multiple criteria search", cacheEntries.size());
+            return cacheEntries;
+
+        } catch (SQLException e) {
+            logger.error("Error in multiple criteria cache search", e);
+            throw new RuntimeException("Database error", e);
+        }
+    }
+
+    public List<CacheDTO> findMostAccessedCache(int limit) {
+        logger.info("Searching for most accessed cache entries - limit: {}", limit);
+
+        List<CacheDTO> cacheEntries = new ArrayList<>();
+        String sql = "SELECT * FROM computation_cache ORDER BY access_count DESC, computed_at DESC LIMIT ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, limit);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                cacheEntries.add(mapResultSetToCache(rs));
+            }
+
+            logger.debug("Found {} most accessed cache entries", cacheEntries.size());
+            return cacheEntries;
+
+        } catch (SQLException e) {
+            logger.error("Error finding most accessed cache", e);
+            throw new RuntimeException("Database error", e);
+        }
+    }
+
+    public List<CacheDTO> findRecentCache(UUID userId, int days) {
+        logger.info("Searching for recent cache entries - user: {}, days: {}", userId, days);
+
+        List<CacheDTO> cacheEntries = new ArrayList<>();
+        String sql = "SELECT * FROM computation_cache WHERE user_id = ? AND computed_at >= CURRENT_DATE - INTERVAL ? || ' days' ORDER BY computed_at DESC";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setObject(1, userId);
+            stmt.setInt(2, days);
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                cacheEntries.add(mapResultSetToCache(rs));
+            }
+
+            logger.debug("Found {} recent cache entries for user {}", cacheEntries.size(), userId);
+            return cacheEntries;
+
+        } catch (SQLException e) {
+            logger.error("Error finding recent cache", e);
+            throw new RuntimeException("Database error", e);
+        }
+    }
+
+    private String getValidSortField(String requestedField, String defaultField) {
+        String[] allowedFields = {"cache_key", "function_expression", "computed_at", "access_count", "points_count"};
+        for (String field : allowedFields) {
+            if (field.equalsIgnoreCase(requestedField)) {
+                return field;
+            }
+        }
+        return defaultField;
+    }
+
     private CacheDTO mapResultSetToCache(ResultSet rs) throws SQLException {
         return mapper.CacheMapper.toDTO(rs);
     }

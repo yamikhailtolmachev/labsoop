@@ -12,4 +12,9 @@ public interface FunctionDAO {
     List<FunctionDTO> findAllFunctions();
     void updateFunction(FunctionDTO function);
     void deleteFunction(UUID id);
+
+    List<FunctionDTO> findFunctionsByMultipleCriteria(UUID userId, String namePattern, String type, Double minLeftBound, Double maxRightBound, String sortBy, String sortOrder);
+    List<FunctionDTO> findFunctionDerivatives(UUID rootFunctionId);
+    List<FunctionDTO> findFunctionsByLevel(UUID userId, String period);
+    List<FunctionDTO> findFunctionsWithHighestPointCount(int limit);
 }
