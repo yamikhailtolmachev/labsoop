@@ -2,16 +2,15 @@ package entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "computation_cache")
 public class ComputationCacheEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+    private Long id;
 
     @Column(name = "cache_key", unique = true, nullable = false, length = 512)
     private String cacheKey;
@@ -57,11 +56,11 @@ public class ComputationCacheEntity {
         this.resultFunction = resultFunction;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

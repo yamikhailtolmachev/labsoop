@@ -2,17 +2,15 @@ package entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.UUID;
-import com.fasterxml.jackson.databind.JsonNode;
 
 @Entity
 @Table(name = "operations")
 public class OperationEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -34,7 +32,7 @@ public class OperationEntity {
     private String operationType;
 
     @Column(name = "parameters", columnDefinition = "jsonb")
-    private JsonNode parameters;
+    private String parameters;
 
     @Column(name = "computed_at", nullable = false, updatable = false)
     private LocalDateTime computedAt;
@@ -44,21 +42,20 @@ public class OperationEntity {
 
     protected OperationEntity() {}
 
-    public OperationEntity(UserEntity user, FunctionEntity function1, FunctionEntity function2,
-                           FunctionEntity resultFunction, String operationType, JsonNode parameters) {
+    public OperationEntity(UserEntity user, FunctionEntity function1, FunctionEntity function2, FunctionEntity resultFunction, String operationType, String parameters) {
         this.user = user;
         this.function1 = function1;
         this.function2 = function2;
         this.resultFunction = resultFunction;
         this.operationType = operationType;
-        this.parameters = parameters;
+        this.parameters = parameters; // Принимаем строку
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -102,11 +99,11 @@ public class OperationEntity {
         this.operationType = operationType;
     }
 
-    public JsonNode getParameters() {
+    public String getParameters() {
         return parameters;
     }
 
-    public void setParameters(JsonNode parameters) {
+    public void setParameters(String parameters) {
         this.parameters = parameters;
     }
 
