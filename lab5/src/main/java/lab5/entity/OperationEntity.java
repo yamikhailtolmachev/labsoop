@@ -31,7 +31,7 @@ public class OperationEntity {
     @Column(name = "operation_type", nullable = false, length = 20)
     private String operationType;
 
-    @Column(name = "parameters", columnDefinition = "TEXT")
+    @Column(name = "parameters", columnDefinition = "text")
     private String parameters;
 
     @Column(name = "computed_at", nullable = false, updatable = false)
@@ -49,18 +49,12 @@ public class OperationEntity {
         this.resultFunction = resultFunction;
         this.operationType = operationType;
         this.parameters = parameters;
-        this.computedAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
     }
 
     @PrePersist
     protected void onCreate() {
-        if (this.computedAt == null) {
-            this.computedAt = LocalDateTime.now();
-        }
-        if (this.updatedAt == null) {
-            this.updatedAt = LocalDateTime.now();
-        }
+        this.computedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     @PreUpdate
@@ -138,5 +132,17 @@ public class OperationEntity {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Long getFunction1Id() {
+        return (function1 != null) ? function1.getId() : null;
+    }
+
+    public Long getFunction2Id() {
+        return (function2 != null) ? function2.getId() : null;
+    }
+
+    public Long getResultFunctionId() {
+        return (resultFunction != null) ? resultFunction.getId() : null;
     }
 }

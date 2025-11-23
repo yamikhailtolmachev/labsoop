@@ -17,12 +17,13 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest(classes = Application.class)
+@SpringBootTest
 @TestPropertySource(properties = {
         "spring.datasource.url=jdbc:postgresql://localhost:5432/framework_performance_test_db",
-        "spring.datasource.username=user09",
-        "spring.datasource.password=093306",
+        "spring.datasource.username=postgres",
+        "spring.datasource.password=password",
         "spring.datasource.driver-class-name=org.postgresql.Driver",
+
         "spring.jpa.hibernate.ddl-auto=create-drop",
         "spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect",
         "spring.jpa.show-sql=false"

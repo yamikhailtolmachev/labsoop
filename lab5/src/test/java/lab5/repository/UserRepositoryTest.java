@@ -14,8 +14,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @TestPropertySource(properties = {
-        "spring.jpa.hibernate.ddl-auto=create-drop",
-        "spring.jpa.show-sql=true"
+        "spring.datasource.url=jdbc:postgresql://localhost:5432/postgres",
+        "spring.datasource.username=postgres",
+        "spring.datasource.password=password",
+        "spring.datasource.driver-class-name=org.postgresql.Driver",
+
+//        "spring.jpa.hibernate.ddl-auto=create-drop",
+//        "spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect",
+//        "spring.jpa.show-sql=true"
 })
 class UserRepositoryTest {
 

@@ -12,7 +12,7 @@ public interface OperationRepository extends JpaRepository<OperationEntity, Long
 
     List<OperationEntity> findByOperationType(String operationType);
 
-    List<OperationEntity> findByFunction1IdOrFunction2Id(Long function1Id, Long function2Id);
+    List<OperationEntity> findByFunction1_IdOrFunction2_Id(Long function1_Id, Long function2_Id);
 
-    List<OperationEntity> findByResultFunctionId(Long resultFunctionId);
+    List<OperationEntity> findByResultFunction_Id(Long resultFunction_Id);
 }
