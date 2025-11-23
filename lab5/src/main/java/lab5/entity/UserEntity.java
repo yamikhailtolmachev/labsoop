@@ -1,4 +1,4 @@
-package entity;
+package lab5.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -33,6 +33,19 @@ public class UserEntity {
         this.username = username;
         this.email = email;
         this.passwordHash = passwordHash;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
     public Long getId() {

@@ -1,4 +1,4 @@
-package entity;
+package lab5.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -34,7 +34,7 @@ public class FunctionEntity {
     @Column(name = "points_count")
     private Integer pointsCount;
 
-    @Column(name = "points_data", columnDefinition = "jsonb", nullable = false)
+    @Column(name = "points_data", columnDefinition = "TEXT", nullable = false)
     private String pointsData;
 
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -54,6 +54,17 @@ public class FunctionEntity {
         this.rightBound = rightBound;
         this.pointsCount = pointsCount;
         this.pointsData = pointsData;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
     public Long getId() {

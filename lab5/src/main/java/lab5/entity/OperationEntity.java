@@ -1,4 +1,4 @@
-package entity;
+package lab5.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -31,7 +31,7 @@ public class OperationEntity {
     @Column(name = "operation_type", nullable = false, length = 20)
     private String operationType;
 
-    @Column(name = "parameters", columnDefinition = "jsonb")
+    @Column(name = "parameters", columnDefinition = "TEXT")
     private String parameters;
 
     @Column(name = "computed_at", nullable = false, updatable = false)
@@ -48,7 +48,24 @@ public class OperationEntity {
         this.function2 = function2;
         this.resultFunction = resultFunction;
         this.operationType = operationType;
-        this.parameters = parameters; // Принимаем строку
+        this.parameters = parameters;
+        this.computedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        if (this.computedAt == null) {
+            this.computedAt = LocalDateTime.now();
+        }
+        if (this.updatedAt == null) {
+            this.updatedAt = LocalDateTime.now();
+        }
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
     public Long getId() {
