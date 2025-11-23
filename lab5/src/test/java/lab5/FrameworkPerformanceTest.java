@@ -1,11 +1,14 @@
 package lab5;
 
-import lab5.Application;
+import lab5.entity.ComputationCacheEntity;
+import lab5.entity.FunctionEntity;
+import lab5.entity.OperationEntity;
 import lab5.entity.UserEntity;
-import lab5.repository.UserRepository;
+import lab5.repository.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.TestPropertySource;
 
 import java.io.FileWriter;
@@ -23,7 +26,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
         "spring.datasource.username=postgres",
         "spring.datasource.password=password",
         "spring.datasource.driver-class-name=org.postgresql.Driver",
-
         "spring.jpa.hibernate.ddl-auto=create-drop",
         "spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect",
         "spring.jpa.show-sql=false"
@@ -33,116 +35,162 @@ class FrameworkPerformanceTest {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private FunctionRepository functionRepository;
+
+    @Autowired
+    private OperationRepository operationRepository;
+
+    @Autowired
+    private ComputationCacheRepository cacheRepository;
+
     @Test
     void performanceTestFramework() throws IOException {
-        int numberOfRecords = 10_000;
-        String prefix = "perf_test_framework_user_";
-        List<UserEntity> usersToSave = new ArrayList<>();
+        int n = 10_000;
+        String prefix = "perf_";
+        List<UserEntity> users = new ArrayList<>();
+        List<FunctionEntity> funcs = new ArrayList<>();
+        List<OperationEntity> ops = new ArrayList<>();
+        List<ComputationCacheEntity> caches = new ArrayList<>();
 
-        for (int i = 0; i < numberOfRecords; i++) {
-            UserEntity user = new UserEntity(prefix + i, "fw_email" + i + "@example.com", "fw_hash" + i);
-            user.setCreatedAt(LocalDateTime.now());
-            user.setUpdatedAt(LocalDateTime.now());
-            usersToSave.add(user);
-        }
+        for (int i = 0; i < n; i++) {
+            UserEntity u = new UserEntity(prefix + i, "u_" + i + "@test.com", "hash");
+            u.setCreatedAt(LocalDateTime.now());
+            u.setUpdatedAt(LocalDateTime.now());
+            users.add(u);
 
-        long startTimeInsert = System.nanoTime();
-        userRepository.saveAll(usersToSave);
-        long endTimeInsert = System.nanoTime();
-        long durationInsert = (endTimeInsert - startTimeInsert) / 1_000_000;
+            FunctionEntity f = new FunctionEntity(u, "func_" + i, "BASIC", "x^2", 0.0, 10.0, i % 100 + 1, "{}");
+            f.setCreatedAt(LocalDateTime.now());
+            f.setUpdatedAt(LocalDateTime.now());
+            funcs.add(f);
 
-        System.out.println("Framework - Time taken to insert " + numberOfRecords + " records: " + durationInsert + " ms");
+            if (i < n / 2) {
+                OperationEntity op = new OperationEntity(u, f, null, f, "ADD", "{}");
+                op.setComputedAt(LocalDateTime.now());
+                op.setUpdatedAt(LocalDateTime.now());
+                ops.add(op);
 
-        long startTimeFindOne = System.nanoTime();
-        Optional<UserEntity> foundUser = userRepository.findByUsername(prefix + 0);
-        long endTimeFindOne = System.nanoTime();
-        long durationFindOne = (endTimeFindOne - startTimeFindOne) / 1_000_000;
-
-        System.out.println("Framework - Time taken to find one record by username: " + durationFindOne + " ms");
-
-        long startTimeFindAll = System.nanoTime();
-        List<UserEntity> allUsers = userRepository.findAll();
-        long endTimeFindAll = System.nanoTime();
-        long durationFindAll = (endTimeFindAll - startTimeFindAll) / 1_000_000;
-
-        System.out.println("Framework - Time taken to find all " + numberOfRecords + " records: " + durationFindAll + " ms");
-
-        long startTimeDelete = System.nanoTime();
-        userRepository.deleteAll(usersToSave);
-        long endTimeDelete = System.nanoTime();
-        long durationDelete = (endTimeDelete - startTimeDelete) / 1_000_000;
-
-        System.out.println("Framework - Time taken to delete " + numberOfRecords + " records: " + durationDelete + " ms");
-
-        assertTrue(durationInsert > 0);
-        assertTrue(durationFindOne > 0);
-        assertTrue(durationFindAll > 0);
-        assertTrue(durationDelete > 0);
-
-        List<PerformanceResult> results = new ArrayList<>();
-        results.add(new PerformanceResult("INSERT", numberOfRecords, durationInsert, "Пакетная вставка"));
-        results.add(new PerformanceResult("SELECT (поиск по имени)", 1, durationFindOne, "Поиск одной записи"));
-        results.add(new PerformanceResult("SELECT (все записи)", numberOfRecords, durationFindAll, "Получение всех записей"));
-        results.add(new PerformanceResult("DELETE", numberOfRecords, durationDelete, "Удаление всех записей"));
-
-        long totalDuration = durationInsert + durationFindOne + durationFindAll + durationDelete;
-        double averageDuration = (double) totalDuration / 4;
-        double insertSpeed = (double) numberOfRecords / durationInsert * 1000;
-        double deleteSpeed = (double) numberOfRecords / durationDelete * 1000;
-
-        saveResultsToFile(results, "Framework", totalDuration, averageDuration, insertSpeed, deleteSpeed);
-        printResults(results, "Framework", totalDuration, averageDuration, insertSpeed, deleteSpeed);
-    }
-
-    private void saveResultsToFile(List<PerformanceResult> results, String approach, long totalDuration, double averageDuration, double insertSpeed, double deleteSpeed) throws IOException {
-        String filename = "performance_results.md";
-        try (java.io.FileWriter writer = new java.io.FileWriter(filename)) {
-            writer.write("# Результаты производительности для 10,000 записей\n\n");
-            writer.write("| Операция | Количество записей | Время (мс) | Примечания |\n");
-            writer.write("|----------|-------------------|------------|-------------|\n");
-
-            for (PerformanceResult result : results) {
-                writer.write(String.format("| %s | %d | %d | %s |\n",
-                        result.operation, result.records, result.timeMs, result.notes));
+                ComputationCacheEntity c = new ComputationCacheEntity("key_" + i, u, "x^2", 0.0, 10.0, i % 100 + 1, f);
+                c.setComputedAt(LocalDateTime.now());
+                c.setUpdatedAt(LocalDateTime.now());
+                c.setAccessCount(i % 100);
+                caches.add(c);
             }
+        }
 
-            writer.write("\n## Общая статистика:\n\n");
-            writer.write("- Общее время операций: " + totalDuration + " мс\n");
-            writer.write("- Среднее время на операцию: " + String.format("%.2f", averageDuration) + " мс\n");
-            writer.write("- Скорость вставки: " + String.format("%.2f", insertSpeed) + " записей/сек\n");
-            writer.write("- Скорость удаления: " + String.format("%.2f", deleteSpeed) + " записей/сек\n");
+        long t0 = System.nanoTime();
+        userRepository.saveAll(users);
+        functionRepository.saveAll(funcs);
+        operationRepository.saveAll(ops);
+        cacheRepository.saveAll(caches);
+        long tInsert = (System.nanoTime() - t0) / 1_000_000;
+
+        long t1 = System.nanoTime();
+        userRepository.findByUsername(prefix + "5000").orElse(null);
+        long tSearchUsername = (System.nanoTime() - t1) / 1_000_000;
+
+        long t2 = System.nanoTime();
+        userRepository.findByEmail("u_5000@test.com").orElse(null);
+        long tSearchEmail = (System.nanoTime() - t2) / 1_000_000;
+
+        Sort sortUserByName = Sort.by("username");
+        long t3 = System.nanoTime();
+        userRepository.findAll(sortUserByName);
+        long tSortUserByName = (System.nanoTime() - t3) / 1_000_000;
+
+        Sort sortUserByEmail = Sort.by("email");
+        long t4 = System.nanoTime();
+        userRepository.findAll(sortUserByEmail);
+        long tSortUserByEmail = (System.nanoTime() - t4) / 1_000_000;
+
+        Sort sortFuncByName = Sort.by("name");
+        long t5 = System.nanoTime();
+        functionRepository.findAll(sortFuncByName);
+        long tSortFuncByName = (System.nanoTime() - t5) / 1_000_000;
+
+        Sort sortFuncByPoints = Sort.by("pointsCount");
+        long t6 = System.nanoTime();
+        functionRepository.findAll(sortFuncByPoints);
+        long tSortFuncByPoints = (System.nanoTime() - t6) / 1_000_000;
+
+        Sort sortOpByType = Sort.by("operationType");
+        long t7 = System.nanoTime();
+        operationRepository.findAll(sortOpByType);
+        long tSortOpByType = (System.nanoTime() - t7) / 1_000_000;
+
+        Sort sortCacheByAccess = Sort.by("accessCount");
+        long t8 = System.nanoTime();
+        cacheRepository.findAll(sortCacheByAccess);
+        long tSortCacheByAccess = (System.nanoTime() - t8) / 1_000_000;
+
+        long t9 = System.nanoTime();
+        cacheRepository.deleteAll(caches);
+        operationRepository.deleteAll(ops);
+        functionRepository.deleteAll(funcs);
+        userRepository.deleteAll(users);
+        long tDelete = (System.nanoTime() - t9) / 1_000_000;
+
+        assertTrue(tInsert > 0);
+        assertTrue(tSearchUsername > 0);
+        assertTrue(tSearchEmail > 0);
+        assertTrue(tSortUserByName > 0);
+        assertTrue(tSortUserByEmail > 0);
+        assertTrue(tSortFuncByName > 0);
+        assertTrue(tSortFuncByPoints > 0);
+        assertTrue(tSortOpByType > 0);
+        assertTrue(tSortCacheByAccess > 0);
+        assertTrue(tDelete > 0);
+
+        List<Record> records = new ArrayList<>();
+        records.add(new Record("INSERT", "All", n * 4, tInsert, "Batch Save", "Пакетная вставка всех сущностей"));
+
+        records.add(new Record("SEARCH (Users by username)", "User", 1, tSearchUsername, "FindByUsername", "Поиск по уникальному имени"));
+        records.add(new Record("SEARCH (Users by email)", "User", 1, tSearchEmail, "FindByEmail", "Поиск по email"));
+
+        records.add(new Record("SORT (Users by name)", "User", n, tSortUserByName, "DB Sort", "Сортировка по username"));
+        records.add(new Record("SORT (Users by email)", "User", n, tSortUserByEmail, "DB Sort", "Сортировка по email"));
+        records.add(new Record("SORT (Functions by name)", "Function", n, tSortFuncByName, "DB Sort", "Сортировка по name"));
+        records.add(new Record("SORT (Functions by points)", "Function", n, tSortFuncByPoints, "DB Sort", "Сортировка по points_count"));
+        records.add(new Record("SORT (Operations by type)", "Operation", n / 2, tSortOpByType, "DB Sort", "Сортировка по operation_type"));
+        records.add(new Record("SORT (Cache by access)", "ComputationCache", n / 2, tSortCacheByAccess, "DB Sort", "Сортировка по access_count"));
+
+        records.add(new Record("DELETE", "All", n * 4, tDelete, "Delete All", "Массовое удаление всех сущностей"));
+
+        saveToMarkdown(records);
+    }
+
+    private void saveToMarkdown(List<Record> records) throws IOException {
+        String file = "framework_performance_results.md";
+        try (FileWriter w = new FileWriter(file)) {
+            w.write("# Сравнение производительности операций\n\n");
+
+            w.write("| Операция | Тип данных | Кол-во записей | Время (мс) | Алгоритм/Подход | Примечания |\n");
+            w.write("|----------|------------|----------------|-------------|------------------|-------------|\n");
+
+            for (Record r : records) {
+                w.write(String.format(
+                        "| %s | %s | %d | %d | `%s` | %s |\n",
+                        r.operation, r.dataType, r.count, r.timeMs, r.algorithm, r.notes
+                ));
+            }
         }
     }
 
-    private void printResults(List<PerformanceResult> results, String approach, long totalDuration, double averageDuration, double insertSpeed, double deleteSpeed) {
-        System.out.println("\n# Результаты производительности: " + approach + "\n");
-        System.out.println("## Результаты производительности для 10,000 записей\n");
-        System.out.println("| Операция | Количество записей | Время (мс) | Примечания |");
-        System.out.println("|----------|-------------------|------------|-------------|");
-
-        for (PerformanceResult result : results) {
-            System.out.printf("| %s | %d | %d | %s |\n",
-                    result.operation, result.records, result.timeMs, result.notes);
-        }
-
-        System.out.println("\n## Общая статистика:\n");
-        System.out.println("- Общее время операций: " + totalDuration + " мс");
-        System.out.println("- Среднее время на операцию: " + String.format("%.2f", averageDuration) + " мс");
-        System.out.println("- Скорость вставки: " + String.format("%.2f", insertSpeed) + " записей/сек");
-        System.out.println("- Скорость удаления: " + String.format("%.2f", deleteSpeed) + " записей/сек");
-    }
-
-    private static class PerformanceResult {
+    private static class Record {
         String operation;
-        int records;
+        String dataType;
+        int count;
         long timeMs;
+        String algorithm;
         String notes;
 
-        PerformanceResult(String operation, int records, long timeMs, String notes) {
-            this.operation = operation;
-            this.records = records;
-            this.timeMs = timeMs;
-            this.notes = notes;
+        Record(String op, String type, int cnt, long ms, String alg, String note) {
+            this.operation = op;
+            this.dataType = type;
+            this.count = cnt;
+            this.timeMs = ms;
+            this.algorithm = alg;
+            this.notes = note;
         }
     }
 }
