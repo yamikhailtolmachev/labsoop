@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 import java.util.Optional;
+import java.time.LocalDateTime;
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -94,6 +97,27 @@ class UserRepositoryTest {
         assertThat(users).hasSize(2);
         assertThat(users).extracting(UserEntity::getUsername)
                 .containsExactlyInAnyOrder("user1", "user2");
+    }
+
+    @Test
+    void shouldFindAllUsersWithSort() {
+        UserEntity user1 = new UserEntity("b_user", "b@example.com", "hash_b");
+        UserEntity user2 = new UserEntity("a_user", "a@example.com", "hash_a");
+        user1.setCreatedAt(LocalDateTime.now());
+        user1.setUpdatedAt(LocalDateTime.now());
+        user2.setCreatedAt(LocalDateTime.now());
+        user2.setUpdatedAt(LocalDateTime.now());
+        entityManager.persist(user1);
+        entityManager.persist(user2);
+        entityManager.flush();
+
+        Sort sort = Sort.by(Sort.Direction.ASC, "username");
+
+        List<UserEntity> found = userRepository.findAll(sort);
+
+        assertThat(found).hasSize(2);
+        assertThat(found.get(0).getUsername()).isEqualTo("a_user");
+        assertThat(found.get(1).getUsername()).isEqualTo("b_user");
     }
 
     @Test
