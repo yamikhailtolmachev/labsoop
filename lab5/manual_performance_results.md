@@ -1,13 +1,16 @@
+# Результаты тестирования производительности поиска и сортировки
+
+## Manual JDBC Поиск и Сортировка
+
 | Операция | Обработано записей | Время (мс) | Записей/сек |
 |----------|-------------------|------------|-------------|
-| INSERT | 10000 | 1200 | 8333,33 |
-| SELECT | 30000 | 650 | 46153,85 |
-| UPDATE | 10000 | 1100 | 9090,91 |
-| DELETE | 5000 | 950 | 5263,16 |
-| SEARCH | 10000 | 700 | 14285,71 |
-| SORT Users by name | 5000 | 350 | 14285,71 |
-| SORT Users by email | 5000 | 320 | 15625,00 |
-| SORT Functions by name | 8000 | 420 | 19047,62 |
-| SORT Functions by points | 8000 | 380 | 21052,63 |
-| SORT Operations by type | 6000 | 310 | 19354,84 |
-| SORT Cache by access | 4000 | 270 | 14814,81 |
+| Single Search (by user) | 2000 | 88 | 22727,27 |
+| Multiple Criteria Search | 200 | 186 | 1075,27 |
+| Depth-First Search | 511 | 232 | 2202,59 |
+| Breadth-First Search | 0 | 57 | 0,00 |
+| Hierarchy Search | 1000 | 294 | 3401,36 |
+| SORT Functions by name | 2000 | 181 | 11049,72 |
+| SORT Functions by type | 2000 | 63 | 31746,03 |
+| SORT Functions by points | 2000 | 60 | 33333,33 |
+| SORT Cache by access | 1000 | 60 | 16666,67 |
+| SORT Operations by date | 1000 | 63 | 15873,02 |
