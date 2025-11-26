@@ -4,32 +4,24 @@ import lab5.entity.ComputationCacheEntity;
 import lab5.entity.FunctionEntity;
 import lab5.entity.OperationEntity;
 import lab5.entity.UserEntity;
-import lab5.repository.*;
+import lab5.repository.ComputationCacheRepository;
+import lab5.repository.FunctionRepository;
+import lab5.repository.OperationRepository;
+import lab5.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
-import org.springframework.test.context.TestPropertySource;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-@TestPropertySource(properties = {
-        "spring.datasource.url=jdbc:postgresql://localhost:5432/framework_performance_test_db",
-        "spring.datasource.username=postgres",
-        "spring.datasource.password=password",
-        "spring.datasource.driver-class-name=org.postgresql.Driver",
-        "spring.jpa.hibernate.ddl-auto=create-drop",
-        "spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect",
-        "spring.jpa.show-sql=false"
-})
 class FrameworkPerformanceTest {
 
     @Autowired
@@ -141,33 +133,33 @@ class FrameworkPerformanceTest {
         assertTrue(tSortCacheByAccess > 0);
         assertTrue(tDelete > 0);
 
-        List<Record> records = new ArrayList<>();
-        records.add(new Record("INSERT", "All", n * 4, tInsert, "Batch Save", "Пакетная вставка всех сущностей"));
+        List<PerformanceRecord> records = new ArrayList<>();
+        records.add(new PerformanceRecord("INSERT", "All", n * 4, tInsert, "Batch Save", "Пакетная вставка всех сущностей"));
 
-        records.add(new Record("SEARCH (Users by username)", "User", 1, tSearchUsername, "FindByUsername", "Поиск по уникальному имени"));
-        records.add(new Record("SEARCH (Users by email)", "User", 1, tSearchEmail, "FindByEmail", "Поиск по email"));
+        records.add(new PerformanceRecord("SEARCH (Users by username)", "User", 1, tSearchUsername, "FindByUsername", "Поиск по уникальному имени"));
+        records.add(new PerformanceRecord("SEARCH (Users by email)", "User", 1, tSearchEmail, "FindByEmail", "Поиск по email"));
 
-        records.add(new Record("SORT (Users by name)", "User", n, tSortUserByName, "DB Sort", "Сортировка по username"));
-        records.add(new Record("SORT (Users by email)", "User", n, tSortUserByEmail, "DB Sort", "Сортировка по email"));
-        records.add(new Record("SORT (Functions by name)", "Function", n, tSortFuncByName, "DB Sort", "Сортировка по name"));
-        records.add(new Record("SORT (Functions by points)", "Function", n, tSortFuncByPoints, "DB Sort", "Сортировка по points_count"));
-        records.add(new Record("SORT (Operations by type)", "Operation", n / 2, tSortOpByType, "DB Sort", "Сортировка по operation_type"));
-        records.add(new Record("SORT (Cache by access)", "ComputationCache", n / 2, tSortCacheByAccess, "DB Sort", "Сортировка по access_count"));
+        records.add(new PerformanceRecord("SORT (Users by name)", "User", n, tSortUserByName, "DB Sort", "Сортировка по username"));
+        records.add(new PerformanceRecord("SORT (Users by email)", "User", n, tSortUserByEmail, "DB Sort", "Сортировка по email"));
+        records.add(new PerformanceRecord("SORT (Functions by name)", "Function", n, tSortFuncByName, "DB Sort", "Сортировка по name"));
+        records.add(new PerformanceRecord("SORT (Functions by points)", "Function", n, tSortFuncByPoints, "DB Sort", "Сортировка по points_count"));
+        records.add(new PerformanceRecord("SORT (Operations by type)", "Operation", n / 2, tSortOpByType, "DB Sort", "Сортировка по operation_type"));
+        records.add(new PerformanceRecord("SORT (Cache by access)", "ComputationCache", n / 2, tSortCacheByAccess, "DB Sort", "Сортировка по access_count"));
 
-        records.add(new Record("DELETE", "All", n * 4, tDelete, "Delete All", "Массовое удаление всех сущностей"));
+        records.add(new PerformanceRecord("DELETE", "All", n * 4, tDelete, "Delete All", "Массовое удаление всех сущностей"));
 
-        saveToMarkdown(records);
+        saveResultsToFile(records);
     }
 
-    private void saveToMarkdown(List<Record> records) throws IOException {
-        String file = "framework_performance_results.md";
+    private void saveResultsToFile(List<PerformanceRecord> results) throws IOException {
+        String file = "Framework_Performance_Test.md";
         try (FileWriter w = new FileWriter(file)) {
-            w.write("# Сравнение производительности операций\n\n");
+            w.write("# Результаты производительности для 10,000 записей\n\n");
 
             w.write("| Операция | Тип данных | Кол-во записей | Время (мс) | Алгоритм/Подход | Примечания |\n");
             w.write("|----------|------------|----------------|-------------|------------------|-------------|\n");
 
-            for (Record r : records) {
+            for (PerformanceRecord r : results) {
                 w.write(String.format(
                         "| %s | %s | %d | %d | `%s` | %s |\n",
                         r.operation, r.dataType, r.count, r.timeMs, r.algorithm, r.notes
@@ -176,7 +168,7 @@ class FrameworkPerformanceTest {
         }
     }
 
-    private static class Record {
+    private static class PerformanceRecord {
         String operation;
         String dataType;
         int count;
@@ -184,7 +176,7 @@ class FrameworkPerformanceTest {
         String algorithm;
         String notes;
 
-        Record(String op, String type, int cnt, long ms, String alg, String note) {
+        PerformanceRecord(String op, String type, int cnt, long ms, String alg, String note) {
             this.operation = op;
             this.dataType = type;
             this.count = cnt;

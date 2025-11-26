@@ -4,12 +4,11 @@ import java.sql.DriverManager;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PostgreSQLConnectionTest {
-
     @Test
     void testPostgreSQLConnection() {
-        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5432/labsoop_db";
         String user = "postgres";
-        String password = "password";
+        String password = "093306";
 
         System.out.println("Тестируем подключение к PostgreSQL...");
 
