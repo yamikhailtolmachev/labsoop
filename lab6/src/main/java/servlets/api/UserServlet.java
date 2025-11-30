@@ -1,99 +1,104 @@
 package servlets.api;
 
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-package servlets.api;
-
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import dao.UserDAO;
 import dao.UserDAOImpl;
 import dto.UserDTO;
+import java.io.IOException;
 import java.util.UUID;
+import java.util.Map;
 
 @WebServlet("/api/users/*")
-public class UserServlet extends HttpServlet {
+public class UserServlet extends BaseApiServlet {
     private UserDAO userDAO = new UserDAOImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
         try {
             String pathInfo = request.getPathInfo();
+
             if (pathInfo == null || pathInfo.equals("/")) {
-                response.getWriter().write("{\"success\":true,\"data\":" + toJson(userDAO.findAllUsers()) + "}");
+                String usernamePattern = request.getParameter("username");
+                String emailPattern = request.getParameter("email");
+                String sortBy = request.getParameter("sortBy");
+                String sortOrder = request.getParameter("sortOrder");
+
+                if (usernamePattern != null || emailPattern != null) {
+                    var users = userDAO.findUsersByMultipleCriteria(usernamePattern, emailPattern, sortBy, sortOrder);
+                    sendSuccess(response, users);
+                } else {
+                    var users = userDAO.findAllUsers();
+                    sendSuccess(response, users);
+                }
+            } else if (pathInfo.equals("/recent")) {
+                int days = getIntParameter(request, "days", 7);
+                var users = userDAO.findRecentUsers(days);
+                sendSuccess(response, users);
             } else {
-                String userId = pathInfo.substring(1);
+                String userId = getPathParameter(request);
                 UserDTO user = userDAO.findUserById(UUID.fromString(userId));
                 if (user != null) {
-                    response.getWriter().write("{\"success\":true,\"data\":" + toJson(user) + "}");
+                    sendSuccess(response, user);
                 } else {
-                    response.setStatus(404);
-                    response.getWriter().write("{\"success\":false,\"error\":\"User not found\"}");
+                    sendError(response, 404, "User not found");
                 }
             }
         } catch (Exception e) {
-            response.setStatus(500);
-            response.getWriter().write("{\"success\":false,\"error\":\"" + e.getMessage() + "\"}");
+            logger.error("Error in GET /api/users", e);
+            sendError(response, 500, e.getMessage());
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
         try {
-            UserDTO user = new UserDTO();
-            user.setUsername("user_" + System.currentTimeMillis());
-            user.setEmail("user@example.com");
-            user.setPasswordHash("temp_hash");
-
+            UserDTO user = readRequestBody(request, UserDTO.class);
             UUID userId = userDAO.insertUser(user);
-            response.getWriter().write("{\"success\":true,\"data\":{\"userId\":\"" + userId + "\"}}");
+
+            response.setStatus(201);
+            sendSuccess(response, "User created successfully", Map.of("userId", userId));
         } catch (Exception e) {
-            response.setStatus(500);
-            response.getWriter().write("{\"success\":false,\"error\":\"" + e.getMessage() + "\"}");
+            logger.error("Error in POST /api/users", e);
+            sendError(response, 400, "Invalid user data: " + e.getMessage());
         }
     }
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write("{\"success\":true,\"message\":\"User updated\"}");
+        try {
+            String userId = getPathParameter(request);
+            if (userId == null) {
+                sendError(response, 400, "User ID required");
+                return;
+            }
+
+            UserDTO user = readRequestBody(request, UserDTO.class);
+            user.setId(UUID.fromString(userId));
+            userDAO.updateUser(user);
+
+            sendSuccess(response, "User updated successfully");
+        } catch (Exception e) {
+            logger.error("Error in PUT /api/users", e);
+            sendError(response, 400, "Invalid update data: " + e.getMessage());
+        }
     }
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
         try {
-            String pathInfo = request.getPathInfo();
-            if (pathInfo != null && pathInfo.length() > 1) {
-                String userId = pathInfo.substring(1);
-                userDAO.deleteUser(UUID.fromString(userId));
-                response.getWriter().write("{\"success\":true,\"message\":\"User deleted\"}");
-            } else {
-                response.setStatus(400);
-                response.getWriter().write("{\"success\":false,\"error\":\"User ID required\"}");
+            String userId = getPathParameter(request);
+            if (userId == null) {
+                sendError(response, 400, "User ID required");
+                return;
             }
-        } catch (Exception e) {
-            response.setStatus(500);
-            response.getWriter().write("{\"success\":false,\"error\":\"" + e.getMessage() + "\"}");
-        }
-    }
 
-    private String toJson(Object obj) {
-        if (obj == null) return "null";
-        return obj.toString();
+            userDAO.deleteUser(UUID.fromString(userId));
+            sendSuccess(response, "User deleted successfully");
+        } catch (Exception e) {
+            logger.error("Error in DELETE /api/users", e);
+            sendError(response, 500, e.getMessage());
+        }
     }
 }
