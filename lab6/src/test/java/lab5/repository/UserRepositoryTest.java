@@ -3,9 +3,10 @@ package lab5.repository;
 import lab5.entity.UserEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,12 +14,10 @@ import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DataJpaTest
+@SpringBootTest
+@TestPropertySource(locations = "classpath:application-test.properties")
+@Transactional
 class UserRepositoryTest {
-
-    @Autowired
-    private TestEntityManager entityManager;
-
     @Autowired
     private UserRepository userRepository;
 
@@ -29,7 +28,7 @@ class UserRepositoryTest {
         String passwordHash = "hashed_password";
         UserEntity user = new UserEntity(username, email, passwordHash);
 
-        UserEntity saved = entityManager.persistAndFlush(user);
+        UserEntity saved = userRepository.save(user);
         Long savedId = saved.getId();
 
         assertThat(savedId).isNotNull();
@@ -45,7 +44,7 @@ class UserRepositoryTest {
         String email = "findme@example.com";
         String passwordHash = "hash";
         UserEntity user = new UserEntity(username, email, passwordHash);
-        entityManager.persistAndFlush(user);
+        userRepository.save(user);
 
         Optional<UserEntity> found = userRepository.findByUsername(username);
 
@@ -59,13 +58,12 @@ class UserRepositoryTest {
         String email = "delete@example.com";
         String passwordHash = "hash";
         UserEntity user = new UserEntity(username, email, passwordHash);
-        UserEntity saved = entityManager.persistAndFlush(user);
+        UserEntity saved = userRepository.save(user);
         Long idToDelete = saved.getId();
 
         assertThat(userRepository.findById(idToDelete)).isPresent();
 
         userRepository.deleteById(idToDelete);
-        entityManager.flush();
 
         Optional<UserEntity> found = userRepository.findById(idToDelete);
         assertThat(found).isEmpty();
@@ -76,9 +74,8 @@ class UserRepositoryTest {
         UserEntity user1 = new UserEntity("user1", "u1@example.com", "hash1");
         UserEntity user2 = new UserEntity("user2", "u2@example.com", "hash2");
 
-        entityManager.persist(user1);
-        entityManager.persist(user2);
-        entityManager.flush();
+        userRepository.save(user1);
+        userRepository.save(user2);
 
         List<UserEntity> users = userRepository.findAll();
 
@@ -95,12 +92,11 @@ class UserRepositoryTest {
         user1.setUpdatedAt(LocalDateTime.now());
         user2.setCreatedAt(LocalDateTime.now());
         user2.setUpdatedAt(LocalDateTime.now());
-        entityManager.persist(user1);
-        entityManager.persist(user2);
-        entityManager.flush();
+
+        userRepository.save(user1);
+        userRepository.save(user2);
 
         Sort sort = Sort.by(Sort.Direction.ASC, "username");
-
         List<UserEntity> found = userRepository.findAll(sort);
 
         assertThat(found).hasSize(2);

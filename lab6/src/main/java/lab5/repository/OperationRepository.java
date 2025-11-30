@@ -1,6 +1,7 @@
 package lab5.repository;
 
 import lab5.entity.OperationEntity;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +10,8 @@ import java.util.List;
 @Repository
 public interface OperationRepository extends JpaRepository<OperationEntity, Long> {
     List<OperationEntity> findByUserId(Long userId);
+
+    List<OperationEntity> findByUserId(Long userId, Sort sort);
 
     List<OperationEntity> findByOperationType(String operationType);
 

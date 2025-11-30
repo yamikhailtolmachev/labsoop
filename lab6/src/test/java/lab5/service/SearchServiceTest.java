@@ -10,7 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.*;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -21,6 +24,8 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
+@TestPropertySource(locations = "classpath:application-test.properties")
+@Transactional
 class SearchServiceTest {
 
     @Autowired
@@ -83,6 +88,7 @@ class SearchServiceTest {
 
     @Test
     void shouldFindFunctionsByUserIdWithSort() {
+        // given
         Long userId = 1L;
         FunctionEntity func1 = new FunctionEntity(null, "func1", "BASIC", "x", 0.0, 1.0, 10, "{\"points\": []}");
         FunctionEntity func2 = new FunctionEntity(null, "func2", "COMPOSITE", "x^2", 0.0, 1.0, 10, "{\"points\": []}");
@@ -92,12 +98,16 @@ class SearchServiceTest {
         func2.setUpdatedAt(LocalDateTime.now());
 
         Sort sort = Sort.by(Sort.Direction.DESC, "name");
-        when(functionRepository.findByUserId(eq(userId), any(Sort.class))).thenReturn(Arrays.asList(func2, func1));
+        // --- ИСПРАВЛЕНО: Замокирован вызов метода с сортировкой ---
+        when(functionRepository.findByUserId(eq(userId), any(Sort.class))).thenReturn(Arrays.asList(func2, func1)); // func2.name > func1.name (DESC)
+        // ---
 
+        // when
         List<FunctionEntity> found = searchService.findFunctionsByUserId(userId, sort);
 
+        // then
         assertThat(found).hasSize(2);
-        assertThat(found.get(0).getName()).isEqualTo("func2");
+        assertThat(found.get(0).getName()).isEqualTo("func2"); // func2.name > func1.name (DESC)
         verify(functionRepository, times(1)).findByUserId(eq(userId), any(Sort.class));
     }
 
