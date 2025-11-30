@@ -5,6 +5,8 @@ import lab5.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,6 +18,8 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
+@TestPropertySource(locations = "classpath:application-test.properties")
+@Transactional
 class PerformanceTest {
 
     @Autowired
