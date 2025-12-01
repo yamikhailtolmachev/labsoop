@@ -1,156 +1,167 @@
 package servlets.api;
 
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import dao.OperationDAO;
 import dao.OperationDAOImpl;
 import dto.OperationDTO;
+import java.io.IOException;
 import java.util.UUID;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
 import java.util.Map;
 
 @WebServlet("/api/operations/*")
-public class OperationServlet extends HttpServlet {
+public class OperationServlet extends BaseApiServlet {
     private OperationDAO operationDAO = new OperationDAOImpl();
-    private ObjectMapper mapper = new ObjectMapper();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+        String pathInfo = request.getPathInfo();
+        String requestId = UUID.randomUUID().toString();
+
+        logger.info("GET {} - Request ID: {}", pathInfo != null ? pathInfo : "/", requestId);
 
         try {
-            String pathInfo = request.getPathInfo();
-
             if (pathInfo == null || pathInfo.equals("/")) {
-                String userIdParam = request.getParameter("userId");
-                String operationType = request.getParameter("type");
-                String functionIdParam = request.getParameter("functionId");
-                String sortBy = request.getParameter("sortBy");
-                String sortOrder = request.getParameter("sortOrder");
-
-                UUID userId = userIdParam != null ? UUID.fromString(userIdParam) : null;
-                UUID functionId = functionIdParam != null ? UUID.fromString(functionIdParam) : null;
-
-                if (userId != null || operationType != null || functionId != null) {
-                    var operations = operationDAO.findOperationsByMultipleCriteria(userId, operationType, functionId, sortBy, sortOrder);
-                    sendSuccess(response, operations);
-                } else {
-                    var operations = operationDAO.findAllOperations();
-                    sendSuccess(response, operations);
-                }
+                handleGetAllOperations(request, response, requestId);
+            } else if (pathInfo.equals("/search")) {
+                handleSearchOperations(request, response, requestId);
             } else if (pathInfo.equals("/recent")) {
-                String userIdParam = request.getParameter("userId");
-                int days = getIntParameter(request, "days", 7);
-
-                if (userIdParam == null) {
-                    sendError(response, 400, "userId parameter required");
-                    return;
-                }
-
-                var operations = operationDAO.findRecentOperations(UUID.fromString(userIdParam), days);
-                sendSuccess(response, operations);
+                handleRecentOperations(request, response, requestId);
             } else if (pathInfo.equals("/chain")) {
-                String functionId = request.getParameter("functionId");
-                if (functionId == null) {
-                    sendError(response, 400, "functionId parameter required");
-                    return;
-                }
-                var operations = operationDAO.findOperationChainDepthFirst(UUID.fromString(functionId));
-                sendSuccess(response, operations);
+                handleOperationChain(request, response, requestId);
             } else if (pathInfo.equals("/hierarchy")) {
-                String rootFunctionId = request.getParameter("rootFunctionId");
-                if (rootFunctionId == null) {
-                    sendError(response, 400, "rootFunctionId parameter required");
-                    return;
-                }
-                var operations = operationDAO.findOperationsByFunctionHierarchy(UUID.fromString(rootFunctionId));
-                sendSuccess(response, operations);
+                handleOperationHierarchy(request, response, requestId);
             } else {
-                String operationId = pathInfo.substring(1);
-                OperationDTO operation = operationDAO.findOperationById(UUID.fromString(operationId));
-                if (operation != null) {
-                    sendSuccess(response, operation);
-                } else {
-                    sendError(response, 404, "Operation not found");
-                }
+                handleGetOperationById(request, response, pathInfo, requestId);
             }
         } catch (Exception e) {
-            sendError(response, 500, e.getMessage());
+            logger.error("Error processing GET request {} - ID: {}", pathInfo, requestId, e);
+            sendError(response, 500, "Internal server error");
+        }
+    }
+
+    private void handleGetAllOperations(HttpServletRequest request, HttpServletResponse response, String requestId) throws IOException {
+        logger.debug("Fetching all operations - Request ID: {}", requestId);
+        var operations = operationDAO.findAllOperations();
+        logger.info("Retrieved {} operations - Request ID: {}", operations.size(), requestId);
+        sendSuccess(response, operations);
+    }
+
+    private void handleSearchOperations(HttpServletRequest request, HttpServletResponse response, String requestId) throws IOException {
+        UUID userId = getUuidParameter(request, "userId");
+        String operationType = request.getParameter("type");
+        UUID functionId = getUuidParameter(request, "functionId");
+        String sortBy = request.getParameter("sortBy");
+        String sortOrder = request.getParameter("sortOrder");
+
+        logger.debug("Searching operations - user: {}, type: {}, function: {} - Request ID: {}",
+                userId, operationType, functionId, requestId);
+
+        var operations = operationDAO.findOperationsByMultipleCriteria(userId, operationType, functionId, sortBy, sortOrder);
+        logger.info("Found {} operations matching criteria - Request ID: {}", operations.size(), requestId);
+        sendSuccess(response, operations);
+    }
+
+    private void handleRecentOperations(HttpServletRequest request, HttpServletResponse response, String requestId) throws IOException {
+        UUID userId = getUuidParameter(request, "userId");
+        int days = getIntParameter(request, "days", 7);
+
+        if (userId == null) {
+            logger.warn("userId parameter required for recent operations - Request ID: {}", requestId);
+            sendError(response, 400, "userId parameter required");
+            return;
+        }
+
+        logger.debug("Fetching recent operations for user: {}, days: {} - Request ID: {}", userId, days, requestId);
+        var operations = operationDAO.findRecentOperations(userId, days);
+        logger.info("Found {} recent operations for user {} - Request ID: {}", operations.size(), userId, requestId);
+        sendSuccess(response, operations);
+    }
+
+    private void handleOperationChain(HttpServletRequest request, HttpServletResponse response, String requestId) throws IOException {
+        UUID functionId = getUuidParameter(request, "functionId");
+        if (functionId == null) {
+            logger.warn("functionId parameter required for operation chain - Request ID: {}", requestId);
+            sendError(response, 400, "functionId parameter required");
+            return;
+        }
+
+        logger.debug("Fetching operation chain for function: {} - Request ID: {}", functionId, requestId);
+        var operations = operationDAO.findOperationChainDepthFirst(functionId);
+        logger.info("Found {} operations in chain for function {} - Request ID: {}", operations.size(), functionId, requestId);
+        sendSuccess(response, operations);
+    }
+
+    private void handleOperationHierarchy(HttpServletRequest request, HttpServletResponse response, String requestId) throws IOException {
+        UUID rootFunctionId = getUuidParameter(request, "rootFunctionId");
+        if (rootFunctionId == null) {
+            logger.warn("rootFunctionId parameter required for operation hierarchy - Request ID: {}", requestId);
+            sendError(response, 400, "rootFunctionId parameter required");
+            return;
+        }
+
+        logger.debug("Fetching operation hierarchy for root function: {} - Request ID: {}", rootFunctionId, requestId);
+        var operations = operationDAO.findOperationsByFunctionHierarchy(rootFunctionId);
+        logger.info("Found {} operations in hierarchy for root function {} - Request ID: {}", operations.size(), rootFunctionId, requestId);
+        sendSuccess(response, operations);
+    }
+
+    private void handleGetOperationById(HttpServletRequest request, HttpServletResponse response, String pathInfo, String requestId) throws IOException {
+        String operationId = pathInfo.substring(1);
+        logger.debug("Fetching operation by ID: {} - Request ID: {}", operationId, requestId);
+
+        OperationDTO operation = operationDAO.findOperationById(UUID.fromString(operationId));
+        if (operation != null) {
+            logger.info("Operation found: {} - Request ID: {}", operation.getOperationType(), requestId);
+            sendSuccess(response, operation);
+        } else {
+            logger.warn("Operation not found: {} - Request ID: {}", operationId, requestId);
+            sendError(response, 404, "Operation not found");
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+        String requestId = UUID.randomUUID().toString();
+        logger.info("POST /api/operations - Request ID: {}", requestId);
 
         try {
-            OperationDTO operation = mapper.readValue(request.getReader(), OperationDTO.class);
-            UUID operationId = operationDAO.insertOperation(operation);
+            OperationDTO operation = readRequestBody(request, OperationDTO.class);
+            logger.debug("Creating operation: {} - Request ID: {}", operation.getOperationType(), requestId);
 
-            Map<String, Object> result = new HashMap<>();
-            result.put("operationId", operationId);
-            result.put("message", "Operation created successfully");
+            UUID operationId = operationDAO.insertOperation(operation);
+            logger.info("Operation created successfully: {} - Request ID: {}", operationId, requestId);
 
             response.setStatus(201);
-            sendSuccess(response, result);
+            sendSuccess(response, "Operation created successfully", Map.of("operationId", operationId));
         } catch (Exception e) {
+            logger.error("Error creating operation - Request ID: {}", requestId, e);
             sendError(response, 400, "Invalid operation data: " + e.getMessage());
         }
     }
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+        String operationId = getPathParameter(request);
+        String requestId = UUID.randomUUID().toString();
+        logger.info("DELETE /api/operations/{} - Request ID: {}", operationId, requestId);
 
         try {
-            String pathInfo = request.getPathInfo();
-            if (pathInfo == null || pathInfo.length() <= 1) {
+            if (operationId == null) {
+                logger.warn("Operation ID required for deletion - Request ID: {}", requestId);
                 sendError(response, 400, "Operation ID required");
                 return;
             }
 
-            String operationId = pathInfo.substring(1);
+            logger.debug("Deleting operation: {} - Request ID: {}", operationId, requestId);
             operationDAO.deleteOperation(UUID.fromString(operationId));
+            logger.info("Operation deleted successfully: {} - Request ID: {}", operationId, requestId);
 
-            Map<String, String> result = new HashMap<>();
-            result.put("message", "Operation deleted successfully");
-            sendSuccess(response, result);
+            sendSuccess(response, "Operation deleted successfully");
         } catch (Exception e) {
+            logger.error("Error deleting operation {} - Request ID: {}", operationId, requestId, e);
             sendError(response, 500, e.getMessage());
         }
-    }
-
-    private void sendSuccess(HttpServletResponse response, Object data) throws IOException {
-        Map<String, Object> result = new HashMap<>();
-        result.put("success", true);
-        result.put("data", data);
-        mapper.writeValue(response.getWriter(), result);
-    }
-
-    private void sendError(HttpServletResponse response, int status, String message) throws IOException {
-        response.setStatus(status);
-        Map<String, Object> result = new HashMap<>();
-        result.put("success", false);
-        result.put("error", message);
-        mapper.writeValue(response.getWriter(), result);
-    }
-
-    private int getIntParameter(HttpServletRequest request, String paramName, int defaultValue) {
-        String value = request.getParameter(paramName);
-        if (value != null) {
-            try {
-                return Integer.parseInt(value);
-            } catch (NumberFormatException e) {
-                return defaultValue;
-            }
-        }
-        return defaultValue;
     }
 }
