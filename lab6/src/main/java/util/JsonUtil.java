@@ -2,6 +2,10 @@ package util;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class JsonUtil {
     public static String toJson(Object obj) {
         if (obj == null) return "null";
@@ -53,5 +57,26 @@ public class JsonUtil {
 
     public static String error(int status, String message) {
         return "{\"success\":false,\"error\":" + status + ",\"message\":\"" + escapeJson(message) + "\"}";
+    }
+
+    public static void writeJson(HttpServletResponse response, Object object) throws IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter writer = response.getWriter();
+        writer.write(toJson(object));
+        writer.flush();
+    }
+
+    public static void sendJsonResponse(Object response, String json) throws Exception {
+        if (response instanceof HttpServletResponse) {
+            HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.setContentType("application/json");
+            httpResponse.setCharacterEncoding("UTF-8");
+            PrintWriter writer = httpResponse.getWriter();
+            writer.write(json);
+            writer.flush();
+        } else {
+            throw new IllegalArgumentException("Unsupported response type");
+        }
     }
 }

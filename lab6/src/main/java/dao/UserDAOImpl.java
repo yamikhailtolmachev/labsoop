@@ -2,6 +2,7 @@ package dao;
 
 import dto.UserDTO;
 import database.DatabaseConnection;
+import mapper.UserMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.sql.*;
@@ -13,7 +14,7 @@ public class UserDAOImpl implements UserDAO {
     private static final Logger logger = LoggerFactory.getLogger(UserDAOImpl.class);
 
     public UUID insertUser(UserDTO user) {
-        String sql = "INSERT INTO users (id, username, email, password_hash) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (id, username, email, password_hash, roles) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             UUID userId = UUID.randomUUID();
@@ -21,15 +22,19 @@ public class UserDAOImpl implements UserDAO {
             stmt.setString(2, user.getUsername());
             stmt.setString(3, user.getEmail());
             stmt.setString(4, user.getPasswordHash());
+
+            Array rolesArray = UserMapper.toRolesArray(conn, user.getRoles());
+            stmt.setArray(5, rolesArray);
+
+            logger.info("Inserting user: {} with roles: {}", user.getUsername(), user.getRoles());
             stmt.executeUpdate();
-            logger.debug("User inserted: {}", userId);
+            logger.debug("User inserted successfully: {} with ID: {}", user.getUsername(), userId);
             return userId;
         } catch (SQLException e) {
-            logger.error("Error inserting user", e);
+            logger.error("Error inserting user {}: {}", user.getUsername(), e.getMessage(), e);
             throw new RuntimeException("Database error", e);
         }
     }
-
     public UserDTO findUserById(UUID id) {
         String sql = "SELECT * FROM users WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -79,14 +84,18 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public void updateUser(UserDTO user) {
-        String sql = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+        String sql = "UPDATE users SET username = ?, email = ?, roles = ? WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
-            stmt.setObject(3, user.getId());
+
+            Array rolesArray = UserMapper.toRolesArray(conn, user.getRoles());
+            stmt.setArray(3, rolesArray);
+
+            stmt.setObject(4, user.getId());
             stmt.executeUpdate();
-            logger.debug("User updated: {}", user.getId());
+            logger.debug("User updated: {} with roles: {}", user.getId(), user.getRoles());
         } catch (SQLException e) {
             logger.error("Error updating user: {}", user.getId(), e);
             throw new RuntimeException("Database error", e);
@@ -190,6 +199,6 @@ public class UserDAOImpl implements UserDAO {
     }
 
     private UserDTO mapResultSetToUser(ResultSet rs) throws SQLException {
-        return mapper.UserMapper.toDTO(rs);
+        return UserMapper.toDTO(rs);
     }
 }
