@@ -1,7 +1,8 @@
 package lab5.controller;
 
+import lab5.dto.OperationDTO;
 import lab5.entity.OperationEntity;
-import lab5.service.SearchService;
+import lab5.service.OperationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +20,18 @@ public class OperationController {
     private static final Logger logger = LoggerFactory.getLogger(OperationController.class);
 
     @Autowired
-    private SearchService searchService;
+    private OperationService operationService;
 
     @GetMapping("/{id}")
     public ResponseEntity<OperationEntity> getOperationById(@PathVariable Long id) {
         logger.info("Получен запрос на получение операции с ID: {}", id);
-        Optional<OperationEntity> operationOpt = searchService.findOperationById(id);
+        Optional<OperationEntity> operationOpt = operationService.getOperationById(id);
         if (operationOpt.isPresent()) {
             logger.debug("Возвращена операция с ID: {}", id);
-            return new ResponseEntity<>(operationOpt.get(), HttpStatus.OK);
+            return ResponseEntity.ok(operationOpt.get());
         } else {
             logger.warn("Операция с ID {} не найдена.", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -39,42 +40,40 @@ public class OperationController {
             @RequestParam(required = false, defaultValue = "id") String sortField,
             @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
         logger.info("Получен запрос на получение всех операций, сортировка: {}:{}", sortField, sortDirection);
-        List<OperationEntity> operations = searchService.findAllOperationsSorted(sortField, sortDirection);
+        List<OperationEntity> operations = operationService.getAllOperations(sortField, sortDirection);
         logger.debug("Возвращено {} операций.", operations.size());
-        return new ResponseEntity<>(operations, HttpStatus.OK);
+        return ResponseEntity.ok(operations);
     }
 
     @PostMapping
-    public ResponseEntity<OperationEntity> createOperation(@RequestBody OperationEntity operation) {
-        logger.info("Получен запрос на создание операции типа: {}", operation.getOperationType());
-        OperationEntity createdOperation = searchService.createOperation(operation);
-        logger.info("Операция создана с ID: {}", createdOperation.getId());
-        return new ResponseEntity<>(createdOperation, HttpStatus.CREATED);
+    public ResponseEntity<OperationEntity> createOperation(@RequestBody OperationDTO operationDTO) {
+        logger.info("Получен запрос на создание операции типа: {}", operationDTO.getOperationType());
+        try {
+            OperationEntity createdOperation = operationService.createOperation(operationDTO);
+            logger.info("Операция создана с ID: {}", createdOperation.getId());
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdOperation);
+        } catch (Exception e) {
+            logger.error("Ошибка при создании операции: {}", e.getMessage());
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<OperationEntity> updateOperation(@PathVariable Long id, @RequestBody OperationEntity operationDetails) {
         logger.info("Получен запрос на обновление операции с ID: {}", id);
-        OperationEntity updatedOperation = searchService.updateOperation(id, operationDetails);
-        if (updatedOperation != null) {
-            logger.info("Операция с ID {} обновлена.", id);
-            return new ResponseEntity<>(updatedOperation, HttpStatus.OK);
-        } else {
-            logger.warn("Операция с ID {} не найдена для обновления.", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOperation(@PathVariable Long id) {
         logger.info("Получен запрос на удаление операции с ID: {}", id);
-        boolean deleted = searchService.deleteOperationById(id);
+        boolean deleted = operationService.deleteOperation(id);
         if (deleted) {
             logger.info("Операция с ID {} удалена.", id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return ResponseEntity.noContent().build();
         } else {
             logger.warn("Операция с ID {} не найдена для удаления.", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -83,14 +82,15 @@ public class OperationController {
             @PathVariable Long userId,
             @RequestParam(required = false, defaultValue = "id") String sortField,
             @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
-        logger.info("Получен запрос на получение операций для пользователя с ID: {}, сортировка: {}:{}", userId, sortField, sortDirection);
-        List<OperationEntity> operations = searchService.findOperationsByUserIdSorted(userId, sortField, sortDirection);
+        logger.info("Получен запрос на получение операций для пользователя с ID: {}, сортировка: {}:{}",
+                userId, sortField, sortDirection);
+        List<OperationEntity> operations = operationService.getOperationsByUserId(userId, sortField, sortDirection);
         if (!operations.isEmpty()) {
             logger.debug("Найдено {} операций для пользователя ID {}.", operations.size(), userId);
-            return new ResponseEntity<>(operations, HttpStatus.OK);
+            return ResponseEntity.ok(operations);
         } else {
             logger.warn("Операции для пользователя с ID {} не найдены.", userId);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 }

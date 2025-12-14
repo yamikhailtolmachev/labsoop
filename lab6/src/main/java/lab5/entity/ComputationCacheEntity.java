@@ -44,7 +44,10 @@ public class ComputationCacheEntity {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    protected ComputationCacheEntity() {}
+    public ComputationCacheEntity() {
+        this.computedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
 
     public ComputationCacheEntity(String cacheKey, UserEntity user, String functionExpression, Double leftBound, Double rightBound, Integer pointsCount, FunctionEntity resultFunction) {
         this.cacheKey = cacheKey;
@@ -54,6 +57,22 @@ public class ComputationCacheEntity {
         this.rightBound = rightBound;
         this.pointsCount = pointsCount;
         this.resultFunction = resultFunction;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        if (this.computedAt == null) {
+            this.computedAt = LocalDateTime.now();
+        }
+        if (this.accessCount == null) {
+            this.accessCount = 1;
+        }
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
     public Long getId() {

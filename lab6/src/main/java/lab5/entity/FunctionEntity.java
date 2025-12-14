@@ -43,8 +43,6 @@ public class FunctionEntity {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    protected FunctionEntity() {}
-
     public FunctionEntity(UserEntity user, String name, String type, String expression, Double leftBound, Double rightBound, Integer pointsCount, String pointsData) {
         this.user = user;
         this.name = name;
@@ -56,9 +54,16 @@ public class FunctionEntity {
         this.pointsData = pointsData;
     }
 
+    public FunctionEntity() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
     @PrePersist
     protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+        if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
+        }
         this.updatedAt = LocalDateTime.now();
     }
 

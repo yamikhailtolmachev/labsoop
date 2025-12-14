@@ -1,14 +1,17 @@
 package lab5.controller;
 
+import lab5.dto.FunctionDTO;
 import lab5.entity.FunctionEntity;
 import lab5.service.SearchService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,49 +22,79 @@ public class FunctionController {
     private static final Logger logger = LoggerFactory.getLogger(FunctionController.class);
 
     @Autowired
-    private SearchService searchService;
+    private lab5.service.SearchService searchService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<FunctionEntity> getFunctionById(@PathVariable Long id) {
+    public ResponseEntity<FunctionDTO> getFunctionById(@PathVariable Long id) {
         logger.info("Получен запрос на получение функции с ID: {}", id);
-        Optional<FunctionEntity> functionOpt = searchService.findFunctionById(id);
+        Optional<FunctionDTO> functionOpt = searchService.findFunctionById(id);
         if (functionOpt.isPresent()) {
-            logger.debug("Возвращена функция с ID: {}", id);
-            return new ResponseEntity<>(functionOpt.get(), HttpStatus.OK);
+            logger.debug("Возвращена функция DTO с ID: {}", id);
+            return ResponseEntity.ok(functionOpt.get());
         } else {
             logger.warn("Функция с ID {} не найдена.", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 
     @GetMapping
-    public ResponseEntity<List<FunctionEntity>> getAllFunctions(
-            @RequestParam(required = false, defaultValue = "id") String sortField,
-            @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
+    public ResponseEntity<List<FunctionDTO>> getAllFunctions(
+                                                              @RequestParam(required = false, defaultValue = "id") String sortField,
+                                                              @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
         logger.info("Получен запрос на получение всех функций, сортировка: {}:{}", sortField, sortDirection);
-        List<FunctionEntity> functions = searchService.findAllFunctionsSorted(sortField, sortDirection);
-        logger.debug("Возвращено {} функций.", functions.size());
-        return new ResponseEntity<>(functions, HttpStatus.OK);
+        Sort.Direction dir = Sort.Direction.fromString(sortDirection);
+        Sort sort = Sort.by(dir, sortField);
+        List<FunctionDTO> functions = searchService.findAllFunctionsSorted(sortField, sortDirection);
+        logger.debug("Найдено {} функций DTO.", functions.size());
+        return ResponseEntity.ok(functions);
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<FunctionDTO>> getFunctionsByUserId(
+                                                                   @PathVariable Long userId,
+                                                                   @RequestParam(required = false, defaultValue = "id") String sortField,
+                                                                   @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
+        logger.info("Получен запрос на получение функций для пользователя с ID: {}, сортировка: {}:{}", userId, sortField, sortDirection);
+        Sort.Direction dir = Sort.Direction.fromString(sortDirection);
+        Sort sort = Sort.by(dir, sortField);
+        List<FunctionDTO> functions = searchService.findFunctionsByUserIdSorted(userId, sortField, sortDirection); // <-- Вызываем метод сервиса, возвращающий List<DTO>
+        if (!functions.isEmpty()) {
+            logger.debug("Найдено {} функций DTO для пользователя ID {}.", functions.size(), userId);
+            return ResponseEntity.ok(functions);
+        } else {
+            logger.warn("Функции для пользователя с ID {} не найдены.", userId);
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
-    public ResponseEntity<FunctionEntity> createFunction(@RequestBody FunctionEntity function) {
-        logger.info("Получен запрос на создание функции: {}", function.getName());
-        FunctionEntity createdFunction = searchService.createFunction(function);
-        logger.info("Функция создана с ID: {}", createdFunction.getId());
-        return new ResponseEntity<>(createdFunction, HttpStatus.CREATED);
+    public ResponseEntity<FunctionDTO> createFunction(@RequestBody FunctionDTO functionDTO) {
+        logger.info("Получен запрос на создание функции DTO: name='{}', userId='{}'", functionDTO.getName(), functionDTO.getUserId());
+        try {
+            FunctionDTO createdFunction = searchService.createFunction(functionDTO);
+            logger.info("Функция DTO создана с ID: {}", createdFunction.getId());
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdFunction);
+        } catch (Exception e) {
+            logger.error("Ошибка при создании функции DTO: {}", e.getMessage(), e);
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<FunctionEntity> updateFunction(@PathVariable Long id, @RequestBody FunctionEntity functionDetails) {
-        logger.info("Получен запрос на обновление функции с ID: {}", id);
-        FunctionEntity updatedFunction = searchService.updateFunction(id, functionDetails);
-        if (updatedFunction != null) {
-            logger.info("Функция с ID {} обновлена.", id);
-            return new ResponseEntity<>(updatedFunction, HttpStatus.OK);
-        } else {
-            logger.warn("Функция с ID {} не найдена для обновления.", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<FunctionDTO> updateFunction(@PathVariable Long id, @RequestBody FunctionDTO functionDetails) {
+        logger.info("Получен запрос на обновление функции DTO с ID: {}", id);
+        try {
+            FunctionDTO updatedFunction = searchService.updateFunction(id, functionDetails);
+            if (updatedFunction != null) {
+                logger.info("Функция DTO с ID {} обновлена.", id);
+                return ResponseEntity.ok(updatedFunction);
+            } else {
+                logger.warn("Функция DTO с ID {} не найдена для обновления.", id);
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            logger.error("Ошибка при обновлении функции DTO: {}", e.getMessage(), e);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -71,26 +104,10 @@ public class FunctionController {
         boolean deleted = searchService.deleteFunctionById(id);
         if (deleted) {
             logger.info("Функция с ID {} удалена.", id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return ResponseEntity.noContent().build();
         } else {
             logger.warn("Функция с ID {} не найдена для удаления.", id);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<FunctionEntity>> getFunctionsByUserId(
-            @PathVariable Long userId,
-            @RequestParam(required = false, defaultValue = "id") String sortField,
-            @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
-        logger.info("Получен запрос на получение функций для пользователя с ID: {}, сортировка: {}:{}", userId, sortField, sortDirection);
-        List<FunctionEntity> functions = searchService.findFunctionsByUserIdSorted(userId, sortField, sortDirection);
-        if (!functions.isEmpty()) {
-            logger.debug("Найдено {} функций для пользователя ID {}.", functions.size(), userId);
-            return new ResponseEntity<>(functions, HttpStatus.OK);
-        } else {
-            logger.warn("Функции для пользователя с ID {} не найдены.", userId);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 }

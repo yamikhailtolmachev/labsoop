@@ -9,9 +9,9 @@ import java.util.List;
 
 @Repository
 public interface OperationRepository extends JpaRepository<OperationEntity, Long> {
-    List<OperationEntity> findByUserId(Long userId);
+    List<OperationEntity> findByUser_Id(Long userId);
 
-    List<OperationEntity> findByUserId(Long userId, Sort sort);
+    List<OperationEntity> findByUser_Id(Long userId, Sort sort);
 
     List<OperationEntity> findByOperationType(String operationType);
 

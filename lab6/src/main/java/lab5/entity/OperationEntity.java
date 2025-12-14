@@ -40,8 +40,6 @@ public class OperationEntity {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    protected OperationEntity() {}
-
     public OperationEntity(UserEntity user, FunctionEntity function1, FunctionEntity function2, FunctionEntity resultFunction, String operationType, String parameters) {
         this.user = user;
         this.function1 = function1;
@@ -51,87 +49,41 @@ public class OperationEntity {
         this.parameters = parameters;
     }
 
-    @PrePersist
-    protected void onCreate() {
-        this.computedAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public UserEntity getUser() { return user; }
+    public void setUser(UserEntity user) { this.user = user; }
+
+    public FunctionEntity getFunction1() { return function1; }
+    public void setFunction1(FunctionEntity function1) { this.function1 = function1; }
+
+    public FunctionEntity getFunction2() { return function2; }
+    public void setFunction2(FunctionEntity function2) { this.function2 = function2; }
+
+    public FunctionEntity getResultFunction() { return resultFunction; }
+    public void setResultFunction(FunctionEntity resultFunction) { this.resultFunction = resultFunction; }
+
+    public String getOperationType() { return operationType; }
+    public void setOperationType(String operationType) { this.operationType = operationType; }
+
+    public String getParameters() { return parameters; }
+    public void setParameters(String parameters) { this.parameters = parameters; }
+
+    public LocalDateTime getComputedAt() { return computedAt; }
+    public void setComputedAt(LocalDateTime computedAt) { this.computedAt = computedAt; }
+
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 
     @PreUpdate
-    protected void onUpdate() {
+    public void preUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
-
-    public FunctionEntity getFunction1() {
-        return function1;
-    }
-
-    public void setFunction1(FunctionEntity function1) {
-        this.function1 = function1;
-    }
-
-    public FunctionEntity getFunction2() {
-        return function2;
-    }
-
-    public void setFunction2(FunctionEntity function2) {
-        this.function2 = function2;
-    }
-
-    public FunctionEntity getResultFunction() {
-        return resultFunction;
-    }
-
-    public void setResultFunction(FunctionEntity resultFunction) {
-        this.resultFunction = resultFunction;
-    }
-
-    public String getOperationType() {
-        return operationType;
-    }
-
-    public void setOperationType(String operationType) {
-        this.operationType = operationType;
-    }
-
-    public String getParameters() {
-        return parameters;
-    }
-
-    public void setParameters(String parameters) {
-        this.parameters = parameters;
-    }
-
-    public LocalDateTime getComputedAt() {
-        return computedAt;
-    }
-
-    public void setComputedAt(LocalDateTime computedAt) {
-        this.computedAt = computedAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+    public OperationEntity() {
+        this.computedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     public Long getFunction1Id() {
@@ -144,5 +96,9 @@ public class OperationEntity {
 
     public Long getResultFunctionId() {
         return (resultFunction != null) ? resultFunction.getId() : null;
+    }
+
+    public Long getUserId() {
+        return (user != null) ? user.getId() : null;
     }
 }
