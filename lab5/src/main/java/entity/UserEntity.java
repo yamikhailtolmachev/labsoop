@@ -1,33 +1,16 @@
 package entity;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "users")
 public class UserEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
-
-    @Column(name = "username", unique = true, nullable = false, length = 50)
     private String username;
-
-    @Column(name = "email", unique = true, nullable = false, length = 100)
     private String email;
-
-    @Column(name = "password_hash", nullable = false, length = 255)
     private String passwordHash;
-
-    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-
-    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    protected UserEntity() {}
+    public UserEntity() {}
 
     public UserEntity(String username, String email, String passwordHash) {
         this.username = username;
@@ -35,13 +18,8 @@ public class UserEntity {
         this.passwordHash = passwordHash;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }

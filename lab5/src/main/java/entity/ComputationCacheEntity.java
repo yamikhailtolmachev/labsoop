@@ -1,146 +1,64 @@
 package entity;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "computation_cache")
 public class ComputationCacheEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
-
-    @Column(name = "cache_key", unique = true, nullable = false, length = 512)
     private String cacheKey;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private UserEntity user;
-
-    @Column(name = "function_expression", columnDefinition = "TEXT", nullable = false)
+    private Long userId;
     private String functionExpression;
-
-    @Column(name = "left_bound", nullable = false)
     private Double leftBound;
-
-    @Column(name = "right_bound", nullable = false)
     private Double rightBound;
-
-    @Column(name = "points_count", nullable = false)
     private Integer pointsCount;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "result_function_id", nullable = false)
-    private FunctionEntity resultFunction;
-
-    @Column(name = "computed_at", nullable = false, updatable = false)
+    private Long resultFunctionId;
     private LocalDateTime computedAt;
-
-    @Column(name = "access_count", nullable = false)
     private Integer accessCount = 1;
-
-    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    protected ComputationCacheEntity() {}
+    public ComputationCacheEntity() {}
 
-    public ComputationCacheEntity(String cacheKey, UserEntity user, String functionExpression, Double leftBound, Double rightBound, Integer pointsCount, FunctionEntity resultFunction) {
+    public ComputationCacheEntity(String cacheKey, Long userId, String functionExpression,
+                                  Double leftBound, Double rightBound, Integer pointsCount,
+                                  Long resultFunctionId) {
         this.cacheKey = cacheKey;
-        this.user = user;
+        this.userId = userId;
         this.functionExpression = functionExpression;
         this.leftBound = leftBound;
         this.rightBound = rightBound;
         this.pointsCount = pointsCount;
-        this.resultFunction = resultFunction;
+        this.resultFunctionId = resultFunctionId;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getCacheKey() { return cacheKey; }
+    public void setCacheKey(String cacheKey) { this.cacheKey = cacheKey; }
 
-    public String getCacheKey() {
-        return cacheKey;
-    }
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
 
-    public void setCacheKey(String cacheKey) {
-        this.cacheKey = cacheKey;
-    }
+    public String getFunctionExpression() { return functionExpression; }
+    public void setFunctionExpression(String functionExpression) { this.functionExpression = functionExpression; }
 
-    public UserEntity getUser() {
-        return user;
-    }
+    public Double getLeftBound() { return leftBound; }
+    public void setLeftBound(Double leftBound) { this.leftBound = leftBound; }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
+    public Double getRightBound() { return rightBound; }
+    public void setRightBound(Double rightBound) { this.rightBound = rightBound; }
 
-    public String getFunctionExpression() {
-        return functionExpression;
-    }
+    public Integer getPointsCount() { return pointsCount; }
+    public void setPointsCount(Integer pointsCount) { this.pointsCount = pointsCount; }
 
-    public void setFunctionExpression(String functionExpression) {
-        this.functionExpression = functionExpression;
-    }
+    public Long getResultFunctionId() { return resultFunctionId; }
+    public void setResultFunctionId(Long resultFunctionId) { this.resultFunctionId = resultFunctionId; }
 
-    public Double getLeftBound() {
-        return leftBound;
-    }
+    public LocalDateTime getComputedAt() { return computedAt; }
+    public void setComputedAt(LocalDateTime computedAt) { this.computedAt = computedAt; }
 
-    public void setLeftBound(Double leftBound) {
-        this.leftBound = leftBound;
-    }
+    public Integer getAccessCount() { return accessCount; }
+    public void setAccessCount(Integer accessCount) { this.accessCount = accessCount; }
 
-    public Double getRightBound() {
-        return rightBound;
-    }
-
-    public void setRightBound(Double rightBound) {
-        this.rightBound = rightBound;
-    }
-
-    public Integer getPointsCount() {
-        return pointsCount;
-    }
-
-    public void setPointsCount(Integer pointsCount) {
-        this.pointsCount = pointsCount;
-    }
-
-    public FunctionEntity getResultFunction() {
-        return resultFunction;
-    }
-
-    public void setResultFunction(FunctionEntity resultFunction) {
-        this.resultFunction = resultFunction;
-    }
-
-    public LocalDateTime getComputedAt() {
-        return computedAt;
-    }
-
-    public void setComputedAt(LocalDateTime computedAt) {
-        this.computedAt = computedAt;
-    }
-
-    public Integer getAccessCount() {
-        return accessCount;
-    }
-
-    public void setAccessCount(Integer accessCount) {
-        this.accessCount = accessCount;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }
