@@ -35,6 +35,7 @@ public class UserDAOImpl implements UserDAO {
             throw new RuntimeException("Database error", e);
         }
     }
+
     public UserDTO findUserById(UUID id) {
         String sql = "SELECT * FROM users WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -42,7 +43,7 @@ public class UserDAOImpl implements UserDAO {
             stmt.setObject(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return mapResultSetToUser(rs);
+                return UserMapper.toDTO(rs);
             }
             return null;
         } catch (SQLException e) {
@@ -58,7 +59,7 @@ public class UserDAOImpl implements UserDAO {
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return mapResultSetToUser(rs);
+                return UserMapper.toDTO(rs);
             }
             return null;
         } catch (SQLException e) {
@@ -74,7 +75,7 @@ public class UserDAOImpl implements UserDAO {
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                users.add(mapResultSetToUser(rs));
+                users.add(UserMapper.toDTO(rs));
             }
             return users;
         } catch (SQLException e) {
@@ -151,7 +152,7 @@ public class UserDAOImpl implements UserDAO {
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                users.add(mapResultSetToUser(rs));
+                users.add(UserMapper.toDTO(rs));
             }
 
             logger.debug("Found {} users with multiple criteria search", users.size());
@@ -176,7 +177,7 @@ public class UserDAOImpl implements UserDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                users.add(mapResultSetToUser(rs));
+                users.add(UserMapper.toDTO(rs));
             }
 
             logger.debug("Found {} recent users", users.size());
@@ -196,9 +197,5 @@ public class UserDAOImpl implements UserDAO {
             }
         }
         return defaultField;
-    }
-
-    private UserDTO mapResultSetToUser(ResultSet rs) throws SQLException {
-        return UserMapper.toDTO(rs);
     }
 }

@@ -9,7 +9,7 @@ class PostgreSQLConnectionTest {
     void testPostgreSQLConnection() {
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
-        String password = "password";
+        String password = "1234567";
 
         System.out.println("Тестируем подключение к PostgreSQL...");
 
