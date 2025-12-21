@@ -1,40 +1,49 @@
 package servlets.auth;
 
 import dto.UserDTO;
-import dao.UserDAO;
-import dao.UserDAOImpl;
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Base64;
-import java.nio.charset.StandardCharsets;
 
-@WebFilter("/api/*")
 public class UserContextFilter implements Filter {
-    private final UserDAO userDAO = new UserDAOImpl();
-
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
 
-        String authHeader = req.getHeader("Authorization");
-        if (authHeader != null && authHeader.startsWith("Basic ")) {
-            try {
-                String base64Credentials = authHeader.substring("Basic ".length());
-                String credentials = new String(Base64.getDecoder().decode(base64Credentials), StandardCharsets.UTF_8);
-                String[] parts = credentials.split(":", 2);
+        UserDTO user = (UserDTO) req.getAttribute("user");
+        String path = req.getRequestURI().replace("/math-functions-api", "");
 
-                if (parts.length == 2) {
-                    String username = parts[0];
-                    UserDTO user = userDAO.findUserByUsername(username);
-                    if (user != null) {
-                        req.setAttribute("user", user);
-                    }
-                }
-            } catch (Exception e) {
+        if (user != null) {
+            String logMessage = String.format(
+                    "AUTH_LOG: User '%s' (roles: %s) %s %s from %s",
+                    user.getUsername(),
+                    user.getRoles(),
+                    req.getMethod(),
+                    path,
+                    req.getRemoteAddr()
+            );
+            System.out.println(logMessage);
+
+            if ("/api/register".equals(path) && "POST".equals(req.getMethod())) {
+                String regLog = String.format(
+                        "REGISTRATION_LOG: New user registered - username: %s, email: %s, roles: %s",
+                        user.getUsername(),
+                        user.getEmail(),
+                        user.getRoles()
+                );
+                System.out.println(regLog);
             }
+        } else if (!path.equals("/api/register")) {
+            String unauthLog = String.format(
+                    "AUTH_LOG: Unauthorized attempt to access %s %s from %s",
+                    req.getMethod(),
+                    path,
+                    req.getRemoteAddr()
+            );
+            System.out.println(unauthLog);
         }
 
         chain.doFilter(request, response);

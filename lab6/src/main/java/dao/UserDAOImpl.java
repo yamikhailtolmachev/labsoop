@@ -1,149 +1,192 @@
 package dao;
 
 import dto.UserDTO;
-import database.DatabaseConnection;
 import mapper.UserMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.UUID;
+import database.DatabaseConnection;
+import util.PasswordUtil;
 
 public class UserDAOImpl implements UserDAO {
-    private static final Logger logger = LoggerFactory.getLogger(UserDAOImpl.class);
 
-    public UUID insertUser(UserDTO user) {
-        String sql = "INSERT INTO users (id, username, email, password_hash, roles) VALUES (?, ?, ?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
+    private Connection getConnection() throws SQLException {
+        return DatabaseConnection.getConnection();
+    }
+
+    @Override
+    public UserDTO findUserByUsername(String username) {
+        String sql = "SELECT * FROM users WHERE username = ?";
+
+        try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            UUID userId = UUID.randomUUID();
-            stmt.setObject(1, userId);
+
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return UserMapper.mapRow(rs);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error finding user by username: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<UserDTO> findAllUsers() {
+        List<UserDTO> users = new ArrayList<>();
+        String sql = "SELECT * FROM users ORDER BY created_at DESC";
+
+        try (Connection conn = getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                users.add(UserMapper.mapRow(rs));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error finding all users: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    @Override
+    public UserDTO findUserById(UUID id) {
+        String sql = "SELECT * FROM users WHERE id = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setObject(1, id, java.sql.Types.OTHER);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return UserMapper.mapRow(rs);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error finding user by ID: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public UUID insertUser(UserDTO user) {
+        System.out.println("UserDAOImpl.insertUser called for user: " + user.getUsername());
+        String sql = "INSERT INTO users (id, username, email, password_hash, roles, created_at, updated_at) VALUES (?, ?, ?, ?, ?::text[], ?, ?)";
+        UUID id = user.getId() != null ? user.getId() : UUID.randomUUID();
+
+        System.out.println("SQL: " + sql);
+        System.out.println("Parameters:");
+        System.out.println("  id: " + id);
+        System.out.println("  username: " + user.getUsername());
+        System.out.println("  email: " + user.getEmail());
+        System.out.println("  password_hash: " + user.getPasswordHash());
+
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            String rolesJson = UserMapper.serializeRoles(user.getRoles());
+            System.out.println("  roles (serialized): " + rolesJson);
+
+            stmt.setObject(1, id, java.sql.Types.OTHER);
             stmt.setString(2, user.getUsername());
             stmt.setString(3, user.getEmail());
             stmt.setString(4, user.getPasswordHash());
+            stmt.setString(5, rolesJson);
+            Timestamp now = new Timestamp(System.currentTimeMillis());
+            stmt.setTimestamp(6, now);
+            stmt.setTimestamp(7, now);
 
-            Array rolesArray = UserMapper.toRolesArray(conn, user.getRoles());
-            stmt.setArray(5, rolesArray);
+            System.out.println("Executing update...");
+            int rows = stmt.executeUpdate();
+            System.out.println("Rows affected: " + rows);
 
-            logger.info("Inserting user: {} with roles: {}", user.getUsername(), user.getRoles());
-            stmt.executeUpdate();
-            logger.debug("User inserted successfully: {} with ID: {}", user.getUsername(), userId);
-            return userId;
-        } catch (SQLException e) {
-            logger.error("Error inserting user {}: {}", user.getUsername(), e.getMessage(), e);
-            throw new RuntimeException("Database error", e);
-        }
-    }
-
-    public UserDTO findUserById(UUID id) {
-        String sql = "SELECT * FROM users WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setObject(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return UserMapper.toDTO(rs);
+            if (rows > 0) {
+                System.out.println("SUCCESS: User inserted with ID: " + id);
+                return id;
+            } else {
+                System.out.println("ERROR: No rows affected");
+                return null;
             }
+
+        } catch (SQLException e) {
+            System.out.println("SQLException in insertUser:");
+            e.printStackTrace(System.out);
+            System.out.println("SQL State: " + e.getSQLState());
+            System.out.println("Error Code: " + e.getErrorCode());
+            System.out.println("Message: " + e.getMessage());
             return null;
-        } catch (SQLException e) {
-            logger.error("Error finding user by id: {}", id, e);
-            throw new RuntimeException("Database error", e);
         }
     }
 
-    public UserDTO findUserByUsername(String username) {
-        String sql = "SELECT * FROM users WHERE username = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
+    @Override
+    public boolean updateUser(UserDTO user) {
+        String sql = "UPDATE users SET username = ?, email = ?, roles = ?::text[], updated_at = ? WHERE id = ?";
+
+        try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, username);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return UserMapper.toDTO(rs);
-            }
-            return null;
-        } catch (SQLException e) {
-            logger.error("Error finding user by username: {}", username, e);
-            throw new RuntimeException("Database error", e);
-        }
-    }
 
-    public List<UserDTO> findAllUsers() {
-        String sql = "SELECT * FROM users";
-        List<UserDTO> users = new ArrayList<>();
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
-            while (rs.next()) {
-                users.add(UserMapper.toDTO(rs));
-            }
-            return users;
-        } catch (SQLException e) {
-            logger.error("Error finding all users", e);
-            throw new RuntimeException("Database error", e);
-        }
-    }
-
-    public void updateUser(UserDTO user) {
-        String sql = "UPDATE users SET username = ?, email = ?, roles = ? WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
 
-            Array rolesArray = UserMapper.toRolesArray(conn, user.getRoles());
-            stmt.setArray(3, rolesArray);
+            String rolesJson = UserMapper.serializeRoles(user.getRoles());
+            stmt.setString(3, rolesJson);
 
-            stmt.setObject(4, user.getId());
-            stmt.executeUpdate();
-            logger.debug("User updated: {} with roles: {}", user.getId(), user.getRoles());
+            stmt.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
+            stmt.setString(5, user.getId().toString());
+
+            int rows = stmt.executeUpdate();
+            return rows > 0;
         } catch (SQLException e) {
-            logger.error("Error updating user: {}", user.getId(), e);
-            throw new RuntimeException("Database error", e);
+            System.err.println("Error updating user: " + e.getMessage());
+            e.printStackTrace();
         }
+        return false;
     }
 
-    public void deleteUser(UUID id) {
+    @Override
+    public boolean deleteUser(UUID id) {
         String sql = "DELETE FROM users WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setObject(1, id);
-            stmt.executeUpdate();
-            logger.debug("User deleted: {}", id);
+            stmt.setObject(1, id, java.sql.Types.OTHER);
+            int rows = stmt.executeUpdate();
+            return rows > 0;
         } catch (SQLException e) {
-            logger.error("Error deleting user: {}", id, e);
-            throw new RuntimeException("Database error", e);
+            System.err.println("Error deleting user: " + e.getMessage());
+            e.printStackTrace();
         }
+        return false;
     }
 
+    @Override
     public List<UserDTO> findUsersByMultipleCriteria(String usernamePattern, String emailPattern,
                                                      String sortBy, String sortOrder) {
-        logger.info("Starting multiple criteria search for users - username: {}, email: {}, sort: {} {}",
-                usernamePattern, emailPattern, sortBy, sortOrder);
-
         List<UserDTO> users = new ArrayList<>();
         StringBuilder sql = new StringBuilder("SELECT * FROM users WHERE 1=1");
         List<Object> params = new ArrayList<>();
 
-        if (usernamePattern != null && !usernamePattern.trim().isEmpty()) {
+        if (usernamePattern != null && !usernamePattern.isEmpty()) {
             sql.append(" AND username ILIKE ?");
             params.add("%" + usernamePattern + "%");
         }
 
-        if (emailPattern != null && !emailPattern.trim().isEmpty()) {
+        if (emailPattern != null && !emailPattern.isEmpty()) {
             sql.append(" AND email ILIKE ?");
             params.add("%" + emailPattern + "%");
         }
 
-        if (sortBy != null && !sortBy.trim().isEmpty()) {
-            String validSortBy = getValidSortField(sortBy, "username");
-            String validOrder = "DESC".equalsIgnoreCase(sortOrder) ? "DESC" : "ASC";
-            sql.append(" ORDER BY ").append(validSortBy).append(" ").append(validOrder);
+        if (sortBy != null && !sortBy.isEmpty()) {
+            sql.append(" ORDER BY ").append(sortBy);
+            if (sortOrder != null && !sortOrder.isEmpty()) {
+                sql.append(" ").append(sortOrder);
+            }
         } else {
             sql.append(" ORDER BY created_at DESC");
         }
 
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
 
             for (int i = 0; i < params.size(); i++) {
@@ -152,50 +195,33 @@ public class UserDAOImpl implements UserDAO {
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                users.add(UserMapper.toDTO(rs));
+                users.add(UserMapper.mapRow(rs));
             }
-
-            logger.debug("Found {} users with multiple criteria search", users.size());
-            return users;
-
         } catch (SQLException e) {
-            logger.error("Error in multiple criteria user search", e);
-            throw new RuntimeException("Database error", e);
+            System.err.println("Error finding users by criteria: " + e.getMessage());
+            e.printStackTrace();
         }
+        return users;
     }
 
+    @Override
     public List<UserDTO> findRecentUsers(int days) {
-        logger.info("Searching for users created in last {} days", days);
-
         List<UserDTO> users = new ArrayList<>();
-        String sql = "SELECT * FROM users WHERE created_at >= CURRENT_DATE - INTERVAL ? || ' days' ORDER BY created_at DESC";
+        String sql = "SELECT * FROM users WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL ? DAY ORDER BY created_at DESC";
 
-        try (Connection conn = DatabaseConnection.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, days);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                users.add(UserMapper.toDTO(rs));
+                users.add(UserMapper.mapRow(rs));
             }
-
-            logger.debug("Found {} recent users", users.size());
-            return users;
-
         } catch (SQLException e) {
-            logger.error("Error finding recent users", e);
-            throw new RuntimeException("Database error", e);
+            System.err.println("Error finding recent users: " + e.getMessage());
+            e.printStackTrace();
         }
-    }
-
-    private String getValidSortField(String requestedField, String defaultField) {
-        String[] allowedFields = {"username", "email", "created_at", "updated_at"};
-        for (String field : allowedFields) {
-            if (field.equalsIgnoreCase(requestedField)) {
-                return field;
-            }
-        }
-        return defaultField;
+        return users;
     }
 }

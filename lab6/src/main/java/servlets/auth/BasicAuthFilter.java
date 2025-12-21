@@ -1,65 +1,80 @@
 package servlets.auth;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Base64;
 import java.nio.charset.StandardCharsets;
+import java.util.Set;
+import java.util.HashSet;
+import dao.UserDAO;
+import dao.UserDAOImpl;
+import dto.UserDTO;
+import util.PasswordUtil;
 
-@WebFilter(filterName = "BasicAuthFilter", urlPatterns = {"/*"})
 public class BasicAuthFilter implements Filter {
+    private UserDAO userDAO;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("=== BASIC AUTH FILTER INITIALIZED ===");
+        userDAO = new UserDAOImpl();
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
-
-        System.out.println("=== FILTER EXECUTED ===");
-
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-
-        // Выводим ВСЕ заголовки для отладки
-        java.util.Enumeration<String> headerNames = httpRequest.getHeaderNames();
-        while (headerNames.hasMoreElements()) {
-            String headerName = headerNames.nextElement();
-            System.out.println("Header: " + headerName + " = " + httpRequest.getHeader(headerName));
-        }
-
-        System.out.println("URI: " + httpRequest.getRequestURI());
-        System.out.println("Method: " + httpRequest.getMethod());
-
-        String authHeader = httpRequest.getHeader("Authorization");
-        System.out.println("Auth Header: " + (authHeader != null ? "Present" : "Missing"));
-
         String uri = httpRequest.getRequestURI();
-        if (!uri.contains("/api/")) {
-            System.out.println("Not an API request - skipping auth");
+        String method = httpRequest.getMethod();
+
+        String path = uri.replace("/math-functions-api", "");
+
+        if (path.equals("/api/register") && method.equals("POST")) {
             chain.doFilter(request, response);
             return;
         }
 
+        if (!path.contains("/api/")) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        String authHeader = httpRequest.getHeader("Authorization");
+
         if (authHeader == null || !authHeader.startsWith("Basic ")) {
-            System.out.println("Missing Basic Auth header");
+            String logMsg = String.format("AUTH_FAIL: No auth header for %s %s from %s",
+                    method, path, httpRequest.getRemoteAddr());
+            System.out.println(logMsg);
+
             httpResponse.setStatus(401);
             httpResponse.setHeader("WWW-Authenticate", "Basic realm=\"Math Functions API\"");
             sendJsonResponse(httpResponse, "{\"error\":\"Unauthorized\"}");
             return;
         }
 
-        String base64Credentials = authHeader.substring("Basic ".length());
-        String credentials = new String(Base64.getDecoder().decode(base64Credentials), StandardCharsets.UTF_8);
-        String[] parts = credentials.split(":", 2);
+        String base64Credentials = authHeader.substring("Basic ".length()).trim();
+        String credentials;
 
+        try {
+            credentials = new String(Base64.getDecoder().decode(base64Credentials), StandardCharsets.UTF_8);
+        } catch (IllegalArgumentException e) {
+            String logMsg = String.format("AUTH_FAIL: Invalid base64 for %s %s from %s",
+                    method, path, httpRequest.getRemoteAddr());
+            System.out.println(logMsg);
+
+            httpResponse.setStatus(401);
+            sendJsonResponse(httpResponse, "{\"error\":\"Invalid credentials encoding\"}");
+            return;
+        }
+
+        String[] parts = credentials.split(":", 2);
         if (parts.length != 2) {
-            System.out.println("Invalid credentials format");
+            String logMsg = String.format("AUTH_FAIL: Malformed credentials for %s %s from %s",
+                    method, path, httpRequest.getRemoteAddr());
+            System.out.println(logMsg);
+
             httpResponse.setStatus(401);
             sendJsonResponse(httpResponse, "{\"error\":\"Invalid credentials\"}");
             return;
@@ -68,24 +83,84 @@ public class BasicAuthFilter implements Filter {
         String username = parts[0];
         String password = parts[1];
 
-        System.out.println("Auth attempt for user: " + username);
+        String attemptLog = String.format("AUTH_ATTEMPT: User '%s' trying %s %s from %s",
+                username, method, path, httpRequest.getRemoteAddr());
+        System.out.println(attemptLog);
 
-        if ("testuser_api".equals(username) && "testpassword".equals(password)) {
-            System.out.println("Authentication SUCCESS for: " + username);
-            System.out.println("Calling chain.doFilter()...");
-            chain.doFilter(request, response);
-            System.out.println("=== FILTER COMPLETED SUCCESSFULLY ===");
+        UserDTO user = userDAO.findUserByUsername(username);
+
+        if (user == null) {
+            String logMsg = String.format("AUTH_FAIL: User '%s' not found for %s %s",
+                    username, method, path);
+            System.out.println(logMsg);
+
+            httpResponse.setStatus(401);
+            sendJsonResponse(httpResponse, "{\"error\":\"Invalid credentials\"}");
+            return;
+        }
+
+        boolean passwordValid = PasswordUtil.verifyPassword(password, user.getPasswordHash());
+
+        if (passwordValid) {
+            Set<String> roles = new HashSet<>(user.getRoles());
+
+            if (checkAccess(path, method, roles)) {
+                String successLog = String.format("AUTH_SUCCESS: User '%s' authenticated for %s %s",
+                        username, method, path);
+                System.out.println(successLog);
+
+                httpRequest.setAttribute("user", user);
+                chain.doFilter(request, response);
+            } else {
+                String failLog = String.format("ACCESS_DENIED: User '%s' (roles: %s) denied for %s %s",
+                        username, roles, method, path);
+                System.out.println(failLog);
+
+                httpResponse.setStatus(403);
+                sendJsonResponse(httpResponse, "{\"error\":\"Forbidden - insufficient permissions\"}");
+            }
         } else {
-            System.out.println("Authentication FAILED for: " + username);
+            String failLog = String.format("AUTH_FAIL: Invalid password for user '%s' for %s %s",
+                    username, method, path);
+            System.out.println(failLog);
+
             httpResponse.setStatus(401);
             sendJsonResponse(httpResponse, "{\"error\":\"Invalid credentials\"}");
         }
     }
 
-    @Override
-    public void destroy() {
-        System.out.println("=== FILTER DESTROYED ===");
+    private boolean checkAccess(String path, String method, Set<String> roles) {
+        if (roles.contains("ADMIN")) {
+            return true;
+        }
+
+        if (path.startsWith("/api/users")) {
+            if (path.matches("/api/users/.*") && !path.contains("/search") && !path.contains("/recent")) {
+                return method.equals("GET") && roles.contains("USER");
+            }
+            return method.equals("GET") && (roles.contains("USER") || roles.contains("API_USER"));
+        }
+
+        if (path.startsWith("/api/functions")) {
+            if (method.equals("POST") || method.equals("PUT") || method.equals("DELETE")) {
+                return roles.contains("USER");
+            }
+            return roles.contains("USER") || roles.contains("API_USER");
+        }
+
+        if (path.startsWith("/api/operations") || path.startsWith("/api/cache")) {
+            return method.equals("GET") && (roles.contains("USER") || roles.contains("API_USER"));
+        }
+
+        if (path.startsWith("/api/admin")) {
+            return false;
+        }
+
+        return false;
     }
+
+    @Override
+    public void destroy() {}
 
     private void sendJsonResponse(HttpServletResponse response, String json) throws IOException {
         response.setContentType("application/json");

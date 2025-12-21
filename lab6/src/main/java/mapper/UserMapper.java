@@ -1,51 +1,90 @@
 package mapper;
 
 import dto.UserDTO;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.sql.Timestamp;
+import java.sql.Array;
 import java.util.UUID;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UserMapper {
-    private static final Logger logger = LoggerFactory.getLogger(UserMapper.class);
 
-    public static UserDTO toDTO(ResultSet rs) throws SQLException {
-        try {
-            UserDTO userDTO = new UserDTO();
-            userDTO.setId((UUID) rs.getObject("id"));
-            userDTO.setUsername(rs.getString("username"));
-            userDTO.setEmail(rs.getString("email"));
-            userDTO.setPasswordHash(rs.getString("password_hash"));
-            userDTO.setCreatedAt(rs.getTimestamp("created_at"));
+    public static UserDTO mapRow(ResultSet rs) throws SQLException {
+        UserDTO user = new UserDTO();
 
-            Array rolesArray = rs.getArray("roles");
-            Set<String> roles = new HashSet<>();
-            if (rolesArray != null) {
-                String[] rolesFromDb = (String[]) rolesArray.getArray();
-                if (rolesFromDb != null) {
-                    roles.addAll(Arrays.asList(rolesFromDb));
-                }
-            } else {
-                roles.add("USER");
+        String idStr = rs.getString("id");
+        if (idStr != null && !idStr.isEmpty()) {
+            try {
+                user.setId(UUID.fromString(idStr));
+            } catch (IllegalArgumentException e) {
+                user.setId(UUID.randomUUID());
             }
-            userDTO.setRoles(roles);
-
-            return userDTO;
-        } catch (SQLException e) {
-            logger.error("Error transforming ResultSet to UserDTO: {}", e.getMessage());
-            throw e;
         }
+
+        user.setUsername(rs.getString("username"));
+        user.setEmail(rs.getString("email"));
+        user.setPasswordHash(rs.getString("password_hash"));
+
+        Array rolesArray = rs.getArray("roles");
+        List<String> roles = new ArrayList<>();
+
+        if (rolesArray != null) {
+            String[] roleStrings = (String[]) rolesArray.getArray();
+            if (roleStrings != null) {
+                roles.addAll(Arrays.asList(roleStrings));
+            }
+        }
+
+        if (roles.isEmpty()) {
+            roles.add("USER");
+        }
+
+        user.setRoles(roles);
+        user.setCreatedAt(rs.getTimestamp("created_at"));
+        user.setUpdatedAt(rs.getTimestamp("updated_at"));
+
+        return user;
     }
 
-    public static Array toRolesArray(java.sql.Connection conn, Set<String> roles) throws SQLException {
-        if (roles == null || roles.isEmpty()) {
-            return conn.createArrayOf("text", new String[]{"USER"});
+    public static List<String> parseRoles(String rolesString) {
+        List<String> roles = new ArrayList<>();
+
+        if (rolesString != null && !rolesString.trim().isEmpty()) {
+            rolesString = rolesString.replace("[", "").replace("]", "");
+            rolesString = rolesString.replace("\"", "").replace("'", "");
+
+            String[] roleArray = rolesString.split(",");
+            for (String role : roleArray) {
+                String trimmedRole = role.trim();
+                if (!trimmedRole.isEmpty() && !trimmedRole.equals("null")) {
+                    roles.add(trimmedRole);
+                }
+            }
         }
-        return conn.createArrayOf("text", roles.toArray(new String[0]));
+
+        if (roles.isEmpty()) {
+            roles.add("USER");
+        }
+
+        return roles;
+    }
+
+    public static String serializeRoles(List<String> roles) {
+        if (roles == null || roles.isEmpty()) {
+            return "{USER}";
+        }
+
+        StringBuilder sb = new StringBuilder("{");
+        for (int i = 0; i < roles.size(); i++) {
+            if (i > 0) {
+                sb.append(",");
+            }
+            sb.append("\"").append(roles.get(i)).append("\"");
+        }
+        sb.append("}");
+        return sb.toString();
     }
 }

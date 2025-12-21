@@ -1,18 +1,28 @@
 package util;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 public class PasswordUtil {
-    private static final Logger logger = LoggerFactory.getLogger(PasswordUtil.class);
 
-    public static String hashPassword(String plainPassword) {
-        logger.debug("Hashing password");
-        return BCryptImpl.hashpw(plainPassword);
+    public static String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes());
+            return Base64.getEncoder().encodeToString(hash);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("Error hashing password", e);
+        }
     }
 
-    public static boolean verifyPassword(String plainPassword, String hashedPassword) {
-        logger.debug("Verifying password");
-        return BCryptImpl.checkpw(plainPassword, hashedPassword);
+    public static boolean verifyPassword(String inputPassword, String storedHash) {
+        try {
+            String inputHash = hashPassword(inputPassword);
+            return inputHash.equals(storedHash);
+        } catch (Exception e) {
+            System.err.println("Password verification error: " + e.getMessage());
+            return false;
+        }
     }
 }

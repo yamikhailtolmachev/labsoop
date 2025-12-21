@@ -1,154 +1,113 @@
 package servlets.api;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import dto.UserDTO;
 import dao.UserDAO;
 import dao.UserDAOImpl;
-import dto.UserDTO;
+import util.JsonUtil;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.UUID;
-import java.util.Map;
 
-@WebServlet("/api/users/*")
-public class UserServlet extends BaseApiServlet {
-    private UserDAO userDAO = new UserDAOImpl();
+public class UserServlet extends HttpServlet {
+    private final UserDAO userDAO = new UserDAOImpl();
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String pathInfo = request.getPathInfo();
-        String requestId = UUID.randomUUID().toString();
-
-        logger.info("GET {} - Request ID: {}", pathInfo != null ? pathInfo : "/", requestId);
-
-        try {
-            if (pathInfo == null || pathInfo.equals("/")) {
-                handleGetAllUsers(request, response, requestId);
-            } else if (pathInfo.equals("/search")) {
-                handleSearchUsers(request, response, requestId);
-            } else if (pathInfo.equals("/recent")) {
-                handleRecentUsers(request, response, requestId);
-            } else {
-                handleGetUserById(request, response, pathInfo, requestId);
-            }
-        } catch (Exception e) {
-            logger.error("Error processing GET request {} - ID: {}", pathInfo, requestId, e);
-            sendError(response, 500, "Internal server error");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        UserDTO currentUser = (UserDTO) req.getAttribute("user");
+        if (currentUser != null) {
+            String logMsg = String.format("USER_OPERATION: User '%s' viewing users list/details",
+                    currentUser.getUsername());
+            System.out.println(logMsg);
         }
-    }
 
-    private void handleGetAllUsers(HttpServletRequest request, HttpServletResponse response, String requestId) throws IOException {
-        logger.debug("Fetching all users - Request ID: {}", requestId);
-        var users = userDAO.findAllUsers();
-        logger.info("Retrieved {} users - Request ID: {}", users.size(), requestId);
-        sendSuccess(response, users);
-    }
-
-    private void handleSearchUsers(HttpServletRequest request, HttpServletResponse response, String requestId) throws IOException {
-        String usernamePattern = request.getParameter("username");
-        String emailPattern = request.getParameter("email");
-        String sortBy = request.getParameter("sortBy");
-        String sortOrder = request.getParameter("sortOrder");
-
-        logger.debug("Searching users - username: {}, email: {} - Request ID: {}",
-                usernamePattern, emailPattern, requestId);
-
-        var users = userDAO.findUsersByMultipleCriteria(usernamePattern, emailPattern, sortBy, sortOrder);
-        logger.info("Found {} users matching criteria - Request ID: {}", users.size(), requestId);
-        sendSuccess(response, users);
-    }
-
-    private void handleRecentUsers(HttpServletRequest request, HttpServletResponse response, String requestId) throws IOException {
-        int days = getIntParameter(request, "days", 7);
-        logger.debug("Fetching recent users from last {} days - Request ID: {}", days, requestId);
-
-        var users = userDAO.findRecentUsers(days);
-        logger.info("Found {} recent users - Request ID: {}", users.size(), requestId);
-        sendSuccess(response, users);
-    }
-
-    private void handleGetUserById(HttpServletRequest request, HttpServletResponse response, String pathInfo, String requestId) throws IOException {
-        String userId = pathInfo.substring(1);
-        logger.debug("Fetching user by ID: {} - Request ID: {}", userId, requestId);
-
-        UserDTO user = userDAO.findUserById(UUID.fromString(userId));
-        if (user != null) {
-            logger.info("User found: {} - Request ID: {}", user.getUsername(), requestId);
-            sendSuccess(response, user);
+        String pathInfo = req.getPathInfo();
+        if (pathInfo == null || pathInfo.equals("/")) {
+            listUsers(req, resp);
         } else {
-            logger.warn("User not found: {} - Request ID: {}", userId, requestId);
-            sendError(response, 404, "User not found");
+            getUserById(pathInfo.substring(1), req, resp);
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String requestId = UUID.randomUUID().toString();
-        logger.info("POST /api/users - Request ID: {}", requestId);
-
-        try {
-            UserDTO user = readRequestBody(request, UserDTO.class);
-            logger.debug("Creating user: {} - Request ID: {}", user.getUsername(), requestId);
-
-            UUID userId = userDAO.insertUser(user);
-            logger.info("User created successfully: {} - Request ID: {}", userId, requestId);
-
-            response.setStatus(201);
-            sendSuccess(response, "User created successfully", Map.of("userId", userId));
-        } catch (Exception e) {
-            logger.error("Error creating user - Request ID: {}", requestId, e);
-            sendError(response, 400, "Invalid user data: " + e.getMessage());
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        UserDTO currentUser = (UserDTO) req.getAttribute("user");
+        if (currentUser != null && currentUser.hasRole("ADMIN")) {
+            String logMsg = String.format("ADMIN_OPERATION: User '%s' creating new user",
+                    currentUser.getUsername());
+            System.out.println(logMsg);
+            createUser(req, resp);
+        } else {
+            String logMsg = String.format("ACCESS_DENIED: User '%s' denied user creation",
+                    currentUser != null ? currentUser.getUsername() : "anonymous");
+            System.out.println(logMsg);
+            resp.setStatus(403);
+            JsonUtil.writeJson(resp, JsonUtil.error(403, "Admin access required"));
         }
     }
 
     @Override
-    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String userId = getPathParameter(request);
-        String requestId = UUID.randomUUID().toString();
-        logger.info("PUT /api/users/{} - Request ID: {}", userId, requestId);
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        UserDTO currentUser = (UserDTO) req.getAttribute("user");
+        if (currentUser != null && currentUser.hasRole("ADMIN")) {
+            String logMsg = String.format("ADMIN_OPERATION: User '%s' updating user",
+                    currentUser.getUsername());
+            System.out.println(logMsg);
+            updateUser(req, resp);
+        } else {
+            resp.setStatus(403);
+            JsonUtil.writeJson(resp, JsonUtil.error(403, "Admin access required"));
+        }
+    }
 
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        UserDTO currentUser = (UserDTO) req.getAttribute("user");
+        if (currentUser != null && currentUser.hasRole("ADMIN")) {
+            String logMsg = String.format("ADMIN_OPERATION: User '%s' deleting user",
+                    currentUser.getUsername());
+            System.out.println(logMsg);
+            deleteUser(req, resp);
+        } else {
+            resp.setStatus(403);
+            JsonUtil.writeJson(resp, JsonUtil.error(403, "Admin access required"));
+        }
+    }
+
+    private void listUsers(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        var users = userDAO.findAllUsers();
+        JsonUtil.writeJson(resp, JsonUtil.success("Users retrieved", users));
+    }
+
+    private void getUserById(String id, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try {
-            if (userId == null) {
-                logger.warn("User ID required for update - Request ID: {}", requestId);
-                sendError(response, 400, "User ID required");
-                return;
+            UUID userId = UUID.fromString(id);
+            UserDTO user = userDAO.findUserById(userId);
+            if (user != null) {
+                JsonUtil.writeJson(resp, JsonUtil.success("User retrieved", user));
+            } else {
+                resp.setStatus(404);
+                JsonUtil.writeJson(resp, JsonUtil.error(404, "User not found"));
             }
-
-            UserDTO user = readRequestBody(request, UserDTO.class);
-            user.setId(UUID.fromString(userId));
-            logger.debug("Updating user: {} - Request ID: {}", userId, requestId);
-
-            userDAO.updateUser(user);
-            logger.info("User updated successfully: {} - Request ID: {}", userId, requestId);
-
-            sendSuccess(response, "User updated successfully");
-        } catch (Exception e) {
-            logger.error("Error updating user {} - Request ID: {}", userId, requestId, e);
-            sendError(response, 400, "Invalid update data: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            resp.setStatus(400);
+            JsonUtil.writeJson(resp, JsonUtil.error(400, "Invalid user ID format"));
         }
     }
 
-    @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String userId = getPathParameter(request);
-        String requestId = UUID.randomUUID().toString();
-        logger.info("DELETE /api/users/{} - Request ID: {}", userId, requestId);
+    private void createUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.setStatus(501);
+        JsonUtil.writeJson(resp, JsonUtil.error(501, "Not implemented"));
+    }
 
-        try {
-            if (userId == null) {
-                logger.warn("User ID required for deletion - Request ID: {}", requestId);
-                sendError(response, 400, "User ID required");
-                return;
-            }
+    private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.setStatus(501);
+        JsonUtil.writeJson(resp, JsonUtil.error(501, "Not implemented"));
+    }
 
-            logger.debug("Deleting user: {} - Request ID: {}", userId, requestId);
-            userDAO.deleteUser(UUID.fromString(userId));
-            logger.info("User deleted successfully: {} - Request ID: {}", userId, requestId);
-
-            sendSuccess(response, "User deleted successfully");
-        } catch (Exception e) {
-            logger.error("Error deleting user {} - Request ID: {}", userId, requestId, e);
-            sendError(response, 500, e.getMessage());
-        }
+    private void deleteUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.setStatus(501);
+        JsonUtil.writeJson(resp, JsonUtil.error(501, "Not implemented"));
     }
 }
