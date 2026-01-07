@@ -1,20 +1,25 @@
-﻿# API Performance Test Results
-
-**Date:** 2025-12-20 22:48:24
-**Iterations per endpoint:** 10
-**Authentication:** Basic Auth
-**User:** testuser_api
-
-| Endpoint | Avg Time (ms) | Min (ms) | Max (ms) | Success Rate (%) |
-|----------|--------------|----------|----------|-----------------|
-| GET /api/cache | 121,40 | 74 | 186 | 100,0% |
-| GET /api/functions | 926,60 | 843 | 1054 | 100,0% |
-| GET /api/functions/search | 969,40 | 773 | 1161 | 100,0% |
-| GET /api/operations | 218,70 | 160 | 315 | 100,0% |
-| GET /api/users | 126,40 | 75 | 305 | 100,0% |
-
-## Conclusions
-1. Basic Auth filter works correctly
-2. All GET endpoints are available
-3. API performance is stable
-
+| Метод | URL эндпоинта | Среднее время (мс) | Минимальное время (мс) | Максимальное время (мс) | Статус (PASS/FAIL) | Успешность (%) |
+|-------|---------------|--------------------|------------------------|------------------------|-------------------|----------------|
+| GET | /api/users | 4.30 | 2.00 | 23.00 | FAIL | 100.0% |
+| GET | /api/users/1 | 2.50 | 2.00 | 4.00 | FAIL | 100.0% |
+| POST | /api/users | 2.60 | 2.00 | 4.00 | FAIL | 100.0% |
+| PUT | /api/users/1 | 2.30 | 2.00 | 3.00 | FAIL | 100.0% |
+| DELETE | /api/users/1 | 2.50 | 2.00 | 4.00 | FAIL | 100.0% |
+| GET | /api/functions | 2.10 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/functions/search | 2.30 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/functions/derivatives | 2.50 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/functions/types | 2.70 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/functions/highest-points | 2.40 | 2.00 | 3.00 | FAIL | 100.0% |
+| POST | /api/functions | 2.20 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/operations | 2.40 | 2.00 | 4.00 | FAIL | 100.0% |
+| GET | /api/operations/search | 2.30 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/operations/hierarchy | 2.40 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/operations/chain | 2.20 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/operations/recent | 2.40 | 2.00 | 3.00 | FAIL | 100.0% |
+| POST | /api/operations | 2.30 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/cache | 2.10 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/cache/search | 2.50 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/cache/most-accessed | 2.30 | 2.00 | 3.00 | FAIL | 100.0% |
+| GET | /api/cache/recent | 2.20 | 2.00 | 3.00 | FAIL | 100.0% |
+| POST | /api/cache | 3.40 | 2.00 | 5.00 | FAIL | 100.0% |
+| DELETE | /api/cache/sin_x_0_to_2pi | 2.30 | 1.00 | 4.00 | FAIL | 100.0% |
