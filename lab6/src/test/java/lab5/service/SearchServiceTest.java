@@ -1,5 +1,7 @@
 package lab5.service;
 
+import lab5.dto.FunctionDTO;
+import lab5.dto.OperationDTO;
 import lab5.entity.FunctionEntity;
 import lab5.entity.OperationEntity;
 import lab5.entity.UserEntity;
@@ -11,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.*;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,16 +44,20 @@ class SearchServiceTest {
     @Test
     void shouldFindUserById() {
         Long userId = 1L;
-        UserEntity mockUser = new UserEntity("testUser", "test@example.com", "hash");
-        mockUser.setId(userId);
-        mockUser.setCreatedAt(LocalDateTime.now());
-        mockUser.setUpdatedAt(LocalDateTime.now());
-        when(userRepository.findById(userId)).thenReturn(Optional.of(mockUser));
+        UserEntity realUser = new UserEntity();
+        realUser.setId(userId);
+        realUser.setUsername("test_user");
+        realUser.setEmail("test@example.com");
+        realUser.setPassword("hash");
+        realUser.setCreatedAt(LocalDateTime.now());
+        realUser.setUpdatedAt(LocalDateTime.now());
 
-        Optional<UserEntity> found = searchService.findUserById(userId);
+        when(userRepository.findById(userId)).thenReturn(Optional.of(realUser));
 
-        assertThat(found).isPresent();
-        assertThat(found.get().getUsername()).isEqualTo("testUser");
+        Optional<UserEntity> foundOpt = searchService.findUserById(userId);
+
+        assertThat(foundOpt).isPresent();
+        assertThat(foundOpt.get().getId()).isEqualTo(userId);
         verify(userRepository, times(1)).findById(userId);
     }
 
@@ -69,113 +74,191 @@ class SearchServiceTest {
 
     @Test
     void shouldFindAllUsersWithSort() {
-        UserEntity user1 = new UserEntity("user1", "u1@example.com", "hash1");
-        UserEntity user2 = new UserEntity("user2", "u2@example.com", "hash2");
+        UserEntity user1 = new UserEntity();
+        user1.setUsername("user1");
+        user1.setEmail("u1@example.com");
+        user1.setPassword("hash1");
         user1.setCreatedAt(LocalDateTime.now());
         user1.setUpdatedAt(LocalDateTime.now());
+
+        UserEntity user2 = new UserEntity();
+        user2.setUsername("user2");
+        user2.setEmail("u2@example.com");
+        user2.setPassword("hash2");
         user2.setCreatedAt(LocalDateTime.now());
         user2.setUpdatedAt(LocalDateTime.now());
 
-        Sort sort = Sort.by(Sort.Direction.ASC, "username");
-        when(userRepository.findAll(sort)).thenReturn(Arrays.asList(user1, user2));
+        when(userRepository.findAll(any(Sort.class))).thenReturn(Arrays.asList(user1, user2));
 
-        List<UserEntity> found = searchService.findAllUsers(sort);
+        List<UserEntity> found = searchService.findAllUsers("username", "asc");
 
         assertThat(found).hasSize(2);
         assertThat(found.get(0).getUsername()).isEqualTo("user1");
-        verify(userRepository, times(1)).findAll(sort);
+        verify(userRepository, times(1)).findAll(any(Sort.class));
     }
 
     @Test
     void shouldFindFunctionsByUserIdWithSort() {
-        // given
         Long userId = 1L;
-        FunctionEntity func1 = new FunctionEntity(null, "func1", "BASIC", "x", 0.0, 1.0, 10, "{\"points\": []}");
-        FunctionEntity func2 = new FunctionEntity(null, "func2", "COMPOSITE", "x^2", 0.0, 1.0, 10, "{\"points\": []}");
-        func1.setCreatedAt(LocalDateTime.now());
-        func1.setUpdatedAt(LocalDateTime.now());
-        func2.setCreatedAt(LocalDateTime.now());
-        func2.setUpdatedAt(LocalDateTime.now());
 
-        Sort sort = Sort.by(Sort.Direction.DESC, "name");
-        // --- ИСПРАВЛЕНО: Замокирован вызов метода с сортировкой ---
-        when(functionRepository.findByUserId(eq(userId), any(Sort.class))).thenReturn(Arrays.asList(func2, func1)); // func2.name > func1.name (DESC)
-        // ---
-
-        // when
-        List<FunctionEntity> found = searchService.findFunctionsByUserId(userId, sort);
-
-        // then
-        assertThat(found).hasSize(2);
-        assertThat(found.get(0).getName()).isEqualTo("func2"); // func2.name > func1.name (DESC)
-        verify(functionRepository, times(1)).findByUserId(eq(userId), any(Sort.class));
-    }
-
-    @Test
-    void shouldFindUsersPaginated() {
-        Pageable pageable = PageRequest.of(0, 10);
-        UserEntity user1 = new UserEntity("user1", "u1@example.com", "hash1");
-        UserEntity user2 = new UserEntity("user2", "u2@example.com", "hash2");
+        UserEntity user1 = new UserEntity();
+        user1.setId(100L);
+        user1.setUsername("user1");
+        user1.setEmail("u1@example.com");
+        user1.setPassword("hash");
         user1.setCreatedAt(LocalDateTime.now());
         user1.setUpdatedAt(LocalDateTime.now());
+
+        FunctionEntity func1 = new FunctionEntity();
+        func1.setUser(user1);
+        func1.setName("func1");
+        func1.setType("BASIC");
+        func1.setExpression("x");
+        func1.setLeftBound(0.0);
+        func1.setRightBound(1.0);
+        func1.setPointsCount(10);
+        func1.setPointsData("{\"points\": []}");
+        func1.setId(10L);
+        func1.setCreatedAt(LocalDateTime.now());
+        func1.setUpdatedAt(LocalDateTime.now());
+
+        UserEntity user2 = new UserEntity();
+        user2.setId(101L);
+        user2.setUsername("user2");
+        user2.setEmail("u2@example.com");
+        user2.setPassword("hash");
         user2.setCreatedAt(LocalDateTime.now());
         user2.setUpdatedAt(LocalDateTime.now());
 
-        List<UserEntity> users = Arrays.asList(user1, user2);
-        Page<UserEntity> userPage = new PageImpl<>(users, pageable, users.size());
+        FunctionEntity func2 = new FunctionEntity();
+        func2.setUser(user2);
+        func2.setName("func2");
+        func2.setType("COMPOSITE");
+        func2.setExpression("x^2");
+        func2.setLeftBound(0.0);
+        func2.setRightBound(1.0);
+        func2.setPointsCount(10);
+        func2.setPointsData("{\"points\": []}");
+        func2.setId(11L);
+        func2.setCreatedAt(LocalDateTime.now());
+        func2.setUpdatedAt(LocalDateTime.now());
 
-        when(userRepository.findAll(pageable)).thenReturn(userPage);
+        when(functionRepository.findByUserId(eq(userId), any(Sort.class))).thenReturn(Arrays.asList(func2, func1));
 
-        Page<UserEntity> result = searchService.findUsersPaginated(pageable);
+        List<FunctionDTO> functions = searchService.findFunctionsByUserIdSorted(userId, "name", "desc");
 
-        assertThat(result).isNotNull();
-        assertThat(result.getContent()).hasSize(2);
-        assertThat(result.getTotalElements()).isEqualTo(2);
-        verify(userRepository, times(1)).findAll(pageable);
+        assertThat(functions).hasSize(2);
+        assertThat(functions.get(0).getName()).isEqualTo("func2");
+        assertThat(functions.get(0).getUserId()).isEqualTo(101L);
+        verify(functionRepository, times(1)).findByUserId(eq(userId), any(Sort.class));
     }
 
     @Test
     void shouldFindFunctionsSortedByField() {
         String field = "name";
         String direction = "ASC";
-        FunctionEntity func1 = new FunctionEntity(null, "a_func", "BASIC", "x", 0.0, 1.0, 10, "{\"points\": []}");
-        FunctionEntity func2 = new FunctionEntity(null, "b_func", "BASIC", "x^2", 0.0, 1.0, 10, "{\"points\": []}");
+
+        UserEntity user1 = new UserEntity();
+        user1.setId(100L);
+        user1.setUsername("user1");
+        user1.setEmail("u1@example.com");
+        user1.setPassword("hash");
+        user1.setCreatedAt(LocalDateTime.now());
+        user1.setUpdatedAt(LocalDateTime.now());
+
+        FunctionEntity func1 = new FunctionEntity();
+        func1.setUser(user1);
+        func1.setName("a_func");
+        func1.setType("BASIC");
+        func1.setExpression("x");
+        func1.setLeftBound(0.0);
+        func1.setRightBound(1.0);
+        func1.setPointsCount(10);
+        func1.setPointsData("{\"points\": []}");
+        func1.setId(10L);
         func1.setCreatedAt(LocalDateTime.now());
         func1.setUpdatedAt(LocalDateTime.now());
+
+        UserEntity user2 = new UserEntity();
+        user2.setId(101L);
+        user2.setUsername("user2");
+        user2.setEmail("u2@example.com");
+        user2.setPassword("hash");
+        user2.setCreatedAt(LocalDateTime.now());
+        user2.setUpdatedAt(LocalDateTime.now());
+
+        FunctionEntity func2 = new FunctionEntity();
+        func2.setUser(user2);
+        func2.setName("b_func");
+        func2.setType("BASIC");
+        func2.setExpression("x^2");
+        func2.setLeftBound(0.0);
+        func2.setRightBound(1.0);
+        func2.setPointsCount(10);
+        func2.setPointsData("{\"points\": []}");
+        func2.setId(11L);
         func2.setCreatedAt(LocalDateTime.now());
         func2.setUpdatedAt(LocalDateTime.now());
 
         when(functionRepository.findAll(any(Sort.class))).thenReturn(Arrays.asList(func1, func2));
 
-        List<FunctionEntity> found = searchService.findFunctionsSortedByField(field, direction);
+        List<FunctionDTO> sortedFunctions = searchService.findAllFunctionsSorted(field, direction);
 
-        assertThat(found).hasSize(2);
-        assertThat(found.get(0).getName()).isEqualTo("a_func");
+        assertThat(sortedFunctions).hasSize(2);
+        assertThat(sortedFunctions.get(0).getName()).isEqualTo("a_func");
+        assertThat(sortedFunctions.get(0).getUserId()).isEqualTo(100L);
         verify(functionRepository, times(1)).findAll(any(Sort.class));
     }
 
     @Test
     void shouldFindDependencyFunctionsDFS() {
         Long resultFuncId = 3L;
-        FunctionEntity resultFunc = new FunctionEntity(null, "result", "OPERATION_RESULT", "res", 0.0, 1.0, 10, "{\"points\": []}");
+        FunctionEntity resultFunc = new FunctionEntity();
+        resultFunc.setName("result");
+        resultFunc.setType("OPERATION_RESULT");
+        resultFunc.setExpression("res");
+        resultFunc.setLeftBound(0.0);
+        resultFunc.setRightBound(1.0);
+        resultFunc.setPointsCount(10);
+        resultFunc.setPointsData("{\"points\": []}");
         resultFunc.setId(resultFuncId);
         resultFunc.setCreatedAt(LocalDateTime.now());
         resultFunc.setUpdatedAt(LocalDateTime.now());
 
-        FunctionEntity depFunc1 = new FunctionEntity(null, "dep1", "BASIC", "x", 0.0, 1.0, 10, "{\"points\": []}");
+        FunctionEntity depFunc1 = new FunctionEntity();
+        depFunc1.setName("dep1");
+        depFunc1.setType("BASIC");
+        depFunc1.setExpression("x");
+        depFunc1.setLeftBound(0.0);
+        depFunc1.setRightBound(1.0);
+        depFunc1.setPointsCount(10);
+        depFunc1.setPointsData("{\"points\": []}");
         depFunc1.setId(1L);
         depFunc1.setCreatedAt(LocalDateTime.now());
         depFunc1.setUpdatedAt(LocalDateTime.now());
 
-        FunctionEntity depFunc2 = new FunctionEntity(null, "dep2", "BASIC", "x^2", 0.0, 1.0, 10, "{\"points\": []}");
+        FunctionEntity depFunc2 = new FunctionEntity();
+        depFunc2.setName("dep2");
+        depFunc2.setType("BASIC");
+        depFunc2.setExpression("x^2");
+        depFunc2.setLeftBound(0.0);
+        depFunc2.setRightBound(1.0);
+        depFunc2.setPointsCount(10);
+        depFunc2.setPointsData("{\"points\": []}");
         depFunc2.setId(2L);
         depFunc2.setCreatedAt(LocalDateTime.now());
         depFunc2.setUpdatedAt(LocalDateTime.now());
 
-        OperationEntity op = new OperationEntity(null, depFunc1, depFunc2, resultFunc, "ADD", "{\"param\": \"val\"}");
-        op.setId(10L);
+        OperationEntity op = new OperationEntity();
+        op.setUser(null);
+        op.setFunction1(depFunc1);
+        op.setFunction2(depFunc2);
+        op.setResultFunction(resultFunc);
+        op.setOperationType("ADD");
+        op.setParameters("{\"param\": \"val\"}");
         op.setComputedAt(LocalDateTime.now());
         op.setUpdatedAt(LocalDateTime.now());
+        op.setId(10L);
 
         when(functionRepository.findById(resultFuncId)).thenReturn(Optional.of(resultFunc));
         when(operationRepository.findByResultFunction_Id(resultFuncId)).thenReturn(Arrays.asList(op));
@@ -196,25 +279,52 @@ class SearchServiceTest {
     void shouldFindDependencyFunctionsBFS() {
         Long startFuncId = 3L;
         int maxDepth = 1;
-        FunctionEntity startFunc = new FunctionEntity(null, "start", "OPERATION_RESULT", "start", 0.0, 1.0, 10, "{\"points\": []}");
+        FunctionEntity startFunc = new FunctionEntity();
+        startFunc.setName("start");
+        startFunc.setType("OPERATION_RESULT");
+        startFunc.setExpression("start");
+        startFunc.setLeftBound(0.0);
+        startFunc.setRightBound(1.0);
+        startFunc.setPointsCount(10);
+        startFunc.setPointsData("{\"points\": []}");
         startFunc.setId(startFuncId);
         startFunc.setCreatedAt(LocalDateTime.now());
         startFunc.setUpdatedAt(LocalDateTime.now());
 
-        FunctionEntity depFunc1 = new FunctionEntity(null, "dep1", "BASIC", "x", 0.0, 1.0, 10, "{\"points\": []}");
+        FunctionEntity depFunc1 = new FunctionEntity();
+        depFunc1.setName("dep1");
+        depFunc1.setType("BASIC");
+        depFunc1.setExpression("x");
+        depFunc1.setLeftBound(0.0);
+        depFunc1.setRightBound(1.0);
+        depFunc1.setPointsCount(10);
+        depFunc1.setPointsData("{\"points\": []}");
         depFunc1.setId(1L);
         depFunc1.setCreatedAt(LocalDateTime.now());
         depFunc1.setUpdatedAt(LocalDateTime.now());
 
-        FunctionEntity depFunc2 = new FunctionEntity(null, "dep2", "BASIC", "x^2", 0.0, 1.0, 10, "{\"points\": []}");
+        FunctionEntity depFunc2 = new FunctionEntity();
+        depFunc2.setName("dep2");
+        depFunc2.setType("BASIC");
+        depFunc2.setExpression("x^2");
+        depFunc2.setLeftBound(0.0);
+        depFunc2.setRightBound(1.0);
+        depFunc2.setPointsCount(10);
+        depFunc2.setPointsData("{\"points\": []}");
         depFunc2.setId(2L);
         depFunc2.setCreatedAt(LocalDateTime.now());
         depFunc2.setUpdatedAt(LocalDateTime.now());
 
-        OperationEntity op = new OperationEntity(null, depFunc1, depFunc2, startFunc, "ADD", "{\"param\": \"val\"}");
-        op.setId(10L);
+        OperationEntity op = new OperationEntity();
+        op.setUser(null);
+        op.setFunction1(depFunc1);
+        op.setFunction2(depFunc2);
+        op.setResultFunction(startFunc);
+        op.setOperationType("ADD");
+        op.setParameters("{\"param\": \"val\"}");
         op.setComputedAt(LocalDateTime.now());
         op.setUpdatedAt(LocalDateTime.now());
+        op.setId(10L);
 
         when(functionRepository.findById(startFuncId)).thenReturn(Optional.of(startFunc));
         when(operationRepository.findByResultFunction_Id(startFuncId)).thenReturn(Arrays.asList(op));
@@ -232,54 +342,192 @@ class SearchServiceTest {
     @Test
     void shouldFindFunctionById() {
         Long functionId = 1L;
-        FunctionEntity mockFunction = new FunctionEntity(null, "testFunc", "BASIC", "x", 0.0, 1.0, 10, "{\"points\": []}");
-        mockFunction.setId(functionId);
-        mockFunction.setCreatedAt(LocalDateTime.now());
-        mockFunction.setUpdatedAt(LocalDateTime.now());
-        when(functionRepository.findById(functionId)).thenReturn(Optional.of(mockFunction));
 
-        Optional<FunctionEntity> found = searchService.findFunctionById(functionId);
+        UserEntity realUser = new UserEntity();
+        realUser.setUsername("testUser");
+        realUser.setEmail("test@example.com");
+        realUser.setPassword("hash");
+        realUser.setId(100L);
+        realUser.setCreatedAt(LocalDateTime.now());
+        realUser.setUpdatedAt(LocalDateTime.now());
 
-        assertThat(found).isPresent();
-        assertThat(found.get().getName()).isEqualTo("testFunc");
+        FunctionEntity realFunction = new FunctionEntity();
+        realFunction.setUser(realUser);
+        realFunction.setName("testFunc");
+        realFunction.setType("BASIC");
+        realFunction.setExpression("x");
+        realFunction.setLeftBound(0.0);
+        realFunction.setRightBound(1.0);
+        realFunction.setPointsCount(10);
+        realFunction.setPointsData("{\"points\": []}");
+        realFunction.setId(functionId);
+        realFunction.setCreatedAt(LocalDateTime.now());
+        realFunction.setUpdatedAt(LocalDateTime.now());
+
+        when(functionRepository.findById(functionId)).thenReturn(Optional.of(realFunction));
+
+        Optional<FunctionDTO> foundFunctionOpt = searchService.findFunctionById(functionId);
+
+        assertThat(foundFunctionOpt).isPresent();
+        assertThat(foundFunctionOpt.get().getUserId()).isEqualTo(100L);
+        assertThat(foundFunctionOpt.get().getName()).isEqualTo("testFunc");
         verify(functionRepository, times(1)).findById(functionId);
     }
 
     @Test
     void shouldFindOperationById() {
         Long operationId = 1L;
-        OperationEntity mockOperation = new OperationEntity(null, null, null, null, "ADD", "{}");
-        mockOperation.setId(operationId);
-        mockOperation.setComputedAt(LocalDateTime.now());
-        mockOperation.setUpdatedAt(LocalDateTime.now());
-        when(operationRepository.findById(operationId)).thenReturn(Optional.of(mockOperation));
 
-        Optional<OperationEntity> found = searchService.findOperationById(operationId);
+        UserEntity realUser = new UserEntity();
+        realUser.setUsername("opUser");
+        realUser.setEmail("op@example.com");
+        realUser.setPassword("hash");
+        realUser.setId(200L);
+        realUser.setCreatedAt(LocalDateTime.now());
+        realUser.setUpdatedAt(LocalDateTime.now());
 
-        assertThat(found).isPresent();
-        assertThat(found.get().getOperationType()).isEqualTo("ADD");
+        FunctionEntity realFunc1 = new FunctionEntity();
+        realFunc1.setUser(realUser);
+        realFunc1.setName("f1");
+        realFunc1.setType("BASIC");
+        realFunc1.setExpression("x");
+        realFunc1.setLeftBound(0.0);
+        realFunc1.setRightBound(1.0);
+        realFunc1.setPointsCount(10);
+        realFunc1.setPointsData("{\"points\": []}");
+        realFunc1.setId(201L);
+        realFunc1.setCreatedAt(LocalDateTime.now());
+        realFunc1.setUpdatedAt(LocalDateTime.now());
+
+        FunctionEntity realFunc2 = new FunctionEntity();
+        realFunc2.setUser(realUser);
+        realFunc2.setName("f2");
+        realFunc2.setType("BASIC");
+        realFunc2.setExpression("x^2");
+        realFunc2.setLeftBound(0.0);
+        realFunc2.setRightBound(1.0);
+        realFunc2.setPointsCount(10);
+        realFunc2.setPointsData("{\"points\": []}");
+        realFunc2.setId(202L);
+        realFunc2.setCreatedAt(LocalDateTime.now());
+        realFunc2.setUpdatedAt(LocalDateTime.now());
+
+        FunctionEntity realResultFunc = new FunctionEntity();
+        realResultFunc.setUser(realUser);
+        realResultFunc.setName("res");
+        realResultFunc.setType("OPERATION_RESULT");
+        realResultFunc.setExpression("x+x^2");
+        realResultFunc.setLeftBound(0.0);
+        realResultFunc.setRightBound(1.0);
+        realResultFunc.setPointsCount(10);
+        realResultFunc.setPointsData("{\"points\": []}");
+        realResultFunc.setId(203L);
+        realResultFunc.setCreatedAt(LocalDateTime.now());
+        realResultFunc.setUpdatedAt(LocalDateTime.now());
+
+        OperationEntity realOperation = new OperationEntity();
+        realOperation.setUser(realUser);
+        realOperation.setFunction1(realFunc1);
+        realOperation.setFunction2(realFunc2);
+        realOperation.setResultFunction(realResultFunc);
+        realOperation.setOperationType("ADD");
+        realOperation.setParameters("{}");
+        realOperation.setComputedAt(LocalDateTime.now());
+        realOperation.setUpdatedAt(LocalDateTime.now());
+        realOperation.setId(operationId);
+
+        when(operationRepository.findById(operationId)).thenReturn(Optional.of(realOperation));
+
+        Optional<OperationDTO> foundOpOpt = searchService.findOperationById(operationId);
+
+        assertThat(foundOpOpt).isPresent();
+        assertThat(foundOpOpt.get().getOperationType()).isEqualTo("ADD");
+        assertThat(foundOpOpt.get().getUserId()).isEqualTo(200L);
         verify(operationRepository, times(1)).findById(operationId);
     }
 
     @Test
     void shouldFindOperationsByUserId() {
         Long userId = 1L;
-        OperationEntity op1 = new OperationEntity(null, null, null, null, "ADD", "{}");
-        OperationEntity op2 = new OperationEntity(null, null, null, null, "SUBTRACT", "{}");
-        op1.setId(1L);
-        op2.setId(2L);
+
+        UserEntity realUser = new UserEntity();
+        realUser.setUsername("opUser");
+        realUser.setEmail("op@example.com");
+        realUser.setPassword("hash");
+        realUser.setId(userId);
+        realUser.setCreatedAt(LocalDateTime.now());
+        realUser.setUpdatedAt(LocalDateTime.now());
+
+        FunctionEntity realFunc1 = new FunctionEntity();
+        realFunc1.setUser(realUser);
+        realFunc1.setName("f1");
+        realFunc1.setType("BASIC");
+        realFunc1.setExpression("x");
+        realFunc1.setLeftBound(0.0);
+        realFunc1.setRightBound(1.0);
+        realFunc1.setPointsCount(10);
+        realFunc1.setPointsData("{\"points\": []}");
+        realFunc1.setId(10L);
+        realFunc1.setCreatedAt(LocalDateTime.now());
+        realFunc1.setUpdatedAt(LocalDateTime.now());
+
+        FunctionEntity realFunc2 = new FunctionEntity();
+        realFunc2.setUser(realUser);
+        realFunc2.setName("f2");
+        realFunc2.setType("BASIC");
+        realFunc2.setExpression("x^2");
+        realFunc2.setLeftBound(0.0);
+        realFunc2.setRightBound(1.0);
+        realFunc2.setPointsCount(10);
+        realFunc2.setPointsData("{\"points\": []}");
+        realFunc2.setId(11L);
+        realFunc2.setCreatedAt(LocalDateTime.now());
+        realFunc2.setUpdatedAt(LocalDateTime.now());
+
+        FunctionEntity realResultFunc = new FunctionEntity();
+        realResultFunc.setUser(realUser);
+        realResultFunc.setName("res");
+        realResultFunc.setType("OPERATION_RESULT");
+        realResultFunc.setExpression("x+x^2");
+        realResultFunc.setLeftBound(0.0);
+        realResultFunc.setRightBound(1.0);
+        realResultFunc.setPointsCount(10);
+        realResultFunc.setPointsData("{\"points\": []}");
+        realResultFunc.setId(12L);
+        realResultFunc.setCreatedAt(LocalDateTime.now());
+        realResultFunc.setUpdatedAt(LocalDateTime.now());
+
+        OperationEntity op1 = new OperationEntity();
+        op1.setUser(realUser);
+        op1.setFunction1(realFunc1);
+        op1.setFunction2(realFunc2);
+        op1.setResultFunction(realResultFunc);
+        op1.setOperationType("ADD");
+        op1.setParameters("{}");
         op1.setComputedAt(LocalDateTime.now());
         op1.setUpdatedAt(LocalDateTime.now());
+        op1.setId(1L);
+
+        OperationEntity op2 = new OperationEntity();
+        op2.setUser(realUser);
+        op2.setFunction1(realFunc1);
+        op2.setFunction2(null);
+        op2.setResultFunction(realResultFunc);
+        op2.setOperationType("SUBTRACT");
+        op2.setParameters("{}");
         op2.setComputedAt(LocalDateTime.now());
         op2.setUpdatedAt(LocalDateTime.now());
+        op2.setId(2L);
 
-        when(operationRepository.findByUserId(userId)).thenReturn(Arrays.asList(op1, op2));
+        when(operationRepository.findByUser_Id(eq(userId), any(Sort.class))).thenReturn(Arrays.asList(op1, op2));
 
-        List<OperationEntity> found = searchService.findOperationsByUserId(userId);
+        List<OperationDTO> ops = searchService.findOperationsByUserIdSorted(userId, "id", "asc");
 
-        assertThat(found).hasSize(2);
-        assertThat(found).extracting(OperationEntity::getOperationType)
+        assertThat(ops).hasSize(2);
+        assertThat(ops).extracting(OperationDTO::getOperationType)
                 .containsExactlyInAnyOrder("ADD", "SUBTRACT");
-        verify(operationRepository, times(1)).findByUserId(userId);
+        assertThat(ops).extracting(OperationDTO::getUserId)
+                .containsExactlyInAnyOrder(userId, userId);
+        verify(operationRepository, times(1)).findByUser_Id(eq(userId), any(Sort.class));
     }
 }

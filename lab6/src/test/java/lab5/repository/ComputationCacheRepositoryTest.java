@@ -40,7 +40,8 @@ class ComputationCacheRepositoryTest {
         FunctionEntity savedResultFunc = functionRepository.save(resultFunc);
 
         String cacheKey = "unique_cache_key_123";
-        ComputationCacheEntity cache = new ComputationCacheEntity(cacheKey, savedUser, "x^2", 0.0, 1.0, 100, savedResultFunc);
+        String pointsData = "{}";
+        ComputationCacheEntity cache = new ComputationCacheEntity(cacheKey, savedUser, "x^2", 0.0, 1.0, 100, pointsData, savedResultFunc);
         cache.setComputedAt(LocalDateTime.now());
         cache.setUpdatedAt(LocalDateTime.now());
 
@@ -68,7 +69,8 @@ class ComputationCacheRepositoryTest {
         FunctionEntity savedResultFunc = functionRepository.save(resultFunc);
 
         String cacheKey = "unique_cache_key_456";
-        ComputationCacheEntity cache = new ComputationCacheEntity(cacheKey, savedUser, "sin(x)", 0.0, 2.0, 200, savedResultFunc);
+        String pointsData = "{}";
+        ComputationCacheEntity cache = new ComputationCacheEntity(cacheKey, savedUser, "sin(x)", 0.0, 2.0, 200, pointsData, savedResultFunc);
         cache.setComputedAt(LocalDateTime.now());
         cache.setUpdatedAt(LocalDateTime.now());
         cacheRepository.save(cache);
@@ -93,7 +95,8 @@ class ComputationCacheRepositoryTest {
         FunctionEntity savedResultFunc = functionRepository.save(resultFunc);
 
         String cacheKey = "unique_cache_key_789";
-        ComputationCacheEntity cache = new ComputationCacheEntity(cacheKey, savedUser, "cos(x)", -1.0, 1.0, 50, savedResultFunc);
+        String pointsData = "{}";
+        ComputationCacheEntity cache = new ComputationCacheEntity(cacheKey, savedUser, "cos(x)", -1.0, 1.0, 50, pointsData, savedResultFunc);
         cache.setComputedAt(LocalDateTime.now());
         cache.setUpdatedAt(LocalDateTime.now());
         ComputationCacheEntity savedCache = cacheRepository.save(cache);

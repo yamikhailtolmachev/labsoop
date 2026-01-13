@@ -86,17 +86,20 @@ public class OperationService {
         }
     }
 
+    @Transactional(readOnly = true)
     public Optional<OperationEntity> getOperationById(Long id) {
         logger.info("Getting operation by ID: {}", id);
         return operationRepository.findById(id);
     }
 
+    @Transactional(readOnly = true)
     public List<OperationEntity> getAllOperations(String sortField, String sortDirection) {
         logger.info("Getting all operations, sort: {} {}", sortField, sortDirection);
         Sort sort = Sort.by(Sort.Direction.fromString(sortDirection), sortField);
         return operationRepository.findAll(sort);
     }
 
+    @Transactional(readOnly = true)
     public List<OperationEntity> getOperationsByUserId(Long userId, String sortField, String sortDirection) {
         logger.info("Getting operations for user ID: {}, sort: {} {}", userId, sortField, sortDirection);
         Sort sort = Sort.by(Sort.Direction.fromString(sortDirection), sortField);

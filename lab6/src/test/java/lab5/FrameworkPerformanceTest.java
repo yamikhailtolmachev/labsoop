@@ -66,7 +66,8 @@ class FrameworkPerformanceTest {
                 op.setUpdatedAt(LocalDateTime.now());
                 ops.add(op);
 
-                ComputationCacheEntity c = new ComputationCacheEntity("key_" + i, u, "x^2", 0.0, 10.0, i % 100 + 1, f);
+                String pointsData = "{}";
+                ComputationCacheEntity c = new ComputationCacheEntity("key_" + i, u, "x^2", 0.0, 10.0, i % 100 + 1, pointsData, f);
                 c.setComputedAt(LocalDateTime.now());
                 c.setUpdatedAt(LocalDateTime.now());
                 c.setAccessCount(i % 100);

@@ -1,17 +1,17 @@
 package lab5.controller;
 
-import lab5.dto.OperationDTO;
+import lab5.dto.OperationResponseDTO;
 import lab5.entity.OperationEntity;
 import lab5.service.OperationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/operations")
@@ -22,46 +22,84 @@ public class OperationController {
     @Autowired
     private OperationService operationService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<OperationEntity> getOperationById(@PathVariable Long id) {
-        logger.info("Получен запрос на получение операции с ID: {}", id);
-        Optional<OperationEntity> operationOpt = operationService.getOperationById(id);
-        if (operationOpt.isPresent()) {
-            logger.debug("Возвращена операция с ID: {}", id);
-            return ResponseEntity.ok(operationOpt.get());
-        } else {
-            logger.warn("Операция с ID {} не найдена.", id);
-            return ResponseEntity.notFound().build();
-        }
-    }
-
     @GetMapping
-    public ResponseEntity<List<OperationEntity>> getAllOperations(
+    public ResponseEntity<List<OperationResponseDTO>> getAllOperations(
             @RequestParam(required = false, defaultValue = "id") String sortField,
             @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
         logger.info("Получен запрос на получение всех операций, сортировка: {}:{}", sortField, sortDirection);
-        List<OperationEntity> operations = operationService.getAllOperations(sortField, sortDirection);
-        logger.debug("Возвращено {} операций.", operations.size());
-        return ResponseEntity.ok(operations);
-    }
-
-    @PostMapping
-    public ResponseEntity<OperationEntity> createOperation(@RequestBody OperationDTO operationDTO) {
-        logger.info("Получен запрос на создание операции типа: {}", operationDTO.getOperationType());
         try {
-            OperationEntity createdOperation = operationService.createOperation(operationDTO);
-            logger.info("Операция создана с ID: {}", createdOperation.getId());
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdOperation);
+            List<OperationEntity> operations = operationService.getAllOperations(sortField, sortDirection);
+            List<OperationResponseDTO> responseDtos = operations.stream()
+                    .map(OperationResponseDTO::fromEntity)
+                    .collect(Collectors.toList());
+            logger.debug("Найдено {} операций.", responseDtos.size());
+            return ResponseEntity.ok(responseDtos);
         } catch (Exception e) {
-            logger.error("Ошибка при создании операции: {}", e.getMessage());
-            return ResponseEntity.badRequest().build();
+            logger.error("Ошибка при получении всех операций: {}", e.getMessage(), e);
+            return ResponseEntity.status(500).build();
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<OperationEntity> updateOperation(@PathVariable Long id, @RequestBody OperationEntity operationDetails) {
-        logger.info("Получен запрос на обновление операции с ID: {}", id);
-        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<OperationResponseDTO>> getOperationsByUserId(
+            @PathVariable Long userId,
+            @RequestParam(required = false, defaultValue = "id") String sortField,
+            @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
+        logger.info("Получен запрос на получение операций для пользователя с ID: {}, сортировка: {}:{}", userId, sortField, sortDirection);
+        try {
+            List<OperationEntity> operations = operationService.getOperationsByUserId(userId, sortField, sortDirection);
+            List<OperationResponseDTO> responseDtos = operations.stream()
+                    .map(OperationResponseDTO::fromEntity)
+                    .collect(Collectors.toList());
+            if (!responseDtos.isEmpty()) {
+                logger.debug("Найдено {} операций для пользователя ID {}.", responseDtos.size(), userId);
+                return ResponseEntity.ok(responseDtos);
+            } else {
+                logger.warn("Операции для пользователя с ID {} не найдены.", userId);
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            logger.error("Ошибка при получении операций по ID пользователя: {}", e.getMessage(), e);
+            return ResponseEntity.status(500).build();
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<OperationResponseDTO> getOperationById(@PathVariable Long id) {
+        logger.info("Получен запрос на получение операции с ID: {}", id);
+        try {
+            Optional<OperationEntity> operationOpt = operationService.getOperationById(id);
+            if (operationOpt.isPresent()) {
+                OperationResponseDTO responseDto = OperationResponseDTO.fromEntity(operationOpt.get());
+                logger.debug("Возвращена операция с ID: {}", id);
+                return ResponseEntity.ok(responseDto);
+            } else {
+                logger.warn("Операция с ID {} не найдена.", id);
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            logger.error("Ошибка при получении операции по ID: {}", e.getMessage(), e);
+            return ResponseEntity.status(500).build();
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<OperationResponseDTO> createOperation(@RequestBody lab5.dto.OperationDTO operationDTO) {
+        logger.info("Получен запрос на создание операции DTO");
+        try {
+            OperationEntity createdOperation = operationService.createOperation(operationDTO);
+            if (createdOperation != null) {
+                OperationResponseDTO responseDto = OperationResponseDTO.fromEntity(createdOperation);
+                logger.debug("Операция DTO создана с ID: {}", responseDto.getId());
+                return ResponseEntity.status(201).body(responseDto);
+            } else {
+                logger.error("Ошибка при создании операции DTO: возвращено null");
+                return ResponseEntity.badRequest().build();
+            }
+        } catch (Exception e) {
+            logger.error("Ошибка при создании операции DTO: {}", e.getMessage(), e);
+            return ResponseEntity.status(500).build();
+        }
     }
 
     @DeleteMapping("/{id}")
@@ -73,23 +111,6 @@ public class OperationController {
             return ResponseEntity.noContent().build();
         } else {
             logger.warn("Операция с ID {} не найдена для удаления.", id);
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<OperationEntity>> getOperationsByUserId(
-            @PathVariable Long userId,
-            @RequestParam(required = false, defaultValue = "id") String sortField,
-            @RequestParam(required = false, defaultValue = "asc") String sortDirection) {
-        logger.info("Получен запрос на получение операций для пользователя с ID: {}, сортировка: {}:{}",
-                userId, sortField, sortDirection);
-        List<OperationEntity> operations = operationService.getOperationsByUserId(userId, sortField, sortDirection);
-        if (!operations.isEmpty()) {
-            logger.debug("Найдено {} операций для пользователя ID {}.", operations.size(), userId);
-            return ResponseEntity.ok(operations);
-        } else {
-            logger.warn("Операции для пользователя с ID {} не найдены.", userId);
             return ResponseEntity.notFound().build();
         }
     }

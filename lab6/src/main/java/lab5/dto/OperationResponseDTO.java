@@ -2,7 +2,7 @@ package lab5.dto;
 
 import java.time.LocalDateTime;
 
-public class OperationDTO {
+public class OperationResponseDTO {
     private Long id;
     private String operationType;
     private String parameters;
@@ -13,21 +13,39 @@ public class OperationDTO {
     private LocalDateTime computedAt;
     private LocalDateTime updatedAt;
 
-    public OperationDTO() {
+    public OperationResponseDTO() {
     }
 
-    public OperationDTO(Long id, Long userId, Long function1Id, Long function2Id,
-                        Long resultFunctionId, String operationType, String parameters,
-                        LocalDateTime computedAt, LocalDateTime updatedAt) {
+    public OperationResponseDTO(Long id, String operationType, String parameters,
+                                Long userId, Long function1Id, Long function2Id,
+                                Long resultFunctionId, LocalDateTime computedAt,
+                                LocalDateTime updatedAt) {
         this.id = id;
+        this.operationType = operationType;
+        this.parameters = parameters;
         this.userId = userId;
         this.function1Id = function1Id;
         this.function2Id = function2Id;
         this.resultFunctionId = resultFunctionId;
-        this.operationType = operationType;
-        this.parameters = parameters;
         this.computedAt = computedAt;
         this.updatedAt = updatedAt;
+    }
+
+    public static OperationResponseDTO fromEntity(lab5.entity.OperationEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        return new OperationResponseDTO(
+                entity.getId(),
+                entity.getOperationType(),
+                entity.getParameters(),
+                entity.getUser() != null ? entity.getUser().getId() : null,
+                entity.getFunction1() != null ? entity.getFunction1().getId() : null,
+                entity.getFunction2() != null ? entity.getFunction2().getId() : null,
+                entity.getResultFunction() != null ? entity.getResultFunction().getId() : null,
+                entity.getComputedAt(),
+                entity.getUpdatedAt()
+        );
     }
 
     public Long getId() { return id; }

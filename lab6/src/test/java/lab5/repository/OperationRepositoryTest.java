@@ -104,7 +104,7 @@ class OperationRepositoryTest {
         op2.setUpdatedAt(LocalDateTime.now());
         operationRepository.save(op2);
 
-        List<OperationEntity> found = operationRepository.findByUserId(savedUser.getId());
+        List<OperationEntity> found = operationRepository.findByUser_Id(savedUser.getId());
 
         assertThat(found).hasSize(2);
         assertThat(found).extracting(OperationEntity::getOperationType)
