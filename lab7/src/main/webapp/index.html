@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Functions API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .endpoint { background: #f5f5f5; padding: 10px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+    </style>
+</head>
+<body>
+<h1>Math Functions API</h1>
+<p>API для работы с математическими функциями</p>
+
+<h2>Доступные эндпоинты:</h2>
+
+<div class="endpoint">
+    <strong>POST /api/register</strong> - Регистрация пользователя
+    <br>Body: {"username": "test", "email": "test@test.com", "password": "password"}
+</div>
+
+<div class="endpoint">
+    <strong>GET /api/admin/users</strong> - Получить всех пользователей (только для ADMIN)
+    <br>Header: Authorization: Basic base64(username:password)
+</div>
+
+<div class="endpoint">
+    <strong>GET /api/functions</strong> - Получить функции (требует аутентификации)
+</div>
+
+<div class="endpoint">
+    <strong>GET /api/operations</strong> - Получить операции (требует аутентификации)
+</div>
+
+<div class="endpoint">
+    <strong>GET /api/cache</strong> - Получить кэш (требует аутентификации)
+</div>
+</body>
+</html>
