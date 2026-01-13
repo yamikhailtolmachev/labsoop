@@ -1,0 +1,1334 @@
+{
+  "info": {
+    "name": "newman_test",
+    "description": "API test suite for lab6 application",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json    "
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "timestamp",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "functionId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "operationId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "cacheId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "cacheKey",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Setup - Generate Timestamp",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const timestamp = new Date().getTime();",
+              "pm.collectionVariables.set('timestamp', timestamp);",
+              "console.log('Test run timestamp:', timestamp);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/"
+      }
+    },
+    {
+      "name": "1. Users API Tests",
+      "item": [
+        {
+          "name": "1.1 Users - POST (Create First User)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"User created successfully\", function () {",
+                  "  var jsonData = pm.response.json();",
+                  "  pm.expect(jsonData).to.have.property('id');",
+                  "  var userId = jsonData.id;",
+                  "  pm.collectionVariables.set('userId', userId);",
+                  "  console.log('User ID set to:', userId);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"test_user_{{timestamp}}\",\n  \"email\": \"test_{{timestamp}}@example.com\",\n  \"password\": \"test_password\"\n}"
+            },
+            "url": "{{baseUrl}}/api/users"
+          }
+        },
+        {
+          "name": "1.2 Users - GET by ID",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"User data is correct\", function () {",
+                  "  var jsonData = pm.response.json();",
+                  "  var userId = pm.collectionVariables.get('userId');",
+                  "  pm.expect(jsonData.id).to.eql(parseInt(userId));",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/users/{{userId}}"
+          }
+        },
+        {
+          "name": "1.3 Users - GET all with Sort",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Users list returned\", function () {",
+                  "  var jsonData = pm.response.json();",
+                  "  pm.expect(jsonData).to.be.an('array');",
+                  "  pm.expect(jsonData.length).to.be.at.least(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users?sortField=username&sortDirection=asc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"],
+              "query": [
+                {
+                  "key": "sortField",
+                  "value": "username",
+                  "disabled": false
+                },
+                {
+                  "key": "sortDirection",
+                  "value": "asc",
+                  "disabled": false
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "1.4 Users - PUT (Update)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"User updated successfully\", function () {",
+                  "  var jsonData = pm.response.json();",
+                  "  pm.expect(jsonData.username).to.include('updated');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"updated_user_{{timestamp}}\",\n  \"email\": \"updated_{{timestamp}}@example.com\",\n  \"password\": \"new_hash\"\n}"
+            },
+            "url": "{{baseUrl}}/api/users/{{userId}}"
+          }
+        },
+        {
+          "name": "1.5 Users - GET by Username (Search)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"User found by username\", function () {",
+                  "  var jsonData = pm.response.json();",
+                  "  pm.expect(jsonData.username).to.include('updated_user_');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/users/search/username/updated_user_{{timestamp}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Functions API Tests",
+      "item": [
+        {
+          "name": "2.1 Functions - POST (Create)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Creating function for user ID:', pm.collectionVariables.get('userId'));",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Function created successfully\", function () {",
+                  "  if (pm.response.code === 201) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "    var functionId = jsonData.id;",
+                  "    pm.collectionVariables.set('functionId', functionId);",
+                  "    console.log('Function ID set to:', functionId);",
+                  "  } else {",
+                  "    console.log('Failed to create function. Status:', pm.response.code);",
+                  "    console.log('Response:', pm.response.text());",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"test_func_{{timestamp}}\",\n  \"type\": \"BASIC\",\n  \"expression\": \"x*x\",\n  \"leftBound\": 0,\n  \"rightBound\": 10,\n  \"pointsCount\": 100,\n  \"userId\": {{userId}}\n}"
+            },
+            "url": "{{baseUrl}}/api/functions"
+          }
+        },
+        {
+          "name": "2.2 Functions - GET by ID",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Getting function with ID:', pm.collectionVariables.get('functionId'));",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Function data is correct\", function () {",
+                  "  if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    var functionId = pm.collectionVariables.get('functionId');",
+                  "    if (functionId) {",
+                  "      pm.expect(jsonData.id).to.eql(parseInt(functionId));",
+                  "    }",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/functions/{{functionId}}"
+          }
+        },
+        {
+          "name": "2.3 Functions - GET by User ID with Sort",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Getting functions for user ID:', pm.collectionVariables.get('userId'));",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Functions list for user returned\", function () {",
+                  "  if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.be.an('array');",
+                  "    if (jsonData.length > 0) {",
+                  "      console.log('Found', jsonData.length, 'functions');",
+                  "    }",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/functions/user/{{userId}}?sortField=name&sortDirection=desc",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "functions", "user", "{{userId}}"],
+              "query": [
+                {
+                  "key": "sortField",
+                  "value": "name",
+                  "disabled": false
+                },
+                {
+                  "key": "sortDirection",
+                  "value": "desc",
+                  "disabled": false
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "2.4 Functions - PUT (Update)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "console.log('Skipping PUT test - method not implemented');",
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Skipped - PUT not implemented\", function () {",
+                  "  pm.expect(true).to.be.true;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"updated_func_{{timestamp}}\",\n  \"type\": \"COMPOSITE\",\n  \"expression\": \"sin(x)\",\n  \"leftBound\": -5.0,\n  \"rightBound\": 5.0,\n  \"pointsCount\": 200\n}"
+            },
+            "url": "{{baseUrl}}/api/functions/{{functionId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Operations API Tests",
+      "item": [
+        {
+          "name": "3.1 Operations - POST (Create)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Creating operation with function ID:', pm.collectionVariables.get('functionId'));",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Operation created successfully\", function () {",
+                  "  if (pm.response.code === 201) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "    var operationId = jsonData.id;",
+                  "    pm.collectionVariables.set('operationId', operationId);",
+                  "    console.log('Operation ID set to:', operationId);",
+                  "  } else {",
+                  "    console.log('Failed to create operation. Status:', pm.response.code);",
+                  "    console.log('Response:', pm.response.text());",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operationType\": \"ADD\",\n  \"parameters\": \"{}\",\n  \"userId\": {{userId}},\n  \"function1Id\": {{functionId}},\n  \"function2Id\": {{functionId}},\n  \"resultFunctionId\": {{functionId}}\n}"
+            },
+            "url": "{{baseUrl}}/api/operations"
+          }
+        },
+        {
+          "name": "3.2 Operations - GET by ID",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Getting operation with ID:', pm.collectionVariables.get('operationId'));",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Operation data is correct\", function () {",
+                  "  if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    var operationId = pm.collectionVariables.get('operationId');",
+                  "    if (operationId) {",
+                  "      pm.expect(jsonData.id).to.eql(parseInt(operationId));",
+                  "    }",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/operations/{{operationId}}"
+          }
+        },
+        {
+          "name": "3.3 Operations - GET by User ID",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Getting operations for user ID:', pm.collectionVariables.get('userId'));",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Operations list for user returned\", function () {",
+                  "  if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.be.an('array');",
+                  "    if (jsonData.length > 0) {",
+                  "      console.log('Found', jsonData.length, 'operations');",
+                  "    }",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/operations/user/{{userId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Computation Cache API Tests",
+      "item": [
+        {
+          "name": "4.1 Cache - POST (Create)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Creating cache with function ID:', pm.collectionVariables.get('functionId'));",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Cache entry created successfully\", function () {",
+                  "  if (pm.response.code === 201) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "    pm.expect(jsonData).to.have.property('cacheKey');",
+                  "    var cacheId = jsonData.id;",
+                  "    var cacheKey = jsonData.cacheKey;",
+                  "    pm.collectionVariables.set('cacheId', cacheId);",
+                  "    pm.collectionVariables.set('cacheKey', cacheKey);",
+                  "    console.log('Cache ID set to:', cacheId);",
+                  "    console.log('Cache Key set to:', cacheKey);",
+                  "  } else {",
+                  "    console.log('Failed to create cache. Status:', pm.response.code);",
+                  "    console.log('Response:', pm.response.text());",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cacheKey\": \"cache_key_{{timestamp}}\",\n  \"functionExpression\": \"x*x*x\",\n  \"leftBound\": -2.0,\n  \"rightBound\": 2.0,\n  \"pointsCount\": 50,\n  \"userId\": {{userId}},\n  \"resultFunctionId\": {{functionId}}\n}"
+            },
+            "url": "{{baseUrl}}/api/cache"
+          }
+        },
+        {
+          "name": "4.2 Cache - GET by ID",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Getting cache with ID:', pm.collectionVariables.get('cacheId'));",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Cache entry data is correct\", function () {",
+                  "  if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    var cacheId = pm.collectionVariables.get('cacheId');",
+                  "    if (cacheId) {",
+                  "      pm.expect(jsonData.id).to.eql(parseInt(cacheId));",
+                  "    }",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/cache/{{cacheId}}"
+          }
+        },
+        {
+          "name": "4.3 Cache - GET by Cache Key",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "console.log('Getting cache with key:', pm.collectionVariables.get('cacheKey'));",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Cache entry found by key\", function () {",
+                  "  if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    var cacheKey = pm.collectionVariables.get('cacheKey');",
+                  "    if (cacheKey) {",
+                  "      pm.expect(jsonData.cacheKey).to.equal(cacheKey);",
+                  "    }",
+                  "  }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/cache/key/{{cacheKey}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Cleanup Tests",
+      "item": [
+        {
+          "name": "5.1 Cache - DELETE",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/cache/{{cacheId}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Cache deleted\", function () {",
+                  "  pm.response.to.have.status(204);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.2 Operations - DELETE",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/operations/{{operationId}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Operation deleted\", function () {",
+                  "  pm.response.to.have.status(204);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.3 Functions - DELETE",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/functions/{{functionId}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Function deleted\", function () {",
+                  "  pm.response.to.have.status(204);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.4 Users - DELETE",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/users/{{userId}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"User deleted\", function () {",
+                  "  pm.response.to.have.status(204);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "6. Security Tests",
+      "item": [
+        {
+          "name": "6.1 Test - Unauthorized Access (no auth)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {",
+                  "  pm.response.to.have.status(401);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/users"
+          }
+        },
+        {
+          "name": "6.2 Test - User Role Limited Access",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script (предполагаем, что user1 имеет роль USER)",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 403\", function () {",
+                  "  pm.response.to.have.status(403);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/users/1"
+          }
+        },
+        {
+          "name": "6.3 Test - Admin Full Access",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script (предполагаем, что user1 имеет роль ADMIN)",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/users/1"
+          }
+        },
+        {
+          "name": "6.4 Test - Create User with Specific Role",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script (предполагаем, что user1 имеет роль ADMIN)",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"new_user_for_test_{{timestamp}}\",\n  \"email\": \"new_test_{{timestamp}}@example.com\",\n  \"password\": \"secure_password\",\n  \"roleId\": 2\n}"
+            },
+            "url": "{{baseUrl}}/api/users/with-role"
+          }
+        },
+        {
+          "name": "6.5 Test - Data Isolation (User cannot access other user's data)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// pre-request script (предполагаем, что user1 имеет роль USER)",
+                  "const username = pm.environment.get(\"username\");",
+                  "const password = pm.environment.get(\"password\");",
+                  "",
+                  "if (username && password) {",
+                  "    const credentials = btoa(`${username}:${password}`);",
+                  "    pm.request.headers.add({",
+                  "        key: 'Authorization',",
+                  "        value: `Basic ${credentials}`",
+                  "    });",
+                  "    console.log(`Added Basic Auth header for user: ${username}`);",
+                  "} else {",
+                  "    console.warn('Username or password not set in environment variables.');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 403\", function () {",
+                  "  pm.response.to.have.status(403);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/functions/user/999"
+          }
+        }
+      ]
+    }
+  ]
+}

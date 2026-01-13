@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Tabulated Function API
+  description: REST API for managing tabulated functions, users, operations, and computation cache.
+  version: 1.0.0
+
+paths:
+  /api/users/{id}:
+    get:
+      summary: Get user by ID
+      description: Returns user information by its unique ID.
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: Unique identifier of the user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique identifier of the user
+        username:
+          type: string
+          description: Unique username
+        email:
+          type: string
+          description: Unique email address
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          description: Last update timestamp
+      required:
+        - id
+        - username
+        - email
+        - createdAt
+        - updatedAt
