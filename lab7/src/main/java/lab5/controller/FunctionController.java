@@ -1,5 +1,7 @@
 package lab5.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lab5.dto.FunctionDTO;
 import lab5.entity.UserEntity;
 import lab5.service.SearchService;
@@ -14,10 +16,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/functions")
@@ -30,6 +30,8 @@ public class FunctionController {
 
     @Autowired
     private UserService userService;
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @GetMapping("/{id}")
     @Transactional(readOnly = true)
@@ -294,6 +296,119 @@ public class FunctionController {
             }
         } catch (Exception e) {
             logger.error("Ошибка при удалении функции: {}", e.getMessage(), e);
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", "Внутренняя ошибка сервера");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+        }
+    }
+
+    @PostMapping("/{id}/differentiate")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @SuppressWarnings("unchecked")
+    public ResponseEntity<?> differentiate(@PathVariable Long id, Authentication authentication) {
+        logger.info("Получен запрос на дифференцирование функции с ID: {}", id);
+        try {
+            String currentUsername = authentication.getName();
+            Optional<UserEntity> currentUserOpt = userService.getUserByUsername(currentUsername);
+
+            if (currentUserOpt.isEmpty()) {
+                Map<String, String> errorResponse = new HashMap<>();
+                errorResponse.put("error", "Текущий пользователь не найден");
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+            }
+
+            UserEntity currentUser = currentUserOpt.get();
+            boolean isAdmin = "ADMIN".equals(currentUser.getRole().getName());
+
+            Optional<FunctionDTO> functionOpt = searchService.findFunctionById(id);
+            if (functionOpt.isEmpty()) {
+                Map<String, String> errorResponse = new HashMap<>();
+                errorResponse.put("error", "Функция не найдена");
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+            }
+
+            FunctionDTO function = functionOpt.get();
+            boolean isOwnFunction = function.getUserId().equals(currentUser.getId());
+
+            if (!isAdmin && !isOwnFunction) {
+                Map<String, String> errorResponse = new HashMap<>();
+                errorResponse.put("error", "Доступ запрещён");
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+            }
+
+            if ("{}".equals(function.getPointsData()) || function.getPointsData() == null) {
+                Map<String, String> errorResponse = new HashMap<>();
+                errorResponse.put("error", "Функция не содержит данных для дифференцирования");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+            }
+
+            Map<String, Object> data;
+            try {
+                data = objectMapper.readValue(function.getPointsData(), Map.class);
+            } catch (Exception e) {
+                Map<String, String> errorResponse = new HashMap<>();
+                errorResponse.put("error", "Некорректные данные функции");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+            }
+
+            @SuppressWarnings("unchecked")
+            List<Double> xList = (List<Double>) data.get("x");
+            @SuppressWarnings("unchecked")
+            List<Double> yList = (List<Double>) data.get("y");
+
+            if (xList == null || yList == null || xList.isEmpty() || yList.isEmpty()) {
+                Map<String, String> errorResponse = new HashMap<>();
+                errorResponse.put("error", "Функция не содержит данных для дифференцирования");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+            }
+
+            if (xList.size() != yList.size()) {
+                Map<String, String> errorResponse = new HashMap<>();
+                errorResponse.put("error", "Количество X и Y не совпадает");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+            }
+
+            double[] x = xList.stream().mapToDouble(Double::doubleValue).toArray();
+            double[] y = yList.stream().mapToDouble(Double::doubleValue).toArray();
+
+            double[] dydx = new double[y.length];
+            for (int i = 0; i < y.length; i++) {
+                if (i == 0) {
+                    dydx[i] = (y[1] - y[0]) / (x[1] - x[0]);
+                } else if (i == y.length - 1) {
+                    dydx[i] = (y[i] - y[i - 1]) / (x[i] - x[i - 1]);
+                } else {
+                    dydx[i] = (y[i + 1] - y[i - 1]) / (x[i + 1] - x[i - 1]);
+                }
+            }
+
+            List<Double> xResult = Arrays.stream(x).boxed().collect(Collectors.toList());
+            List<Double> yResult = Arrays.stream(dydx).boxed().collect(Collectors.toList());
+            Map<String, Object> resultData = Map.of("x", xResult, "y", yResult);
+            String resultJson;
+            try {
+                resultJson = objectMapper.writeValueAsString(resultData);
+            } catch (JsonProcessingException e) {
+                Map<String, String> errorResponse = new HashMap<>();
+                errorResponse.put("error", "Ошибка сериализации производной");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+            }
+
+            FunctionDTO derivative = new FunctionDTO();
+            derivative.setUserId(function.getUserId());
+            derivative.setName("Производная от " + function.getName());
+            derivative.setType("DERIVATIVE");
+            derivative.setExpression("d/dx");
+            derivative.setLeftBound(function.getLeftBound());
+            derivative.setRightBound(function.getRightBound());
+            derivative.setPointsCount(function.getPointsCount());
+            derivative.setPointsData(resultJson);
+
+            FunctionDTO saved = searchService.createFunction(derivative);
+            return ResponseEntity.ok(saved);
+
+        } catch (Exception e) {
+            logger.error("Ошибка при дифференцировании: {}", e.getMessage(), e);
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("error", "Внутренняя ошибка сервера");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);

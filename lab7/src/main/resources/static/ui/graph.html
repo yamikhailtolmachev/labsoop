@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>График</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="header-left">
+            <button class="back-btn" onclick="location.href='index.html'">Назад</button>
+        </div>
+        <div class="header-center">
+            <h1>График</h1>
+        </div>
+        <div class="header-right">
+            <div class="theme-controls">
+                <span class="theme-label">Тёмная тема</span>
+                <div id="theme-toggle" class="theme-toggle"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="centered-section">
+        <h2>Отобразить график функции</h2>
+        <div class="form-section">
+            <label>Функция:
+                <select id="graphFunc"></select>
+            </label>
+            <button class="centered-button" onclick="loadFunctionsForGraph()">Загрузить функции</button>
+            <button class="centered-button" onclick="renderGraph()">Показать график</button>
+        </div>
+        <canvas id="functionChart" width="600" height="400"></canvas>
+    </section>
+</main>
+
+<div id="snackbar"></div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/utils.js"></script>
+<script>
+    checkAuthAndRender();
+
+    let chartInstance = null;
+
+    async function loadFunctionsForGraph() {
+      try {
+        const res = await apiFetch('/users/me');
+        const user = await res.json();
+        const res2 = await apiFetch(`/functions/user/${user.id}`);
+        const functions = await res2.json();
+
+        const select = document.getElementById('graphFunc');
+        select.innerHTML = '';
+        if (functions.length === 0) {
+          select.innerHTML = '<option disabled>У вас нет функций</option>';
+          return;
+        }
+
+        functions.forEach(f => {
+          select.innerHTML += `<option value="${f.id}">${f.name}</option>`;
+        });
+
+      } catch (e) {
+        showSnackbar(e.message || 'Ошибка загрузки функций', 'error');
+      }
+    }
+
+    async function renderGraph() {
+      const funcId = document.getElementById('graphFunc').value;
+      if (!funcId) {
+        showSnackbar('Выберите функцию', 'error');
+        return;
+      }
+
+      try {
+        const res = await apiFetch(`/functions/${funcId}`);
+        const func = await res.json();
+
+        let data;
+        try {
+          data = JSON.parse(func.pointsData || '{"x":[],"y":[]}');
+        } catch (e) {
+          showSnackbar('Некорректные данные функции', 'error');
+          return;
+        }
+
+        if (!data || !Array.isArray(data.x) || !Array.isArray(data.y)) {
+          showSnackbar('Данные функции повреждены', 'error');
+          return;
+        }
+
+        if (data.x.length !== data.y.length) {
+          showSnackbar('Количество X и Y не совпадает', 'error');
+          return;
+        }
+
+        const ctx = document.getElementById('functionChart').getContext('2d');
+
+        if (chartInstance) {
+          chartInstance.destroy();
+        }
+
+        const validPoints = data.x.map((x, i) => {
+            if (isNaN(x) || isNaN(data.y[i])) return null;
+            return { x, y: data.y[i] };
+        }).filter(p => p !== null);
+
+        if (validPoints.length === 0) {
+            showSnackbar('Нет данных для отображения', 'error');
+            return;
+        }
+
+        chartInstance = new Chart(ctx, {
+          type: 'line',
+          data: {
+            datasets: [{
+              label: func.name,
+              data: validPoints,
+              borderColor: '#4CAF50',
+              tension: 0.1,
+              fill: false
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              x: { title: { display: true, text: 'x' } },
+              y: { title: { display: true, text: 'f(x)' } }
+            }
+          }
+        });
+
+      } catch (e) {
+        showSnackbar(e.message || 'Ошибка отображения графика', 'error');
+      }
+    }
+</script>
+</body>
+</html>

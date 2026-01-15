@@ -1,5 +1,7 @@
 package lab5.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lab5.dto.FunctionDTO;
 import lab5.entity.FunctionEntity;
 import lab5.entity.OperationEntity;
@@ -14,12 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -35,6 +33,8 @@ public class FunctionService {
 
     @Autowired
     private lab5.repository.OperationRepository operationRepository;
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public Optional<FunctionDTO> findFunctionById(Long id) {
         logger.info("Поиск функции по ID: {}", id);
@@ -168,11 +168,36 @@ public class FunctionService {
             function.setRightBound(functionDTO.getRightBound());
             function.setPointsCount(functionDTO.getPointsCount());
 
-            if (functionDTO.getPointsData() != null) {
-                function.setPointsData(functionDTO.getPointsData());
+            List<Double> xValues = new ArrayList<>();
+            List<Double> yValues = new ArrayList<>();
+            double left = functionDTO.getLeftBound();
+            double right = functionDTO.getRightBound();
+            int pointsCount = functionDTO.getPointsCount();
+
+            for (int i = 0; i < pointsCount; i++) {
+                double x = left + i * (right - left) / (pointsCount - 1);
+                xValues.add(x);
+                try {
+                    double y = evaluateExpression(functionDTO.getExpression(), x);
+                    yValues.add(y);
+                } catch (Exception e) {
+                    yValues.add(Double.NaN);
+                }
+            }
+
+            Map<String, Object> pointsMap = Map.of("x", xValues, "y", yValues);
+            String pointsJson;
+            try {
+                pointsJson = objectMapper.writeValueAsString(pointsMap);
+            } catch (JsonProcessingException e) {
+                logger.error("Ошибка сериализации точек", e);
+                pointsJson = "{\"x\":[],\"y\":[]}";
+            }
+
+            if (pointsJson == null || pointsJson.trim().isEmpty()) {
+                function.setPointsData("{\"x\":[],\"y\":[]}");
             } else {
-                logger.warn("FunctionDTO.pointsData is null, using default: \"{}\"");
-                function.setPointsData("{}");
+                function.setPointsData(pointsJson);
             }
 
             function.setCreatedAt(LocalDateTime.now());
@@ -218,6 +243,30 @@ public class FunctionService {
                     }
                     if (functionDetails.getExpression() != null) {
                         existingFunction.setExpression(functionDetails.getExpression());
+                        try {
+                            List<Double> xValues = new ArrayList<>();
+                            List<Double> yValues = new ArrayList<>();
+                            double left = existingFunction.getLeftBound();
+                            double right = existingFunction.getRightBound();
+                            int pointsCount = existingFunction.getPointsCount();
+
+                            for (int i = 0; i < pointsCount; i++) {
+                                double x = left + i * (right - left) / (pointsCount - 1);
+                                xValues.add(x);
+                                try {
+                                    double y = evaluateExpression(functionDetails.getExpression(), x);
+                                    yValues.add(y);
+                                } catch (Exception e) {
+                                    yValues.add(Double.NaN);
+                                }
+                            }
+
+                            Map<String, Object> pointsMap = Map.of("x", xValues, "y", yValues);
+                            String pointsJson = objectMapper.writeValueAsString(pointsMap);
+                            existingFunction.setPointsData(pointsJson);
+                        } catch (Exception e) {
+                            logger.warn("Не удалось пересчитать точки: {}", e.getMessage());
+                        }
                     }
                     if (functionDetails.getLeftBound() != null) {
                         existingFunction.setLeftBound(functionDetails.getLeftBound());
@@ -227,9 +276,6 @@ public class FunctionService {
                     }
                     if (functionDetails.getPointsCount() != null) {
                         existingFunction.setPointsCount(functionDetails.getPointsCount());
-                    }
-                    if (functionDetails.getPointsData() != null) {
-                        existingFunction.setPointsData(functionDetails.getPointsData());
                     }
 
                     existingFunction.setUpdatedAt(LocalDateTime.now());
@@ -267,110 +313,148 @@ public class FunctionService {
         }
     }
 
-     public Set<FunctionDTO> findDependencyFunctionsDFS(Long resultFunctionId) {
-         logger.info("Начало DFS для поиска зависимостей функции ID: {}", resultFunctionId);
-         Set<Long> visitedIds = new HashSet<>();
-         Set<FunctionDTO> dependencies = new HashSet<>();
+    private double evaluateExpression(String expression, double x) {
+        String expr = expression
+                .replace(" ", "")
+                .replace("x*x", "x^2")
+                .replace("x", Double.toString(x));
 
-         dfsRecursive(resultFunctionId, visitedIds, dependencies);
-         logger.info("DFS завершён. Найдено {} зависимых функций DTO.", dependencies.size());
-         return dependencies;
-     }
+        if (expr.contains("^")) {
+            String[] parts = expr.split("\\^", 2);
+            double base = Double.parseDouble(parts[0]);
+            double exp = Double.parseDouble(parts[1]);
+            return Math.pow(base, exp);
+        } else if (expr.contains("+")) {
+            String[] parts = expr.split("\\+", 2);
+            return Double.parseDouble(parts[0]) + Double.parseDouble(parts[1]);
+        } else if (expr.contains("-")) {
+            // Обработка случая "-5"
+            if (expr.startsWith("-")) {
+                return -Double.parseDouble(expr.substring(1));
+            }
+            String[] parts = expr.split("-", 2);
+            if (parts.length == 2) {
+                return Double.parseDouble(parts[0]) - Double.parseDouble(parts[1]);
+            } else {
+                return Double.parseDouble(expr);
+            }
+        } else if (expr.contains("*")) {
+            String[] parts = expr.split("\\*", 2);
+            return Double.parseDouble(parts[0]) * Double.parseDouble(parts[1]);
+        } else if (expr.contains("/")) {
+            String[] parts = expr.split("/", 2);
+            double denom = Double.parseDouble(parts[1]);
+            if (Math.abs(denom) < 1e-12) return Double.NaN;
+            return Double.parseDouble(parts[0]) / denom;
+        } else {
+            return Double.parseDouble(expr);
+        }
+    }
 
-     private void dfsRecursive(Long functionId, Set<Long> visitedIds, Set<FunctionDTO> dependencies) {
-         if (!visitedIds.add(functionId)) {
-             logger.debug("Функция ID {} уже посещена в DFS, пропускаем.", functionId);
-             return;
-         }
+    public Set<FunctionDTO> findDependencyFunctionsDFS(Long resultFunctionId) {
+        logger.info("Начало DFS для поиска зависимостей функции ID: {}", resultFunctionId);
+        Set<Long> visitedIds = new HashSet<>();
+        Set<FunctionDTO> dependencies = new HashSet<>();
 
-         Optional<FunctionEntity> currentFuncOpt = functionRepository.findById(functionId);
-         if (currentFuncOpt.isEmpty()) {
-             logger.warn("Функция ID {} не найдена во время DFS.", functionId);
-             return;
-         }
-         FunctionEntity currentFunc = currentFuncOpt.get();
-         FunctionDTO currentDto = new FunctionDTO(
-                 currentFunc.getId(),
-                 currentFunc.getUser().getId(),
-                 currentFunc.getName(),
-                 currentFunc.getType(),
-                 currentFunc.getExpression(),
-                 currentFunc.getLeftBound(),
-                 currentFunc.getRightBound(),
-                 currentFunc.getPointsCount(),
-                 currentFunc.getPointsData()
-         );
-         dependencies.add(currentDto);
-         logger.debug("DFS: Обработана функция ID {}", functionId);
+        dfsRecursive(resultFunctionId, visitedIds, dependencies);
+        logger.info("DFS завершён. Найдено {} зависимых функций DTO.", dependencies.size());
+        return dependencies;
+    }
 
-         List<OperationEntity> operationsResultingInCurrent = operationRepository.findByResultFunction_Id(functionId);
+    private void dfsRecursive(Long functionId, Set<Long> visitedIds, Set<FunctionDTO> dependencies) {
+        if (!visitedIds.add(functionId)) {
+            logger.debug("Функция ID {} уже посещена в DFS, пропускаем.", functionId);
+            return;
+        }
 
-         for (OperationEntity op : operationsResultingInCurrent) {
-             if (op.getFunction1Id() != null) {
-                 dfsRecursive(op.getFunction1Id(), visitedIds, dependencies);
-             }
-             if (op.getFunction2Id() != null) {
-                 dfsRecursive(op.getFunction2Id(), visitedIds, dependencies);
-             }
-         }
-     }
+        Optional<FunctionEntity> currentFuncOpt = functionRepository.findById(functionId);
+        if (currentFuncOpt.isEmpty()) {
+            logger.warn("Функция ID {} не найдена во время DFS.", functionId);
+            return;
+        }
+        FunctionEntity currentFunc = currentFuncOpt.get();
+        FunctionDTO currentDto = new FunctionDTO(
+                currentFunc.getId(),
+                currentFunc.getUser().getId(),
+                currentFunc.getName(),
+                currentFunc.getType(),
+                currentFunc.getExpression(),
+                currentFunc.getLeftBound(),
+                currentFunc.getRightBound(),
+                currentFunc.getPointsCount(),
+                currentFunc.getPointsData()
+        );
+        dependencies.add(currentDto);
+        logger.debug("DFS: Обработана функция ID {}", functionId);
 
-     public Set<FunctionDTO> findDependencyFunctionsBFS(Long startFunctionId, int maxDepth) {
-         logger.info("Начало BFS для поиска зависимостей функции ID: {} с глубиной: {}", startFunctionId, maxDepth);
-         Queue<Long> queue = new LinkedList<>();
-         Set<Long> visitedIds = new HashSet<>();
-         Set<FunctionDTO> foundDependencies = new HashSet<>();
-         int currentDepth = 0;
+        List<OperationEntity> operationsResultingInCurrent = operationRepository.findByResultFunction_Id(functionId);
 
-         queue.add(startFunctionId);
-         visitedIds.add(startFunctionId);
+        for (OperationEntity op : operationsResultingInCurrent) {
+            if (op.getFunction1Id() != null) {
+                dfsRecursive(op.getFunction1Id(), visitedIds, dependencies);
+            }
+            if (op.getFunction2Id() != null) {
+                dfsRecursive(op.getFunction2Id(), visitedIds, dependencies);
+            }
+        }
+    }
 
-         while (!queue.isEmpty() && currentDepth <= maxDepth) {
-             int levelSize = queue.size();
-             logger.debug("BFS: Обработка уровня {}", currentDepth);
+    public Set<FunctionDTO> findDependencyFunctionsBFS(Long startFunctionId, int maxDepth) {
+        logger.info("Начало BFS для поиска зависимостей функции ID: {} с глубиной: {}", startFunctionId, maxDepth);
+        Queue<Long> queue = new LinkedList<>();
+        Set<Long> visitedIds = new HashSet<>();
+        Set<FunctionDTO> foundDependencies = new HashSet<>();
+        int currentDepth = 0;
 
-             for (int i = 0; i < levelSize; i++) {
-                 Long currentId = queue.poll();
+        queue.add(startFunctionId);
+        visitedIds.add(startFunctionId);
 
-                 Optional<FunctionEntity> currentFuncOpt = functionRepository.findById(currentId);
-                 if (currentFuncOpt.isEmpty()) {
-                     logger.warn("Функция ID {} не найдена во время BFS на уровне {}.", currentId, currentDepth);
-                     continue;
-                 }
-                 FunctionEntity currentFunc = currentFuncOpt.get();
-                 FunctionDTO currentDto = new FunctionDTO(
-                         currentFunc.getId(),
-                         currentFunc.getUser().getId(),
-                         currentFunc.getName(),
-                         currentFunc.getType(),
-                         currentFunc.getExpression(),
-                         currentFunc.getLeftBound(),
-                         currentFunc.getRightBound(),
-                         currentFunc.getPointsCount(),
-                         currentFunc.getPointsData()
-                 );
-                 foundDependencies.add(currentDto);
+        while (!queue.isEmpty() && currentDepth <= maxDepth) {
+            int levelSize = queue.size();
+            logger.debug("BFS: Обработка уровня {}", currentDepth);
 
-                 if (currentDepth == maxDepth) {
-                     continue;
-                 }
+            for (int i = 0; i < levelSize; i++) {
+                Long currentId = queue.poll();
 
-                 List<OperationEntity> operationsResultingInCurrent = operationRepository.findByResultFunction_Id(currentId);
+                Optional<FunctionEntity> currentFuncOpt = functionRepository.findById(currentId);
+                if (currentFuncOpt.isEmpty()) {
+                    logger.warn("Функция ID {} не найдена во время BFS на уровне {}.", currentId, currentDepth);
+                    continue;
+                }
+                FunctionEntity currentFunc = currentFuncOpt.get();
+                FunctionDTO currentDto = new FunctionDTO(
+                        currentFunc.getId(),
+                        currentFunc.getUser().getId(),
+                        currentFunc.getName(),
+                        currentFunc.getType(),
+                        currentFunc.getExpression(),
+                        currentFunc.getLeftBound(),
+                        currentFunc.getRightBound(),
+                        currentFunc.getPointsCount(),
+                        currentFunc.getPointsData()
+                );
+                foundDependencies.add(currentDto);
 
-                 for (OperationEntity op : operationsResultingInCurrent) {
-                     if (op.getFunction1Id() != null && !visitedIds.contains(op.getFunction1Id())) {
-                         visitedIds.add(op.getFunction1Id());
-                         queue.add(op.getFunction1Id());
-                     }
-                     if (op.getFunction2Id() != null && !visitedIds.contains(op.getFunction2Id())) {
-                         visitedIds.add(op.getFunction2Id());
-                         queue.add(op.getFunction2Id());
-                     }
-                 }
-             }
-             currentDepth++;
-         }
-         logger.info("BFS завершён. Найдено {} зависимых функций DTO до глубины {}.", foundDependencies.size(), maxDepth);
-         return foundDependencies;
-     }
+                if (currentDepth == maxDepth) {
+                    continue;
+                }
+
+                List<OperationEntity> operationsResultingInCurrent = operationRepository.findByResultFunction_Id(currentId);
+
+                for (OperationEntity op : operationsResultingInCurrent) {
+                    if (op.getFunction1Id() != null && !visitedIds.contains(op.getFunction1Id())) {
+                        visitedIds.add(op.getFunction1Id());
+                        queue.add(op.getFunction1Id());
+                    }
+                    if (op.getFunction2Id() != null && !visitedIds.contains(op.getFunction2Id())) {
+                        visitedIds.add(op.getFunction2Id());
+                        queue.add(op.getFunction2Id());
+                    }
+                }
+            }
+            currentDepth++;
+        }
+        logger.info("BFS завершён. Найдено {} зависимых функций DTO до глубины {}.", foundDependencies.size(), maxDepth);
+        return foundDependencies;
+    }
 }

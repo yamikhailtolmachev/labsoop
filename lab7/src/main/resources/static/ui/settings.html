@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Настройки</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="header-left">
+            <button class="back-btn" onclick="location.href='index.html'">Назад</button>
+        </div>
+        <div class="header-center">
+            <h1>Настройки</h1>
+        </div>
+        <div class="header-right">
+            <div class="theme-controls">
+                <span class="theme-label">Тёмная тема</span>
+                <div id="theme-toggle" class="theme-toggle"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="centered-section">
+        <h2>Выберите фабрику табулированных функций</h2>
+        <div class="form-section">
+            <div class="factory-buttons-center">
+                <button class="factory-btn active" data-factory="array">
+                    ArrayTabulatedFunction
+                </button>
+                <button class="factory-btn" data-factory="linkedlist">
+                    LinkedListTabulatedFunction
+                </button>
+            </div>
+            <button class="centered-button" onclick="saveFactory()">Сохранить</button>
+        </div>
+    </section>
+</main>
+
+<div id="snackbar"></div>
+
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/utils.js"></script>
+<script>
+    checkAuthAndRender();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('tabulatedFactory') || 'array';
+      setActiveButton(saved);
+    });
+
+    document.querySelectorAll('.factory-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.factory-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    function setActiveButton(factory) {
+      document.querySelectorAll('.factory-btn').forEach(btn => {
+        if (btn.dataset.factory === factory) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    function saveFactory() {
+      const active = document.querySelector('.factory-btn.active');
+      if (active) {
+        const factory = active.dataset.factory;
+        localStorage.setItem('tabulatedFactory', factory);
+        showSnackbar('Фабрика сохранена: ' + (factory === 'array' ? 'ArrayTabulatedFunction' : 'LinkedListTabulatedFunction'), 'success');
+      }
+    }
+</script>
+</body>
+</html>

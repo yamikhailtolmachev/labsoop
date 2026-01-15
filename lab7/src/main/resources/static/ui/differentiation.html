@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Дифференцирование</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="header-left">
+            <button class="back-btn" onclick="location.href='index.html'">Назад</button>
+        </div>
+        <div class="header-center">
+            <h1>Дифференцирование</h1>
+        </div>
+        <div class="header-right">
+            <div class="theme-controls">
+                <span class="theme-label">Тёмная тема</span>
+                <div id="theme-toggle" class="theme-toggle"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="centered-section">
+        <h2>Выберите функцию для дифференцирования</h2>
+        <div class="form-section">
+            <label>Функция:
+                <select id="diffFunc"></select>
+            </label>
+            <button class="centered-button" onclick="loadFunctionsForDiff()">Загрузить функции</button>
+            <button class="centered-button" onclick="differentiate()">Дифференцировать</button>
+        </div>
+        <div id="diff-result"></div>
+    </section>
+</main>
+
+<div id="snackbar"></div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/utils.js"></script>
+<script>
+    checkAuthAndRender();
+
+    async function loadFunctionsForDiff() {
+      try {
+        const res = await apiFetch('/users/me');
+        const user = await res.json();
+        const res2 = await apiFetch(`/functions/user/${user.id}`);
+        const functions = await res2.json();
+        const select = document.getElementById('diffFunc');
+        select.innerHTML = '';
+        functions.forEach(f => {
+          select.innerHTML += `<option value="${f.id}">${f.name}</option>`;
+        });
+      } catch (e) {
+        showSnackbar(e.message || 'Ошибка загрузки функций', 'error');
+      }
+    }
+
+    async function differentiate() {
+      const funcId = document.getElementById('diffFunc').value;
+      if (!funcId) {
+        showSnackbar('Выберите функцию', 'error');
+        return;
+      }
+      try {
+        const res = await apiFetch(`/functions/${funcId}/differentiate`, { method: 'POST' });
+        const result = await res.json();
+        showSnackbar(`Производная создана! ID: ${result.id}`, 'success');
+      } catch (e) {
+        showSnackbar(e.message || 'Ошибка дифференцирования', 'error');
+      }
+    }
+</script>
+</body>
+</html>

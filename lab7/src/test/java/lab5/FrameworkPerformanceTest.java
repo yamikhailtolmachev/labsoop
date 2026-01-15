@@ -55,19 +55,41 @@ class FrameworkPerformanceTest {
             u.setUpdatedAt(LocalDateTime.now());
             users.add(u);
 
-            FunctionEntity f = new FunctionEntity(u, "func_" + i, "BASIC", "x^2", 0.0, 10.0, i % 100 + 1, "{}");
+            FunctionEntity f = new FunctionEntity();
+            f.setUser(u);
+            f.setName("func_" + i);
+            f.setType("BASIC");
+            f.setExpression("x^2");
+            f.setLeftBound(0.0);
+            f.setRightBound(10.0);
+            f.setPointsCount(i % 100 + 1);
+            f.setPointsData("{}");
             f.setCreatedAt(LocalDateTime.now());
             f.setUpdatedAt(LocalDateTime.now());
             funcs.add(f);
 
             if (i < n / 2) {
-                OperationEntity op = new OperationEntity(u, f, null, f, "ADD", "{}");
+                OperationEntity op = new OperationEntity();
+                op.setUser(u);
+                op.setFunction1(f);
+                op.setFunction2(null);
+                op.setResultFunction(f);
+                op.setOperationType("ADD");
+                op.setParameters("{}");
                 op.setComputedAt(LocalDateTime.now());
                 op.setUpdatedAt(LocalDateTime.now());
                 ops.add(op);
 
                 String pointsData = "{}";
-                ComputationCacheEntity c = new ComputationCacheEntity("key_" + i, u, "x^2", 0.0, 10.0, i % 100 + 1, pointsData, f);
+                ComputationCacheEntity c = new ComputationCacheEntity();
+                c.setCacheKey("key_" + i);
+                c.setUser(u);
+                c.setFunctionExpression("x^2");
+                c.setLeftBound(0.0);
+                c.setRightBound(10.0);
+                c.setPointsCount(i % 100 + 1);
+                c.setPointsData(pointsData);
+                c.setResultFunction(f);
                 c.setComputedAt(LocalDateTime.now());
                 c.setUpdatedAt(LocalDateTime.now());
                 c.setAccessCount(i % 100);

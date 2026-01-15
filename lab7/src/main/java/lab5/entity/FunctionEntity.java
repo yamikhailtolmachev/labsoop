@@ -2,6 +2,7 @@ package lab5.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "functions")
@@ -9,18 +10,17 @@ public class FunctionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
-    @Column(name = "name", nullable = false, length = 100)
-    private String name;
-
     @Column(name = "type", nullable = false, length = 20)
     private String type;
+
+    @Column(name = "name", nullable = false, length = 100)
+    private String name;
 
     @Column(name = "expression", columnDefinition = "TEXT")
     private String expression;
@@ -34,129 +34,80 @@ public class FunctionEntity {
     @Column(name = "points_count")
     private Integer pointsCount;
 
-    @Column(name = "points_data", columnDefinition = "TEXT", nullable = false)
-    private String pointsData;
+    @Column(name = "points_data", columnDefinition = "TEXT NOT NULL")
+    private String pointsData = "{\"x\":[],\"y\":[]}";
 
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    public FunctionEntity(UserEntity user, String name, String type, String expression, Double leftBound, Double rightBound, Integer pointsCount, String pointsData) {
-        this.user = user;
-        this.name = name;
-        this.type = type;
-        this.expression = expression;
-        this.leftBound = leftBound;
-        this.rightBound = rightBound;
-        this.pointsCount = pointsCount;
-        this.pointsData = pointsData;
-    }
+    public FunctionEntity() {}
 
-    public FunctionEntity() {
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    @PrePersist
-    protected void onCreate() {
-        if (this.createdAt == null) {
-            this.createdAt = LocalDateTime.now();
-        }
-        this.updatedAt = LocalDateTime.now();
-    }
+    public UserEntity getUser() { return user; }
+    public void setUser(UserEntity user) { this.user = user; }
 
-    @PreUpdate
-    protected void onUpdate() {
-        this.updatedAt = LocalDateTime.now();
-    }
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; }
 
-    public Long getId() {
-        return id;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getExpression() { return expression; }
+    public void setExpression(String expression) { this.expression = expression; }
 
-    public UserEntity getUser() {
-        return user;
-    }
+    public Double getLeftBound() { return leftBound; }
+    public void setLeftBound(Double leftBound) { this.leftBound = leftBound; }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
+    public Double getRightBound() { return rightBound; }
+    public void setRightBound(Double rightBound) { this.rightBound = rightBound; }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getExpression() {
-        return expression;
-    }
-
-    public void setExpression(String expression) {
-        this.expression = expression;
-    }
-
-    public Double getLeftBound() {
-        return leftBound;
-    }
-
-    public void setLeftBound(Double leftBound) {
-        this.leftBound = leftBound;
-    }
-
-    public Double getRightBound() {
-        return rightBound;
-    }
-
-    public void setRightBound(Double rightBound) {
-        this.rightBound = rightBound;
-    }
-
-    public Integer getPointsCount() {
-        return pointsCount;
-    }
-
-    public void setPointsCount(Integer pointsCount) {
-        this.pointsCount = pointsCount;
-    }
+    public Integer getPointsCount() { return pointsCount; }
+    public void setPointsCount(Integer pointsCount) { this.pointsCount = pointsCount; }
 
     public String getPointsData() {
-        return pointsData;
+        if (this.pointsData == null || this.pointsData.trim().isEmpty()) {
+            return "{\"x\":[],\"y\":[]}";
+        }
+        return this.pointsData;
     }
 
     public void setPointsData(String pointsData) {
-        this.pointsData = pointsData;
+        if (pointsData == null || pointsData.trim().isEmpty()) {
+            this.pointsData = "{\"x\":[],\"y\":[]}";
+        } else {
+            this.pointsData = pointsData;
+        }
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+
+    @PrePersist
+    @PreUpdate
+    public void ensurePointsData() {
+        if (this.pointsData == null || this.pointsData.trim().isEmpty()) {
+            this.pointsData = "{\"x\":[],\"y\":[]}";
+        }
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FunctionEntity that = (FunctionEntity) o;
+        return Objects.equals(id, that.id);
     }
 
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

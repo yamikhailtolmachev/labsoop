@@ -34,7 +34,15 @@ class ComputationCacheRepositoryTest {
         user.setUpdatedAt(LocalDateTime.now());
         UserEntity savedUser = userRepository.save(user);
 
-        FunctionEntity resultFunc = new FunctionEntity(savedUser, "resultFunc", "OPERATION_RESULT", "cached_result", 0.0, 1.0, 100, "{\"points\": []}");
+        FunctionEntity resultFunc = new FunctionEntity();
+        resultFunc.setUser(savedUser);
+        resultFunc.setName("resultFunc");
+        resultFunc.setType("OPERATION_RESULT");
+        resultFunc.setExpression("cached_result");
+        resultFunc.setLeftBound(0.0);
+        resultFunc.setRightBound(1.0);
+        resultFunc.setPointsCount(100);
+        resultFunc.setPointsData("{\"points\": []}");
         resultFunc.setCreatedAt(LocalDateTime.now());
         resultFunc.setUpdatedAt(LocalDateTime.now());
         FunctionEntity savedResultFunc = functionRepository.save(resultFunc);
@@ -63,7 +71,15 @@ class ComputationCacheRepositoryTest {
         user.setUpdatedAt(LocalDateTime.now());
         UserEntity savedUser = userRepository.save(user);
 
-        FunctionEntity resultFunc = new FunctionEntity(savedUser, "resultFunc2", "OPERATION_RESULT", "cached_result2", 0.0, 2.0, 200, "{\"points\": []}");
+        FunctionEntity resultFunc = new FunctionEntity();
+        resultFunc.setUser(savedUser);
+        resultFunc.setName("resultFunc2");
+        resultFunc.setType("OPERATION_RESULT");
+        resultFunc.setExpression("cached_result2");
+        resultFunc.setLeftBound(0.0);
+        resultFunc.setRightBound(2.0);
+        resultFunc.setPointsCount(200);
+        resultFunc.setPointsData("{\"points\": []}");
         resultFunc.setCreatedAt(LocalDateTime.now());
         resultFunc.setUpdatedAt(LocalDateTime.now());
         FunctionEntity savedResultFunc = functionRepository.save(resultFunc);
@@ -89,7 +105,15 @@ class ComputationCacheRepositoryTest {
         user.setUpdatedAt(LocalDateTime.now());
         UserEntity savedUser = userRepository.save(user);
 
-        FunctionEntity resultFunc = new FunctionEntity(savedUser, "resultFunc3", "OPERATION_RESULT", "cached_result3", -1.0, 1.0, 50, "{\"points\": []}");
+        FunctionEntity resultFunc = new FunctionEntity();
+        resultFunc.setUser(savedUser);
+        resultFunc.setName("resultFunc3");
+        resultFunc.setType("OPERATION_RESULT");
+        resultFunc.setExpression("cached_result3");
+        resultFunc.setLeftBound(-1.0);
+        resultFunc.setRightBound(1.0);
+        resultFunc.setPointsCount(50);
+        resultFunc.setPointsData("{\"points\": []}");
         resultFunc.setCreatedAt(LocalDateTime.now());
         resultFunc.setUpdatedAt(LocalDateTime.now());
         FunctionEntity savedResultFunc = functionRepository.save(resultFunc);

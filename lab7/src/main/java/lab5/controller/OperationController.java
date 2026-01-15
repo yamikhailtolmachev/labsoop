@@ -3,6 +3,7 @@ package lab5.controller;
 import lab5.dto.OperationResponseDTO;
 import lab5.entity.OperationEntity;
 import lab5.service.OperationService;
+import lab5.dto.OperationDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,7 +85,7 @@ public class OperationController {
     }
 
     @PostMapping
-    public ResponseEntity<OperationResponseDTO> createOperation(@RequestBody lab5.dto.OperationDTO operationDTO) {
+    public ResponseEntity<OperationResponseDTO> createOperation(@RequestBody OperationDTO operationDTO) {
         logger.info("Получен запрос на создание операции DTO");
         try {
             OperationEntity createdOperation = operationService.createOperation(operationDTO);
