@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_2025_20_37_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_2025_20_37__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/LinkedListTabulatedFunction.java" afterDir="false" />
+    <list default="true" id="a70c8ba2-9532-4414-8925-d071b74d3f69" name="Changes" comment="Начало lab3">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/logs/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/ComputationCacheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/ComputationCacheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/FunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/FunctionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/OperationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/OperationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/ComputationCacheEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/ComputationCacheEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/FunctionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/FunctionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/OperationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/OperationEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/repository/ComputationCacheRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/repository/ComputationCacheRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
         <option value="Interface" />
       </list>
     </option>
@@ -47,58 +62,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.IdentityFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4448276&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.AbstractTabulatedFunctionTest.executor": "Run",
+    "JUnit.AbstractTabulatedFunctionTest.testApplyWithExtrapolationLeft.executor": "Run",
+    "JUnit.AdditionalCompositeFunctionTest.executor": "Run",
+    "JUnit.All in lab2 (1).executor": "Coverage",
+    "JUnit.All in lab2.executor": "Run",
+    "JUnit.AndThenMethodTest.executor": "Run",
+    "JUnit.ArrayTabulatedFunctionTest.executor": "Run",
+    "JUnit.BSplineFunctionTest.executor": "Run",
+    "JUnit.CompositeFunctionTest.executor": "Run",
+    "JUnit.ConstantFunctionTest.executor": "Run",
+    "JUnit.IdentityFunctionTest.executor": "Run",
+    "JUnit.LinkedListTabulatedFunctionTest.executor": "Run",
+    "JUnit.SimpleIterationFunctionTest.executor": "Run",
+    "JUnit.SqrFunctionTest.executor": "Run",
+    "JUnit.UnitFunctionTest.executor": "Run",
+    "JUnit.ZeroFunctionTest.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers": "true",
+    "git-widget-placeholder": "framework",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/tolma/IdeaProjects/labsoop/lab2",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4448276",
+    "settings.editor.selected.configurable": "configurable.group.editor"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tolma\IdeaProjects\labsoop\lab3" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="functions" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="functions" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="IdentityFunctionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="functions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="functions" />
-      <option name="MAIN_CLASS_NAME" value="functions.IdentityFunctionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.IdentityFunctionTest" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -132,13 +147,105 @@
       <option name="project" value="LOCAL" />
       <updated>1759245939795</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge remote changes from main branch">
+      <option name="closed" value="true" />
+      <created>1759250552236</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759250552236</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Создан класс LinkedListTabulatedFunction и покрыт тестами">
+      <option name="closed" value="true" />
+      <created>1759253345212</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759253345212</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Создан класс LinkedListTabulatedFunction и покрыт тестами">
+      <option name="closed" value="true" />
+      <created>1759253358615</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759253358615</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Написаны дополнительные тесты для сложных функций">
+      <option name="closed" value="true" />
+      <created>1759256191276</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759256191276</updated>
+    </task>
+    <task id="LOCAL-00008" summary="У класса ArrayTabulatedFunction реализован интерфейс Insertable и новый метод покрыт тестами">
+      <option name="closed" value="true" />
+      <created>1759259534764</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1759259534764</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Создан интерфейс Removable">
+      <option name="closed" value="true" />
+      <created>1759259833240</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1759259833240</updated>
+    </task>
+    <task id="LOCAL-00010" summary="У класса LinkedListTabulatedFunction реализован интерфейс Removable, новый метод покрыт тестами">
+      <option name="closed" value="true" />
+      <created>1759260977250</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1759260977250</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Перенёс класс Node из пакета functions в класс LinkedListTabulatedFunction">
+      <option name="closed" value="true" />
+      <created>1760186083953</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1760186083954</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Забыл добавить папку для lab3. Отменил сегодняшние изменения">
+      <option name="closed" value="true" />
+      <created>1760188116716</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1760188116716</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Начало lab3">
+      <option name="closed" value="true" />
+      <created>1760272091259</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1760272091259</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создан интерфейс MathFunction" />
     <MESSAGE value="Создан класс BSplineFunctionTest и покрыт тестами" />
     <MESSAGE value="Создан класс CompositeFunction и покрыт тестами" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создан класс CompositeFunction и покрыт тестами" />
+    <MESSAGE value="Merge remote changes from main branch" />
+    <MESSAGE value="Создан класс LinkedListTabulatedFunction и покрыт тестами" />
+    <MESSAGE value="Написаны дополнительные тесты для сложных функций" />
+    <MESSAGE value="У класса ArrayTabulatedFunction реализован интерфейс Insertable и новый метод покрыт тестами" />
+    <MESSAGE value="Создан интерфейс Removable" />
+    <MESSAGE value="У класса LinkedListTabulatedFunction реализован интерфейс Removable, новый метод покрыт тестами" />
+    <MESSAGE value="Перенёс класс Node из пакета functions в класс LinkedListTabulatedFunction" />
+    <MESSAGE value="Забыл добавить папку для lab3. Отменил сегодняшние изменения" />
+    <MESSAGE value="Начало lab3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Начало lab3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/lab2$All_in_lab2__1_.ic" NAME="All in lab2 (1) Coverage Results" MODIFIED="1762710227572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

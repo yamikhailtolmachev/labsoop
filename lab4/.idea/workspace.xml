@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="926d4bf1-07d8-4edd-a4fe-f86b033c01fe" name="Changes" comment="Добавил тесты">
+    <list default="true" id="926d4bf1-07d8-4edd-a4fe-f86b033c01fe" name="Changes" comment="Конец lab4">
+      <change beforePath="$PROJECT_DIR$/../lab2/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/logs/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/ComputationCacheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/ComputationCacheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/FunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/FunctionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/OperationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/OperationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/ComputationCacheEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/ComputationCacheEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/FunctionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/FunctionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/OperationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/OperationEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/repository/ComputationCacheRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/repository/ComputationCacheRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +75,8 @@
     &quot;Application.TabulatedFunctionFileWriter.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AbstractTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.AdditionalCompositeFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in lab4 (1).executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.All in lab4.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.AndThenMethodTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ArrayTabulatedFunctionFactoryTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.ArrayTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
@@ -77,18 +93,19 @@
     &quot;JUnit.SimpleIterationFunctionTest.testWithQuadraticFunction.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.SqrFunctionTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.SteppingDifferentialOperatorTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.SynchronizedTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SynchronizedTabulatedFunctionTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.TabulatedDifferentialOperatorTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.TabulatedFunctionFactoryTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TabulatedFunctionOperationServiceTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.UnitFunctionTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.ZeroFunctionTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.functions in lab3.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in lab4.executor&quot;: &quot;Coverage&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;framework&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/tolma/IdeaProjects/labsoop/lab4&quot;,
@@ -110,52 +127,6 @@
       <recent name="operations" />
       <recent name="functions.factory" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="ReadWriteTaskExecutor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="concurrent.ReadWriteTaskExecutor" />
-      <module name="lab4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="concurrent.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimpleIterationFunctionTest.testWithQuadraticFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="functions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="functions" />
-      <option name="MAIN_CLASS_NAME" value="functions.SimpleIterationFunctionTest" />
-      <option name="METHOD_NAME" value="testWithQuadraticFunction" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="functions in lab3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab3" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/functions" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.ReadWriteTaskExecutor" />
-        <item itemvalue="JUnit.functions in lab3" />
-        <item itemvalue="JUnit.SimpleIterationFunctionTest.testWithQuadraticFunction" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -341,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761508151307</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Конец lab4">
+      <option name="closed" value="true" />
+      <created>1761509248094</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1761509248094</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -367,40 +346,59 @@
     <MESSAGE value="Создал класс SynchronizedTabulatedFunction, реализующий интерфейс TabulatedFunction. Добавил тесты" />
     <MESSAGE value="Переписал метод iterator() у SynchronizedTabulatedFunction. Покрыл итератор тестами" />
     <MESSAGE value="Добавил тесты" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил тесты" />
+    <MESSAGE value="Конец lab4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Конец lab4" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/lab4$SynchronizedTabulatedFunctionTest.ic" NAME="SynchronizedTabulatedFunctionTest Coverage Results" MODIFIED="1761509205953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>concurrent.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$TabulatedFunctionOperationServiceTest.ic" NAME="TabulatedFunctionOperationServiceTest Coverage Results" MODIFIED="1760390500044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$LeftSteppingDifferentialOperatorTest.ic" NAME="LeftSteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389777234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$SteppingDifferentialOperatorTest.ic" NAME="SteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389798166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$RightSteppingDifferentialOperatorTest.ic" NAME="RightSteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389791812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$IdentityFunctionTest.ic" NAME="IdentityFunctionTest Coverage Results" MODIFIED="1760389713563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$TabulatedDifferentialOperatorTest.ic" NAME="TabulatedDifferentialOperatorTest Coverage Results" MODIFIED="1760389804738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$UnitFunctionTest.ic" NAME="UnitFunctionTest Coverage Results" MODIFIED="1760389747526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$BSplineFunctionTest.ic" NAME="BSplineFunctionTest Coverage Results" MODIFIED="1760389686410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$ArrayTabulatedFunctionTest.ic" NAME="ArrayTabulatedFunctionTest Coverage Results" MODIFIED="1760389678929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$LinkedListTabulatedFunctionTest.ic" NAME="LinkedListTabulatedFunctionTest Coverage Results" MODIFIED="1760390849065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/lab3$ConstantFunctionTest.ic" NAME="ConstantFunctionTest Coverage Results" MODIFIED="1760389699092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>functions.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/lab3$AdditionalCompositeFunctionTest.ic" NAME="AdditionalCompositeFunctionTest Coverage Results" MODIFIED="1760389664831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>functions.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/lab4$SynchronizedTabulatedFunctionTest.ic" NAME="SynchronizedTabulatedFunctionTest Coverage Results" MODIFIED="1761507211381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>concurrent.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$TabulatedFunctionOperationServiceTest.ic" NAME="TabulatedFunctionOperationServiceTest Coverage Results" MODIFIED="1760390500044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>operations.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/lab3$LinkedListTabulatedFunctionFactoryTest.ic" NAME="LinkedListTabulatedFunctionFactoryTest Coverage Results" MODIFIED="1760389647845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>functions.factory.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/lab4$All_in_lab4.ic" NAME="All in lab4 Coverage Results" MODIFIED="1764436989980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/lab4$java_in_lab4.ic" NAME="java in lab4 Coverage Results" MODIFIED="1765277432709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/lab3$AndThenMethodTest.ic" NAME="AndThenMethodTest Coverage Results" MODIFIED="1760389673085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>functions.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$LeftSteppingDifferentialOperatorTest.ic" NAME="LeftSteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389777234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>operations.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/lab4$All_in_lab4__1_.ic" NAME="All in lab4 (1) Coverage Results" MODIFIED="1764437585327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/lab3$CompositeFunctionTest.ic" NAME="CompositeFunctionTest Coverage Results" MODIFIED="1760389691760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>functions.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$RightSteppingDifferentialOperatorTest.ic" NAME="RightSteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389791812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>operations.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$SteppingDifferentialOperatorTest.ic" NAME="SteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389798166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>operations.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$IdentityFunctionTest.ic" NAME="IdentityFunctionTest Coverage Results" MODIFIED="1760389713563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>functions.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/lab3$SimpleIterationFunctionTest.ic" NAME="SimpleIterationFunctionTest Coverage Results" MODIFIED="1760390653768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
@@ -412,25 +410,10 @@
     <SUITE FILE_PATH="coverage/lab3$SqrFunctionTest.ic" NAME="SqrFunctionTest Coverage Results" MODIFIED="1760389740455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>functions.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$TabulatedDifferentialOperatorTest.ic" NAME="TabulatedDifferentialOperatorTest Coverage Results" MODIFIED="1760389804738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>operations.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$UnitFunctionTest.ic" NAME="UnitFunctionTest Coverage Results" MODIFIED="1760389747526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>functions.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/lab3$MiddleSteppingDifferentialOperatorTest.ic" NAME="MiddleSteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389785663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>operations.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/lab3$ZeroFunctionTest.ic" NAME="ZeroFunctionTest Coverage Results" MODIFIED="1760389756317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>functions.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$BSplineFunctionTest.ic" NAME="BSplineFunctionTest Coverage Results" MODIFIED="1760389686410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>functions.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$ArrayTabulatedFunctionTest.ic" NAME="ArrayTabulatedFunctionTest Coverage Results" MODIFIED="1760389678929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>functions.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/lab3$LinkedListTabulatedFunctionTest.ic" NAME="LinkedListTabulatedFunctionTest Coverage Results" MODIFIED="1760390849065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>functions.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/lab3$AbstractTabulatedFunctionTest.ic" NAME="AbstractTabulatedFunctionTest Coverage Results" MODIFIED="1760389655726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

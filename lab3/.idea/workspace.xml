@@ -4,57 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="926d4bf1-07d8-4edd-a4fe-f86b033c01fe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/AbstractTabulatedFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/ArrayTabulatedFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/BSplineFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/CompositeFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/ConstantFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/IdentityFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/Insertable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/LinkedListTabulatedFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/MathFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/Removable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/SimpleIterationFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/SqrFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/TabulatedFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/UnitFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/functions/ZeroFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/AbstractTabulatedFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/AdditionalCompositeFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/AndThenMethodTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/ArrayTabulatedFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/BSplineFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/CompositeFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/ConstantFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/IdentityFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/LinkedListTabulatedFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/SimpleIterationFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/SqrFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/UnitFunctionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/functions/ZeroFunctionTest.java" afterDir="false" />
+    <list default="true" id="926d4bf1-07d8-4edd-a4fe-f86b033c01fe" name="Changes" comment="Конец lab3">
+      <change beforePath="$PROJECT_DIR$/../lab2/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/main/java/functions/AbstractTabulatedFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/main/java/functions/AbstractTabulatedFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/main/java/functions/BSplineFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/main/java/functions/BSplineFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/main/java/functions/SimpleIterationFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/main/java/functions/SimpleIterationFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/AbstractTabulatedFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/AbstractTabulatedFunctionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/AdditionalCompositeFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/AdditionalCompositeFunctionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/ArrayTabulatedFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/ArrayTabulatedFunctionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/BSplineFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/BSplineFunctionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/CompositeFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/CompositeFunctionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/LinkedListTabulatedFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/LinkedListTabulatedFunctionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/src/test/java/functions/SimpleIterationFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/src/test/java/functions/SimpleIterationFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2025_16_35__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/logs/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/ComputationCacheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/ComputationCacheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/FunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/FunctionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/OperationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/OperationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/ComputationCacheEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/ComputationCacheEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/FunctionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/FunctionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/OperationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/OperationEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/repository/ComputationCacheRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/repository/ComputationCacheRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/java/lab5/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/java/lab5/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="module-info" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -81,52 +65,62 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;JUnit.AbstractTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdditionalCompositeFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AndThenMethodTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ArrayTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BSplineFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompositeFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ConstantFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.IdentityFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LinkedListTabulatedFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SimpleIterationFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ArrayTabulatedFunctionSerialization.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LinkedListTabulatedFunctionSerialization.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TabulatedFunctionFileInputStream.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TabulatedFunctionFileOutputStream.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TabulatedFunctionFileReader.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TabulatedFunctionFileWriter.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AbstractTabulatedFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.AdditionalCompositeFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.All in lab3.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.AndThenMethodTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ArrayTabulatedFunctionFactoryTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ArrayTabulatedFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.BSplineFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.CompositeFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ConstantFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.IdentityFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.LeftSteppingDifferentialOperatorTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.LinkedListTabulatedFunctionFactoryTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.LinkedListTabulatedFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.MiddleSteppingDifferentialOperatorTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.RightSteppingDifferentialOperatorTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.SimpleIterationFunctionTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.SimpleIterationFunctionTest.testWithQuadraticFunction.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SqrFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UnitFunctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ZeroFunctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SqrFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.SteppingDifferentialOperatorTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.TabulatedDifferentialOperatorTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.TabulatedFunctionFactoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TabulatedFunctionOperationServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UnitFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ZeroFunctionTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.functions in lab3.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in lab3.executor&quot;: &quot;Coverage&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;framework&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tolma/IdeaProjects/labsoop/lab3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tolma/IdeaProjects/labsoop/lab3/input&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5229885&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.5229885&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="SimpleIterationFunctionTest.testWithQuadraticFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="functions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="functions" />
-      <option name="MAIN_CLASS_NAME" value="functions.SimpleIterationFunctionTest" />
-      <option name="METHOD_NAME" value="testWithQuadraticFunction" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.SimpleIterationFunctionTest.testWithQuadraticFunction" />
-      </list>
-    </recent_temporary>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tolma\IdeaProjects\labsoop\lab3\input" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="operations" />
+      <recent name="functions.factory" />
+    </key>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -136,6 +130,203 @@
       <option name="presentableId" value="Default" />
       <updated>1760247680025</updated>
     </task>
+    <task id="LOCAL-00001" summary="Перенёс класс Node из пакета functions в класс LinkedListTabulatedFunction">
+      <option name="closed" value="true" />
+      <created>1760279176621</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760279176621</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Задание 1.2 (x)">
+      <option name="closed" value="true" />
+      <created>1760288183538</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760288183538</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Добавил к интерфейсу TabulatedFunction наследование от параметризованного интерфейса Iterable&lt;Point&gt;. Реализовал его метод Iterator&lt;Point&gt; iterator()">
+      <option name="closed" value="true" />
+      <created>1760301761861</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760301761861</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Переписал реализацию метода iterator() в классе LinkedListTabulatedFunction, добавил тесты, проверяющие работу метода">
+      <option name="closed" value="true" />
+      <created>1760303176561</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760303176561</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Создал пакет factory внутри пакета functions. В нём создал интерфейс TabulatedFunctionFactory и классы ArrayTabulatedFunctionFactory, LinkedListTabulatedFunctionFactory, покрыл классы тестами">
+      <option name="closed" value="true" />
+      <created>1760305544681</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760305544681</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Создал интерфейс дифференциального оператора и класс, реализующий интерфейс">
+      <option name="closed" value="true" />
+      <created>1760367586528</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1760367586528</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Добавил в класс TabulatedFunctionOperationService методы умножения и деления двух функций, покрыл тестами">
+      <option name="closed" value="true" />
+      <created>1760373586404</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760373586404</updated>
+    </task>
+    <task id="LOCAL-00008" summary="В классе AbstractTabulatedFunction переопределил метод toString() и покрыл тестами">
+      <option name="closed" value="true" />
+      <created>1760378152682</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760378152682</updated>
+    </task>
+    <task id="LOCAL-00009" summary="В классе FunctionsIO добавил статический метод и создал класс TabulatedFunctionFileOutputStream">
+      <option name="closed" value="true" />
+      <created>1760380935489</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1760380935489</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Создал в пакете io класс TabulatedFunctionFileInputStream">
+      <option name="closed" value="true" />
+      <created>1760386264441</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1760386264441</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Подготовил класс LinkedListTabulatedFunction к сериализации">
+      <option name="closed" value="true" />
+      <created>1760387645101</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1760387645101</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Добавил в класс FunctionsIO статический метод">
+      <option name="closed" value="true" />
+      <created>1760388618892</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1760388618892</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Создал в пакете io класс LinkedListTabulatedFunctionSerialization">
+      <option name="closed" value="true" />
+      <created>1760390967448</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1760390967448</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Конец lab3">
+      <option name="closed" value="true" />
+      <created>1760440184763</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1760440184764</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Перенёс класс Node из пакета functions в класс LinkedListTabulatedFunction" />
+    <MESSAGE value="Задание 1.2 (x)" />
+    <MESSAGE value="Добавил к интерфейсу TabulatedFunction наследование от параметризованного интерфейса Iterable&lt;Point&gt;. Реализовал его метод Iterator&lt;Point&gt; iterator()" />
+    <MESSAGE value="Переписал реализацию метода iterator() в классе LinkedListTabulatedFunction, добавил тесты, проверяющие работу метода" />
+    <MESSAGE value="Создал пакет factory внутри пакета functions. В нём создал интерфейс TabulatedFunctionFactory и классы ArrayTabulatedFunctionFactory, LinkedListTabulatedFunctionFactory, покрыл классы тестами" />
+    <MESSAGE value="Создал интерфейс дифференциального оператора и класс, реализующий интерфейс" />
+    <MESSAGE value="Добавил в класс TabulatedFunctionOperationService методы умножения и деления двух функций, покрыл тестами" />
+    <MESSAGE value="В классе AbstractTabulatedFunction переопределил метод toString() и покрыл тестами" />
+    <MESSAGE value="В классе FunctionsIO добавил статический метод и создал класс TabulatedFunctionFileOutputStream" />
+    <MESSAGE value="Создал в пакете io класс TabulatedFunctionFileInputStream" />
+    <MESSAGE value="Подготовил класс LinkedListTabulatedFunction к сериализации" />
+    <MESSAGE value="Добавил в класс FunctionsIO статический метод" />
+    <MESSAGE value="Создал в пакете io класс LinkedListTabulatedFunctionSerialization" />
+    <MESSAGE value="Конец lab3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Конец lab3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/lab3$ConstantFunctionTest.ic" NAME="ConstantFunctionTest Coverage Results" MODIFIED="1760389699092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$AdditionalCompositeFunctionTest.ic" NAME="AdditionalCompositeFunctionTest Coverage Results" MODIFIED="1760389664831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$TabulatedFunctionOperationServiceTest.ic" NAME="TabulatedFunctionOperationServiceTest Coverage Results" MODIFIED="1760390500044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$LinkedListTabulatedFunctionFactoryTest.ic" NAME="LinkedListTabulatedFunctionFactoryTest Coverage Results" MODIFIED="1760389647845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.factory.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$AndThenMethodTest.ic" NAME="AndThenMethodTest Coverage Results" MODIFIED="1760389673085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$LeftSteppingDifferentialOperatorTest.ic" NAME="LeftSteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389777234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$CompositeFunctionTest.ic" NAME="CompositeFunctionTest Coverage Results" MODIFIED="1760389691760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$RightSteppingDifferentialOperatorTest.ic" NAME="RightSteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389791812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$SteppingDifferentialOperatorTest.ic" NAME="SteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389798166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$IdentityFunctionTest.ic" NAME="IdentityFunctionTest Coverage Results" MODIFIED="1760389713563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$SimpleIterationFunctionTest.ic" NAME="SimpleIterationFunctionTest Coverage Results" MODIFIED="1760390653768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$java_in_lab3.ic" NAME="java in lab3 Coverage Results" MODIFIED="1765277169416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/lab3$ArrayTabulatedFunctionFactoryTest.ic" NAME="ArrayTabulatedFunctionFactoryTest Coverage Results" MODIFIED="1760389639107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.factory.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$SqrFunctionTest.ic" NAME="SqrFunctionTest Coverage Results" MODIFIED="1760389740455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$TabulatedDifferentialOperatorTest.ic" NAME="TabulatedDifferentialOperatorTest Coverage Results" MODIFIED="1760389804738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$UnitFunctionTest.ic" NAME="UnitFunctionTest Coverage Results" MODIFIED="1760389747526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$MiddleSteppingDifferentialOperatorTest.ic" NAME="MiddleSteppingDifferentialOperatorTest Coverage Results" MODIFIED="1760389785663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>operations.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$ZeroFunctionTest.ic" NAME="ZeroFunctionTest Coverage Results" MODIFIED="1760389756317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$BSplineFunctionTest.ic" NAME="BSplineFunctionTest Coverage Results" MODIFIED="1760389686410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$ArrayTabulatedFunctionTest.ic" NAME="ArrayTabulatedFunctionTest Coverage Results" MODIFIED="1760389678929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$All_in_lab3.ic" NAME="All in lab3 Coverage Results" MODIFIED="1764437530380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/lab3$LinkedListTabulatedFunctionTest.ic" NAME="LinkedListTabulatedFunctionTest Coverage Results" MODIFIED="1760390849065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/lab3$AbstractTabulatedFunctionTest.ic" NAME="AbstractTabulatedFunctionTest Coverage Results" MODIFIED="1760389655726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>functions.*</FILTER>
+    </SUITE>
   </component>
 </project>
